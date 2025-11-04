@@ -34,7 +34,7 @@ class SettingsResponse(SettingsBase):
     Comme c'est toujours le même id, on sait ou chercher 
     donc pas besoin de le préciser pour trouver le budget
     '''
-    updated_at = datetime
+    updated_at: datetime
     model_config = {
         "from_attributes": True
     }
