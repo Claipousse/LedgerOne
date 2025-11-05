@@ -58,5 +58,54 @@ def update_category(db:Session, category_id:int, category_data:CategoryUpdate) -
     Prend en arguments session, ID de la catégorie à modifier, Nouvelles données
     Return l'objetmodifié si trouvé, None sinon
     '''
+    category = get_category_by_id #On cherche la catégorie par son ID
+    if not category:
+        return None #Si pas trouvé, on return None
     
+    #Vérifier si le nouveau nom existe déjà pour éviter doublon
+    if category_data.name is not None and category_data.name != category.name: #On check si on veut changer de nom
+        existing_category = get_category_by_name(db, category_data.name)
+        if existing_category:
+            raise ValueError(f"Une catégorie avec le nom '{category_data.name}' existe déjà")
     
+    #Mettre à jour uniquement les champs fournis (exclude_unset=True)
+    update_data = category_data.dict(exclude_unset=True)
+
+    for field, value in update_data.items():
+        setattr(category, field, value)
+    try:
+        db.commit() #Sauvegarder les modif
+        db.refresh(category) #Recharger la DB
+        return category #Retourne catégorie modifiée
+    except IntegrityError as e:
+        db.rollback()
+        raise ValueError(f"Erreur lors de la mise à jour: {str(e)}")
+    
+def delete_category(db:Session, category_id:int) -> bool:
+    '''
+    Supprime une catégorie
+    Prend en paramètre la session et l'id de la catégorie à delete
+    True si réussi, False si pas trouvé
+    Les transactions liées à la catégorie supprimées auront leur category_id set à NULL (CASCADE SET NULL)
+    '''
+    category = get_category_by_id(db, category_id)
+
+    if not category:
+        return False #Si pas trouvé
+
+    try:
+        db.delete(category)
+        db.commit()
+        return True
+    except Exception as e:
+        db.rollback()
+        raise ValueError(f"Erreur lors de la suppression: {str(e)}")
+
+def category_exists(db: Session, category_id:int) -> bool:
+    '''
+    Vérifie si une catégorie existe via son ID
+    Prend en parametre la session & id de la catégorie à trouver
+    True si existe, sinon False
+    Sera utilisé pour les transactions, pour pas associer une transaction à une catégorie qui existe pas
+    '''
+    return get_category_by_id(db, category_id) is not None
