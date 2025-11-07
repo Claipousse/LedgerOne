@@ -169,11 +169,59 @@ def get_transactions_by_month(db:Session, year:int, month:int, category_id: Opti
 
     #Utiliser get_transactions_by_period()
     return get_transactions_by_period(
-        db,
-        from_date=first_day,
-        to_date=last_day,
-        category_id=category_id,
-        skip=0,
+        db,from_date=first_day,to_date=last_day,category_id=category_id,skip=0,
         limit=5000000 #Pas de limite pour un mois, donc on met une limite très grande pour jamais l'atteindre
     )
+
+# =================================================================
+#               FONCTIONS DE CALCUL & AGREGATION
+# =================================================================
+
+def get_monthly_total(db:Session, year:int, month:int, category_id:Optional[int]=None) -> float:
+    '''
+    Calcule total des dépense GLOBALES d'un mois donné en paramètres
+    Retourne somme des montants en float, 0.0 si aucune transaction
+    '''
+    query = db.query(func.sum(Transaction.amount)) #Construire requête de base
+    query = query.filter(extract('year', Transaction.date) ==  year, extract('month', Transaction.date) == month) #Filtre de l'année & le mois
+    if category_id is not None : query = query.filter(Transaction.category_id == category_id) # Filtre optionnel sur catégorie
+    result = query.scalar() # Exécution de la requête$
+    return float(result) if result is not None else 0.0 #On retourne la somme, 0.0 si rien
+
+def get_total_by_category(db:Session, year:int, month:int) -> Dict[str, float]:
+    '''
+    Calcul le total des dépenses PAR CATEGORIE pour un mois donné
+    Retourne dictionnaire {nom_categorie: total}
+    Transactions sans catégorie sont dans la clé "Sans catégorie
+    '''
+    # Requête avec jointure sur catégories & agrégations
+    results = db.query(
+        Category.name, func.sum(Transaction.amount).label(('total')) #Somme de toutes les transactions pour chaques catégories dans une colonne 'total'
+    ).join( #Ajoute jointure (combine données de catégories & transactions)
+        Transaction, Category.id == Transaction.category_id,
+        isouter = True #Retourne toutes les catégories, même sans transactions (pour avoir un montant nul), pour pouvoir les afficher dans le dashboard
+    ).filter( #Filtre pour garder uniquement sur le mois & l'année qui nous interresse
+        extract('year', Transaction.date) == year, #, = AND logique
+        extract('month', Transaction.date) == month
+    ).group_by(
+        Category.name #Pour séparer par nom de catégorie, sinon SUM() additionnerait tout en un seul résultat
+    ).all() #Retourne une liste de tuple (ex: [('Alimentation', 432.50),('Transport', 87.30),('Loisirs', 150.00)])
+
+    #Conversion en dictionnaire
+    totals = {name: float(total) for name, total in results if total is not None}
+
+    #Ajouter les transactions sans catégorie
+    uncategorized_total = db.query(
+        func.sum(Transaction.amount) #Somme des montants
+    ).filter(
+        Transaction.category_id.is_(None),#On garde seulement les transactions sans catégories
+        extract('year', Transaction.date) == year, #On cherche la période qui nous intéresse
+        extract('month', Transaction.date) == month
+    ).scalar() #Valeur unique (ou None)
+
+    if uncategorized_total:
+        totals["Sans catégorie"] = float(uncategorized_total) #Ajoute une clé Sans catégorie au dictionnaire
+
+    return totals
+
 
