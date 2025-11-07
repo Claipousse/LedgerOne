@@ -14,9 +14,9 @@ from app.models.category import Category
 from app.schemas.transaction import TransactionCreate, TransactionUpdate
 from app.services.category_service import category_exists #Pour valider les Foreign Keys
 
-# ======================================
-#             CRUD DE BASE
-# ======================================
+# =================================================================
+#                          CRUD DE BASE
+# =================================================================
 
 def get_all_transactions(db:Session, skip:int=0, limit:int=100) -> List[Transaction]:
     '''
@@ -127,3 +127,53 @@ def delete_transaction(db: Session, transaction_id: int) -> bool:
     except Exception as e:
         db.rollback()
         raise ValueError(f"Erreur lors de la suppression: {str(e)}")
+    
+
+# =================================================================
+#                       FONCTIONS DE FILTRAGE
+# =================================================================
+
+def get_transactions_by_period(db:Session, from_date:date, to_date:date,category_id:Optional[int] = None, skip:int = 0, limit:int = 100) -> List[Transaction]:
+    '''
+    Récupère transactions d'une période donnée ([from_date, to_date])
+    skip & limit pour pagination & categorie_id pour filtre par catégorie (optionnel)
+    Retourne liste filtrée de transactions par date décroissante
+    '''
+    query = db.query(Transaction) #Construire requête de base
+    query = query.filter(Transaction.date >= from_date) #Filtre 1 : Date >= from_date (>= date de début incluse)
+    query = query.filter(Transaction.date <= to_date) #Filtre 2 : Date <= to_date (<= date de fin incluse)
+    if category_id is not None : query = query.filter(Transaction.category_id == category_id) #Filtre 3 : Catégorie (optionnel)
+    
+    #Tri par date décroissante et pagination
+    return query.order_by(Transaction.date.desc()).offset(skip).limit(limit).all()
+
+def search_transactions(db:Session, search_query:str, skip:int = 0, limit: int = 100) -> List[Transaction]:
+    '''
+    Recherche transactions par mot-clé dans la description
+    search_query: texte à chercher dans les descriptions
+    Retourne liste des transactions dont la description contient le texte en paramètre
+    '''
+    #Retourne liste filtrée par ordre chronologique (+ récent d'abord), avec le texte recherché dans les descriptions
+    return db.query(Transaction).filter(Transaction.description.ilike(f"%{search_query}%")).order_by(Transaction.date.desc()).offset(skip).limit(limit).all()
+
+def get_transactions_by_month(db:Session, year:int, month:int, category_id: Optional[int] = None) -> List[Transaction]:
+    '''
+    Récupère toutes les transactions d'un mois donné (avec la bonne année)
+    category_id si on veut aussi filtré selon la catégorie de la transaction (optionnel)
+    Retourne liste de transactions du mois spécifié
+    '''
+    first_day = date(year, month, 1) #Calcul premier jour du mois
+    
+    _, last_day_num = monthrange(year, month) #Calculer le dernier jour du mois
+    last_day = date(year, month, last_day_num)
+
+    #Utiliser get_transactions_by_period()
+    return get_transactions_by_period(
+        db,
+        from_date=first_day,
+        to_date=last_day,
+        category_id=category_id,
+        skip=0,
+        limit=5000000 #Pas de limite pour un mois, donc on met une limite très grande pour jamais l'atteindre
+    )
+
