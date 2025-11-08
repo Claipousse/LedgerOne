@@ -10,6 +10,7 @@ class CategoryBase(BaseModel): #Classe parente
     '''
     Schéma de base/parent, contenant les champs communs à tous les schémas Category
     Jamais utilisé directement dans l'API
+    Permet d'éviter les répétitions
     '''
     name:str = Field(..., min_length=1, max_length=100) #Titre : Obligatoire, composé de min 1 lettre max 100
     color: Optional[str] = Field(None, pattern=r'^#[0-9A-Fa-f]{6}$') #Couleur, facultatif, composé d'un code hexadécimal (ex: #000000)

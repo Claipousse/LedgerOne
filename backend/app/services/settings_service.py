@@ -53,7 +53,7 @@ def reset_global_budget(db:Session) -> Settings: #Réinitialise le budget global
         db.commit()
         db.refresh(settings)
         return settings
-     except Exception as e:
+    except Exception as e:
         db.rollback()
         raise ValueError(f"Erreur lors de la réinitialisation: {str(e)}")
 

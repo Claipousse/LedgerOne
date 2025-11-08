@@ -25,6 +25,8 @@ from app.schemas.settings import (
 )
 
 #On liste tous les schémas dispo
+# Définit ce qui est accessible avec "from app.schemas import *"
+# Évite d'exposer les imports internes et garde le package propre
 __all__ = [
     "CategoryBase", "CategoryCreate", "CategoryUpdate", "CategoryResponse",
     "TransactionBase", "TransactionCreate", "TransactionUpdate", "TransactionInResponse", "TransactionResponse",

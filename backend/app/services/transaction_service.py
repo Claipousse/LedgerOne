@@ -6,7 +6,8 @@ Gère également les filtres, recherche, calculs et agrégations
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError #Pour gérer les violations de contraintes
 from sqlalchemy import func, and_, or_, extract #Fonctions SQL, opérateurs logiques pour combiner filtres & extraire année/mois/jour d'une date
-from typing import date, datetime, timedelta #Manipulation de dates, calcul d'intervales (ex: il y a 3 mois)
+from typing import List, Optional, Dict, Any 
+from datetime import date, datetime, timedelta #Manipulation de dates, calcul d'intervales (ex: il y a 3 mois)
 from calendar import monthrange #Savoir combien de jours dans le mois
 
 from app.models.transaction import Transaction
@@ -170,7 +171,7 @@ def get_transactions_by_month(db:Session, year:int, month:int, category_id: Opti
     #Utiliser get_transactions_by_period()
     return get_transactions_by_period(
         db,from_date=first_day,to_date=last_day,category_id=category_id,skip=0,
-        limit=5000000 #Pas de limite pour un mois, donc on met une limite très grande pour jamais l'atteindre
+        limit=100000 #Pas de limite pour un mois, donc on met une limite très grande pour jamais l'atteindre
     )
 
 # =================================================================
@@ -196,7 +197,7 @@ def get_total_by_category(db:Session, year:int, month:int) -> Dict[str, float]:
     '''
     # Requête avec jointure sur catégories & agrégations
     results = db.query(
-        Category.name, func.sum(Transaction.amount).label(('total')) #Somme de toutes les transactions pour chaques catégories dans une colonne 'total'
+        Category.name, func.sum(Transaction.amount).label('total') #Somme de toutes les transactions pour chaques catégories dans une colonne 'total'
     ).join( #Ajoute jointure (combine données de catégories & transactions)
         Transaction, Category.id == Transaction.category_id,
         isouter = True #Retourne toutes les catégories, même sans transactions (pour avoir un montant nul), pour pouvoir les afficher dans le dashboard
@@ -224,4 +225,59 @@ def get_total_by_category(db:Session, year:int, month:int) -> Dict[str, float]:
 
     return totals
 
+def get_category_breakdown(db:Session, year:int, month:int) -> Dict[str, Dict[str, Any]]:
+    '''
+    Calcul répartition détaillée des dépenses par catégorie
+    Retourne un dictionnaire avec pour chaque catégorie: montant total, pourcentage des dépenses globales, nombre de transactions
+    Utile pour dashboard par exemple
+    '''
+    totals_by_cat = get_total_by_category(db, year, month) #Récupérer totaux par catégorie
+    total_global = sum(totals_by_cat.values()) #Calculer le total global
+    if total_global == 0: return {} #Si pas de transaction, on retourne dictionnaire vide
+    breakdown = {} #Construction du breakdown
 
+    for category_name, total in totals_by_cat.items():
+        #Compter le nombre de transactions pour cette catégorie
+        if category_name == "Sans catégorie":
+            count = db.query(func.count(Transaction.id)).filter( #On compte le nombre de transactions
+                Transaction.category_id.is_(None), #On prend seulement celles sans catégories
+                extract('year', Transaction.date) == year, #Prendre seulement mois de l'année qui nous interresse
+                extract('month', Transaction.date) == month
+            ).scalar()
+        else:
+            count = db.query(func.count(Transaction.id)).join( #Jointure transactions & category
+                Category
+            ).filter(
+                Category.name == category_name,
+                extract('year', Transaction.date) == year,
+                extract('month', Transaction.date) == month
+            ).scalar()
+        
+        breakdown[category_name] = {
+            "total": round(total, 2), #Montant aux centimes près
+            "percentage": round((total / total_global) * 100, 2), #Pourcentage du total global, arrondi au centième
+            "count": count #Nb de transactions
+        }
+    
+    return breakdown
+
+def get_monthly_summary(db:Session, year:int, month:int) -> Dict[str, Any]:
+    '''
+    Génère résumé complet des dépenses du mois
+    Retourne dictionnaire contenant : total des dépenses, count/nombre des transactions, average/dépense moyenne, by_category/ répartition par catégorie
+    '''
+    total = get_monthly_total(db, year, month) #Total du mois
+
+    #Nombre du transactions
+    count = db.query(func.count(Transaction.id)).filter(extract('year', Transaction.date) == year, extract('month', Transaction.date) == month).scalar() or 0
+
+    average = total / count if count > 0 else 0.0 #Moyenne (0 si count = 0)
+    by_category = get_category_breakdown(db, year, month) #Répartition par catégorie
+
+    return {"total": round(total, 2),"count": count,"average": round(average, 2),"by_category": by_category}
+
+def get_transaction_count(db:Session) -> int:  #Compte le nombre total de transactions dans la DB
+    return db.query(func.count(Transaction.id)).scalar() or 0
+
+def transaction_exists(db:Session, transaction_id: int) -> bool: #Vérifie si transaction existe via son ID (True/False)
+    return get_transaction_by_id(db, transaction_id) is not None
