@@ -18,7 +18,7 @@ from app.schemas.transaction import (
     TransactionResponse
 )
 
-from app.schemas.settings (
+from app.schemas.settings import (
     SettingsBase,
     SettingsUpdate,
     SettingsResponse
