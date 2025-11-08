@@ -46,12 +46,12 @@ def health_check():
     '''
     return {"status": "healthy"} #Normalement ça répond ça, si pas de réponse, c'est que ya un problème
 
-# A FAIRE: Inclure les routers quand ils seront créés
-# from app.api.routes import categories, transactions, settings, insights
-# app.include_router(categories.router, prefix=settings.API_PREFIX)
-# app.include_router(transactions.router, prefix=settings.API_PREFIX)
-# app.include_router(settings.router, prefix=settings.API_PREFIX)
-# app.include_router(insights.router, prefix=settings.API_PREFIX)
+
+from app.api.routes import categories, transactions, settings, insights
+app.include_router(categories.router, prefix=settings.API_PREFIX)
+app.include_router(transactions.router, prefix=settings.API_PREFIX)
+app.include_router(settings.router, prefix=settings.API_PREFIX)
+app.include_router(insights.router, prefix=settings.API_PREFIX)
 
 # Point d'entrée pour lancement direct du fichier
 if __name__ == "__main__":
