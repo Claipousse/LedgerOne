@@ -47,15 +47,17 @@ def health_check():
     return {"status": "healthy"} #Normalement ça répond ça, si pas de réponse, c'est que ya un problème
 
 
-from app.api.routes import categories, transactions, settings, insights
+from app.api.routes import categories, transactions
+from app.api.routes import settings as settings_router
+from app.api.routes import insights
 app.include_router(categories.router, prefix=settings.API_PREFIX)
 app.include_router(transactions.router, prefix=settings.API_PREFIX)
-app.include_router(settings.router, prefix=settings.API_PREFIX)
+app.include_router(settings_router.router, prefix=settings.API_PREFIX)
 app.include_router(insights.router, prefix=settings.API_PREFIX)
 
 # Point d'entrée pour lancement direct du fichier
 if __name__ == "__main__":
-    import uvicorn #Imporre uvicorn, un serveur pour faire tourner l'app FastAPI, ASGI = Asynchrone, peut gérer plusieurs requêtes à la fois
+    import uvicorn #Importe uvicorn, un serveur pour faire tourner l'app FastAPI, ASGI = Asynchrone, peut gérer plusieurs requêtes à la fois
     uvicorn.run(
         "app.main:app",
         host="0.0.0.0", #Ecoute toutes les interfaces réseau

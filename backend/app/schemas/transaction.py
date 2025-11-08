@@ -5,14 +5,15 @@ Définit les formats de donnéees pour création/modification & lecture des tran
 
 from pydantic import BaseModel, Field, field_validator
 from typing import Optional
-from datetime import date, datetime
+import datetime
+from datetime import datetime as dt
 
 class TransactionBase(BaseModel):
     '''
     Schéma de base/parent, contenant les champs communs à tous les schémas Transaction
     Jamais utilisé directement dans l'API, permet d'éviter répétitions
     '''
-    date: date = Field(...)
+    date: datetime.date = Field(...)
     description: str = Field(..., min_length=1, max_length=255)
     amount: float = Field(...)
     category_id: Optional[int] = Field(None, ge=1) #Supérieur ou égal à 1
@@ -30,7 +31,7 @@ class TransactionUpdate(BaseModel):
     Tous les champs sont optionnel pour permettre une modif partielle
     Par exemple, si on veut juste modifier nom/couleur/budget, on peut mettre le terme qu'on veut changer et laisser vide le reste 
     '''
-    date: Optional[date] = None
+    date: Optional[datetime.date] = None
     description: Optional[str] = Field(None, min_length=1, max_length=255)
     amount: Optional[float] = None
     category_id: Optional[int] = Field(None, ge=1)
@@ -67,7 +68,7 @@ class TransactionResponse(TransactionBase):
     Hérite de TransactionBase et ajoute l'ID + created_at + infos catégorie
     """
     id: int
-    created_at: datetime
+    created_at: dt
     category: Optional[CategoryInResponse] = None
     
     model_config = {
