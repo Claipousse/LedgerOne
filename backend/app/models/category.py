@@ -24,7 +24,6 @@ class Category(Base): #Hérite de superclasse Base et de ses propriétés (Conne
     transactions = relationship(
         "Transaction",
         back_populates="category", #Bidirectionnel
-        cascade="all, delete-orphan" #Supprimer catégorie = supprimer les transactions liés à la catégories
     )
 
     #Contraintes
