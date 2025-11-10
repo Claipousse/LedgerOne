@@ -50,10 +50,12 @@ def health_check():
 from app.api.routes import categories, transactions
 from app.api.routes import settings as settings_router
 from app.api.routes import insights
+from app.api.routes import alerts
 app.include_router(categories.router, prefix=settings.API_PREFIX)
 app.include_router(transactions.router, prefix=settings.API_PREFIX)
 app.include_router(settings_router.router, prefix=settings.API_PREFIX)
 app.include_router(insights.router, prefix=settings.API_PREFIX)
+app.include_router(alerts.router, prefix=settings.API_PREFIX)
 
 # Point d'entrée pour lancement direct du fichier
 if __name__ == "__main__":
