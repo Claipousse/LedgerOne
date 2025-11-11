@@ -47,6 +47,11 @@ from app.services.alert_service import (
     get_budget_alerts
 )
 
+#Import import_service
+from app.services.import_service import (
+    import_transactions_from_csv
+)
+
 #Liste publique des exports
 # Définit ce qui est accessible avec "from app.services import *"
 # Évite d'exposer les imports internes et garde le package propre
@@ -84,7 +89,9 @@ __all__ = [
     "get_transaction_count",
     "transaction_exists",
 
-     
     # Alert service (1 fonction)
     "get_budget_alerts",
+
+    # Import service (1 fonction)
+    "import_transactions_from_csv",
 ]
