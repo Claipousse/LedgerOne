@@ -5,7 +5,7 @@ Permet de parser, valider et importer des transactions depuis un fichier CSV
 
 import csv #Pour lire/écrire CSV
 import io #Input/Output, pour simuler un ficher en mémoire
-import typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any, Tuple, Optional
 from datetime import date, datetime #Pour manipuler dates
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError #Si contrainte SQL relevée
@@ -69,7 +69,7 @@ def validate_row(row: Dict[str, str], line_number:int) -> Tuple[bool, Optional[s
     
     #Puis vérifier le format de la date (YYYY-MM-DD)
     try:
-        transaction_date = datetime.strptime(row['date'].strip(), '%Y-%m-%d').date
+        transaction_date = datetime.strptime(row['date'].strip(), '%Y-%m-%d').date()
     except ValueError:
         return (False, f"Ligne {line_number}: La date doit être au format YYYY-MM-DD")
     
@@ -166,9 +166,81 @@ def import_transactions_from_csv(db:Session, file) -> Dict[str, Any]:
     #Compteurs pour le rapport final
     inserted = 0 #Les lignes qui sont passés
     skipped = 0 #Celles qui sont pas passés (ignorés)
-    errors = [] #Détail de l'erreur (via validate_row)
+    errors = [] #Détail de l'erreur (via validate_row), liste vide pour le moment
 
     try:
         #Etape 1 : Lire le contenu du fichier CSV
         file_content = file.decode('utf-8') #Décoder fichier en UTF-8
 
+        #Etape 2 : Parser CSV en liste de dictionnaires
+        rows = parse_csv_file(file_content)
+
+        #Vérifier que CSV n'est pas vide
+        if not rows:
+            return { #On return maintenant, car si vide pas besoin de continuer davantage
+                "inserted": 0,
+                "skipped": 0,
+                "errors": ["Le fichier CSV est vide ou mal formaté"]
+            }
+        
+        #Etape 3 : Traiter chaque ligne du CSV
+        for index, row in enumerate(rows, start=2): #Start=2 car ligne 1 = headers, donc on commence à la deuxième
+            is_valid, error_message = validate_row(row, index) 
+
+            #Si la ligne n'est pas valide, on la skip
+            if not is_valid:
+                skipped += 1
+                errors.append(error_message)
+                continue #Passer à la ligne suivante
+
+            #Si valide, on tente de créer la transaction
+            try:
+                #Récupérer/créer la catégorie (si fournie)
+                category_id = None
+                if row.get('category') and row['category'].strip(): #Si existe ET pas vide
+                    category = get_or_create_category(db, row['category'].strip())
+                    category_id = category.id
+
+                #Créer l'objet Transaction
+                new_transaction = Transaction(
+                    date = datetime.strptime(row['date'].strip(), '%Y-%m-%d').date(), #Conversion en date python ISO
+                    description = row['description'].strip(),
+                    amount = float(row['amount'].strip()),
+                    category_id = category_id
+                )
+
+                db.add(new_transaction) #Ajouter à la session (file d'attente)
+                
+                inserted += 1 #Incrémenter le compteur de succès
+            
+            except Exception as e:
+                #Si erreur lors de la création, on skip cette ligne
+                skipped += 1
+                errors.append(f"Ligne {index}: Erreur lors de l'import - {str(e)}")
+                continue
+
+        db.commit() #Etape 4 : Commit final de toutes les transactions valides
+
+    except UnicodeDecodeError:
+        #Erreur de décodage UTF-8
+        return {
+            "inserted": 0,
+            "skipped": 0,
+            "errors": ["Erreur de décodage : le fichier doit être encodé en UTF-8"]
+        }
+    
+    except Exception as e:
+        #Erreur générale (rollback pour annuler toutes les transactions)
+        db.rollback()
+        return {
+            "inserted": 0,
+            "skipped": 0,
+            "errors": [f"Erreur lors de l'import : {str(e)}"]
+        }
+    
+    #Etape 5 : Retourner le rapport final
+    return {
+        "inserted": inserted,
+        "skipped": skipped,
+        "errors": errors
+    }
