@@ -228,6 +228,3 @@ docker-compose.override.yml
 *.zip
 *.tar.gz
 *.rar
-
-# Fichiers CSV uploadés/générés
-*.csv 
