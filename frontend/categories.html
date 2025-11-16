@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerOne - Catégories</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-logo">LedgerOne</h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="categories.html" class="sidebar-link active">
+                <span class="sidebar-icon">🏷️</span>
+                <span>Catégories</span>
+            </a>
+            <a href="transactions.html" class="sidebar-link">
+                <span class="sidebar-icon">📝</span>
+                <span>Transactions</span>
+            </a>
+            <a href="import.html" class="sidebar-link">
+                <span class="sidebar-icon">📥</span>
+                <span>Importation</span>
+            </a>
+            <a href="budget.html" class="sidebar-link">
+                <span class="sidebar-icon">💰</span>
+                <span>Budget</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Catégories</h1>
+                <p class="page-subtitle" id="category-counter">-</p>
+            </div>
+        </header>
+
+        <!-- Month Navigation -->
+        <div class="month-navigation">
+            <div class="month-selector">
+                <button class="month-arrow" id="btn-prev-month">&lt;</button>
+                <div class="month-display" id="month-display">Novembre 2025</div>
+                <button class="month-arrow" id="btn-next-month">&gt;</button>
+            </div>
+            <div class="period-filters">
+                <button class="period-btn active" data-period="1">1M</button>
+                <button class="period-btn" data-period="3">3M</button>
+                <button class="period-btn" data-period="12">1A</button>
+            </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="page-controls">
+            <div class="controls-left">
+                <span class="counter-text" id="counter-text">- catégories de sorties</span>
+            </div>
+            <div class="controls-right">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Rechercher une catégorie..."
+                    >
+                </div>
+                <select id="sort-select" class="sort-select">
+                    <option value="amount-desc">Montant (décroissant)</option>
+                    <option value="amount-asc">Montant (croissant)</option>
+                    <option value="name-asc">Nom (A → Z)</option>
+                    <option value="name-desc">Nom (Z → A)</option>
+                    <option value="percentage-desc">Pourcentage (décroissant)</option>
+                    <option value="percentage-asc">Pourcentage (croissant)</option>
+                    <option value="budget-desc">Budget (décroissant)</option>
+                    <option value="budget-asc">Budget (croissant)</option>
+                </select>
+                <a href="ajout_categorie.html" class="btn-primary">
+                    <span>➕</span>
+                    <span>Ajouter</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <section class="top5-section">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>CATÉGORIE</th>
+                            <th>MONTANT</th>
+                            <th>POURCENTAGE</th>
+                            <th>BUDGET MENSUEL</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categories-tbody">
+                        <!-- Lignes générées dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
