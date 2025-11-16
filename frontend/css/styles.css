@@ -1,6 +1,6 @@
 /**
  * styles.css - LedgerOne
- * Design sombre moderne et élégant - VERSION MODERNISÉE
+ * Design sombre moderne et élégant - VERSION COMPLÈTE
  */
 
 /* ============================================
@@ -525,6 +525,178 @@ body {
     padding: 4rem;
     color: #71717a;
     font-style: italic;
+}
+
+/* ============================================
+   IMPORT PAGE STYLES
+   ============================================ */
+.upload-zone {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 2px dashed rgba(99, 102, 241, 0.5);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+    border-color: rgba(129, 140, 248, 0.8);
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6));
+}
+
+.upload-text {
+    font-size: 1.2rem;
+    color: #e4e4e7;
+    margin-bottom: 0.5rem;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: #71717a;
+}
+
+.file-input {
+    display: none;
+}
+
+.import-button {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.import-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
+}
+
+.import-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.result-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.result-success {
+    border-color: rgba(34, 197, 94, 0.5);
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.result-error {
+    border-color: rgba(239, 68, 68, 0.5);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #a1a1aa;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #e4e4e7;
+}
+
+.error-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.error-item {
+    color: #f87171;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.selected-file {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-icon {
+    font-size: 2rem;
+}
+
+.file-details {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+.file-size {
+    font-size: 0.85rem;
+    color: #71717a;
+}
+
+.format-example {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.format-title {
+    font-weight: 700;
+    color: #e4e4e7;
+    margin-bottom: 1rem;
+}
+
+.code-block {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    overflow-x: auto;
 }
 
 /* ============================================
