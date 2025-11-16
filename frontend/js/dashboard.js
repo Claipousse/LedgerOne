@@ -285,7 +285,7 @@ function displayCustomLegend(byCategory, categoryColors) {
         
         item.innerHTML = `
             <div class="legend-label">
-                <span class="legend-color" style="background-color: ${color}"></span>
+                <span class="legend-color" style="background-color: ${color}; box-shadow: 0 0 10px ${color};"></span>
                 <span>${categoryName} ${data.percentage.toFixed(0)}%</span>
             </div>
             <span class="legend-value">${formatCurrency(data.total)}</span>
@@ -409,7 +409,7 @@ function displayTop5Table(summary) {
                 <td class="rank-cell">${index + 1}</td>
                 <td>
                     <div class="category-cell">
-                        <span class="category-dot" style="background-color: ${color}"></span>
+                        <span class="category-dot" style="background-color: ${color}; box-shadow: 0 0 12px ${color};"></span>
                         <span>${categoryName}</span>
                     </div>
                 </td>

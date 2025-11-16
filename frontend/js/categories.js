@@ -291,7 +291,7 @@ function renderTable() {
         row.innerHTML = `
             <td>
                 <div class="category-cell">
-                    <span class="category-dot" style="background-color: ${color}"></span>
+                    <span class="category-dot" style="background-color: ${color}; box-shadow: 0 0 12px ${color};"></span>
                     <span>${category.name}</span>
                 </div>
             </td>

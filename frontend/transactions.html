@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerOne - Transactions</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-logo">LedgerOne</h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="categories.html" class="sidebar-link">
+                <span class="sidebar-icon">🏷️</span>
+                <span>Catégories</span>
+            </a>
+            <a href="transactions.html" class="sidebar-link active">
+                <span class="sidebar-icon">📝</span>
+                <span>Transactions</span>
+            </a>
+            <a href="import.html" class="sidebar-link">
+                <span class="sidebar-icon">📥</span>
+                <span>Importation</span>
+            </a>
+            <a href="budget.html" class="sidebar-link">
+                <span class="sidebar-icon">💰</span>
+                <span>Budget</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Transactions</h1>
+                <p class="page-subtitle" id="transaction-counter">- affichées / - total</p>
+            </div>
+        </header>
+
+        <!-- Controls Bar -->
+        <div class="page-controls">
+            <div class="controls-left">
+                <!-- Recherche -->
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Rechercher une transaction..."
+                    >
+                </div>
+
+                <!-- Filtre catégories (multiselect) -->
+                <div class="multiselect-container">
+                    <button class="multiselect-btn" id="multiselect-btn">
+                        <span id="multiselect-label">Catégories</span>
+                        <span class="multiselect-arrow">▼</span>
+                    </button>
+                    <div class="multiselect-dropdown" id="multiselect-dropdown">
+                        <input 
+                            type="text" 
+                            class="multiselect-search" 
+                            id="multiselect-search" 
+                            placeholder="Rechercher..."
+                        >
+                        <div class="multiselect-options" id="multiselect-options">
+                            <!-- Options générées dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags sélectionnés -->
+                <div class="selected-tags" id="selected-tags">
+                    <!-- Tags générés dynamiquement -->
+                </div>
+            </div>
+
+            <div class="controls-right">
+                <!-- Tri -->
+                <select id="sort-select" class="sort-select">
+                    <option value="date-desc">Date (récent → ancien)</option>
+                    <option value="date-asc">Date (ancien → récent)</option>
+                    <option value="amount-desc">Montant (décroissant)</option>
+                    <option value="amount-asc">Montant (croissant)</option>
+                    <option value="name-asc">Description (A → Z)</option>
+                    <option value="name-desc">Description (Z → A)</option>
+                </select>
+
+                <!-- Pagination -->
+                <select id="pagination-select" class="sort-select">
+                    <option value="20">20 par page</option>
+                    <option value="50">50 par page</option>
+                    <option value="100">100 par page</option>
+                </select>
+
+                <!-- Bouton Ajouter -->
+                <button class="btn-primary" onclick="showAddForm()">
+                    <span>➕</span>
+                    <span>Ajouter</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulaire Ajout/Modification (inline, caché par défaut) -->
+        <div class="transaction-form-container hidden" id="transaction-form-container">
+            <div class="transaction-form-card">
+                <h3 class="form-title" id="form-title">Nouvelle transaction</h3>
+                <form id="transaction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Date *</label>
+                            <input type="date" id="form-date" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Montant (€) *</label>
+                            <input type="number" id="form-amount" class="form-input" step="0.01" required placeholder="45.50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description *</label>
+                        <input type="text" id="form-description" class="form-input" maxlength="255" required placeholder="Courses Carrefour">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Catégorie</label>
+                        <select id="form-category" class="form-input">
+                            <option value="">Aucune</option>
+                            <!-- Options générées dynamiquement -->
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="hideTransactionForm()">Annuler</button>
+                        <button type="submit" class="btn-primary">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Liste transactions -->
+        <section class="transactions-section">
+            <div class="transactions-list" id="transactions-list">
+                <!-- Transactions générées dynamiquement -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Boutons générés dynamiquement -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmer la suppression</h3>
+                <button class="modal-close" onclick="hideDeleteModal()">×</button>
+            </div>
+            <p style="color: #e4e4e7; margin: 1.5rem 0;">
+                Êtes-vous sûr de vouloir supprimer la transaction <strong id="delete-transaction-desc"></strong> ?
+                <br><br>
+                Cette action est irréversible.
+            </p>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="hideDeleteModal()">Annuler</button>
+                <button class="btn-primary" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);" onclick="deleteTransactionAction()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/transactions.js"></script>
+</body>
+</html>

@@ -1636,3 +1636,448 @@ body {
     font-size: 0.9rem;
     color: #fca5a5;
 }
+
+/**
+ * styles_transactions.css - Styles spécifiques à la page Transactions
+ * À ajouter à styles.css ou importer séparément
+ */
+
+/* ============================================
+   MULTISELECT CATÉGORIES
+   ============================================ */
+.multiselect-container {
+    position: relative;
+}
+
+.multiselect-btn {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #e4e4e7;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    min-width: 140px;
+}
+
+.multiselect-btn:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+}
+
+.multiselect-arrow {
+    position: absolute;
+    right: 0.75rem;
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    color: #a1a1aa;
+}
+
+.multiselect-dropdown.show .multiselect-arrow {
+    transform: rotate(180deg);
+}
+
+.multiselect-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 280px;
+    max-width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.multiselect-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.multiselect-search {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #e4e4e7;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.multiselect-search:focus {
+    outline: none;
+    border-color: rgba(129, 140, 248, 0.5);
+    background: rgba(99, 102, 241, 0.12);
+}
+
+.multiselect-search::placeholder {
+    color: #71717a;
+}
+
+.multiselect-options {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.multiselect-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #e4e4e7;
+    font-size: 0.95rem;
+    background: transparent;
+}
+
+.multiselect-option:hover {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.multiselect-option input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #818cf8;
+}
+
+.multiselect-option .category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   TAGS SÉLECTIONNÉS
+   ============================================ */
+.selected-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #e4e4e7;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    animation: tagSlideIn 0.3s ease;
+}
+
+@keyframes tagSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tag-remove {
+    background: transparent;
+    border: none;
+    color: #f87171;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.tag-remove:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   FORMULAIRE TRANSACTION INLINE
+   ============================================ */
+.transaction-form-container {
+    margin-bottom: 2rem;
+    animation: slideDown 0.4s ease;
+}
+
+.transaction-form-container.hidden {
+    display: none;
+}
+
+.transaction-form-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.transaction-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+}
+
+.form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e4e4e7;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   AFFICHAGE TRANSACTIONS
+   ============================================ */
+.transaction-item {
+    display: grid;
+    grid-template-columns: 3px 1fr auto auto 40px;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.transaction-item:hover {
+    background: rgba(99, 102, 241, 0.08);
+    padding-left: 1rem;
+    border-radius: 8px;
+}
+
+.transaction-bar {
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.transaction-desc {
+    color: #e4e4e7;
+    font-size: 0.95rem;
+}
+
+.transaction-category-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+}
+
+.transaction-category {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    color: #e4e4e7;
+    font-size: 1rem;
+    text-align: right;
+    min-width: 100px;
+}
+
+.transaction-menu-btn {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #a1a1aa;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transaction-menu-btn:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.4);
+    color: #e4e4e7;
+}
+
+/* ============================================
+   MENU CONTEXTUEL
+   ============================================ */
+.transaction-context-menu {
+    position: fixed;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 160px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    animation: menuFadeIn 0.2s ease;
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.context-menu-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #e4e4e7;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.context-menu-item:hover {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.context-menu-item.delete:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .page-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls-left,
+    .controls-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .multiselect-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .transaction-item {
+        grid-template-columns: 3px 1fr auto;
+        grid-template-areas:
+            "bar desc amount"
+            "bar category menu";
+        gap: 0.5rem 1rem;
+    }
+
+    .transaction-bar {
+        grid-area: bar;
+    }
+
+    .transaction-desc {
+        grid-area: desc;
+    }
+
+    .transaction-category-cell {
+        grid-area: category;
+    }
+
+    .transaction-amount {
+        grid-area: amount;
+    }
+
+    .transaction-menu-btn {
+        grid-area: menu;
+        justify-self: end;
+    }
+}
+
+/* ============================================
+   FIX: Category Dots - Ombres colorées
+   ============================================ */
+
+.category-dot {
+    animation: none !important;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Fix: Dropdown select visible */
+select option {
+    background: #1a1a2e !important;
+    color: #e4e4e7 !important;
+}
+
+.form-input select option,
+#form-category option {
+    background: #1a1a2e !important;
+    color: #e4e4e7 !important;
+}

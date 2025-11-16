@@ -253,7 +253,9 @@ async function loadCategoryData() {
 function displayCategoryInfo(totalAmount, percentage) {
     // Nom + couleur
     const color = category.color || '#505050';
-    document.getElementById('category-dot').style.backgroundColor = color;
+    const dotElement = document.getElementById('category-dot');
+    dotElement.style.backgroundColor = color;
+    dotElement.style.boxShadow = `0 0 16px ${color}`;
     document.getElementById('category-name').textContent = category.name;
 
     // Montant
