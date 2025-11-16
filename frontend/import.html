@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerOne - Importation CSV</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Styles spécifiques pour la page d'import */
+        .upload-zone {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+            border: 2px dashed rgba(99, 102, 241, 0.5);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: rgba(129, 140, 248, 0.8);
+            background: rgba(99, 102, 241, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6));
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #e4e4e7;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-hint {
+            font-size: 0.9rem;
+            color: #71717a;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .import-button {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .import-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
+        }
+
+        .import-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-success {
+            border-color: rgba(34, 197, 94, 0.5);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        .result-error {
+            border-color: rgba(239, 68, 68, 0.5);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #a1a1aa;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: #e4e4e7;
+        }
+
+        .error-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .error-item {
+            color: #f87171;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .selected-file {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .file-icon {
+            font-size: 2rem;
+        }
+
+        .file-details {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: #e4e4e7;
+        }
+
+        .file-size {
+            font-size: 0.85rem;
+            color: #71717a;
+        }
+
+        .format-example {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .format-title {
+            font-weight: 700;
+            color: #e4e4e7;
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-logo">LedgerOne</h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="categories.html" class="sidebar-link">
+                <span class="sidebar-icon">🏷️</span>
+                <span>Catégories</span>
+            </a>
+            <a href="transactions.html" class="sidebar-link">
+                <span class="sidebar-icon">📝</span>
+                <span>Transactions</span>
+            </a>
+            <a href="import.html" class="sidebar-link active">
+                <span class="sidebar-icon">📥</span>
+                <span>Importation</span>
+            </a>
+            <a href="budget.html" class="sidebar-link">
+                <span class="sidebar-icon">💰</span>
+                <span>Budget</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Importation CSV</h1>
+                <p class="page-subtitle">Importer vos transactions en masse depuis un fichier CSV</p>
+            </div>
+        </header>
+
+        <!-- Upload Zone -->
+        <section>
+            <div class="upload-zone" id="upload-zone">
+                <div class="upload-icon">📁</div>
+                <p class="upload-text">Glissez-déposez votre fichier CSV ici</p>
+                <p class="upload-hint">ou cliquez pour sélectionner un fichier</p>
+                <input type="file" id="file-input" class="file-input" accept=".csv">
+            </div>
+
+            <!-- Selected File -->
+            <div id="selected-file" style="display: none;" class="selected-file">
+                <div class="file-icon">📄</div>
+                <div class="file-details">
+                    <div class="file-name" id="file-name">fichier.csv</div>
+                    <div class="file-size" id="file-size">0 Ko</div>
+                </div>
+            </div>
+
+            <!-- Import Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="import-button" class="import-button" disabled>
+                    Importer les transactions
+                </button>
+            </div>
+
+            <!-- Result -->
+            <div id="result" style="display: none;"></div>
+
+            <!-- Format Example -->
+            <div class="format-example">
+                <h3 class="format-title">📋 Format CSV attendu</h3>
+                <div class="code-block">date,description,amount,category
+2025-01-15,Courses Carrefour,45.50,Alimentation
+2025-01-16,Essence Shell,60.00,Transport
+2025-01-17,Cinéma UGC,15.00,Loisirs</div>
+                <p style="margin-top: 1rem; color: #71717a; font-size: 0.9rem;">
+                    <strong>Colonnes obligatoires :</strong> date, description, amount<br>
+                    <strong>Colonne optionnelle :</strong> category
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script>
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('file-input');
+        const importButton = document.getElementById('import-button');
+        const selectedFileDiv = document.getElementById('selected-file');
+        const resultDiv = document.getElementById('result');
+
+        let selectedFile = null;
+
+        // Click sur la zone = ouvrir sélecteur
+        uploadZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag & Drop
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // Sélection via input
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Gérer le fichier sélectionné
+        function handleFile(file) {
+            if (!file.name.endsWith('.csv')) {
+                alert('❌ Veuillez sélectionner un fichier CSV (.csv)');
+                return;
+            }
+
+            selectedFile = file;
+            
+            // Afficher les infos du fichier
+            document.getElementById('file-name').textContent = file.name;
+            document.getElementById('file-size').textContent = formatFileSize(file.size);
+            selectedFileDiv.style.display = 'flex';
+            
+            // Activer le bouton d'import
+            importButton.disabled = false;
+            
+            // Masquer les résultats précédents
+            resultDiv.style.display = 'none';
+        }
+
+        // Formater la taille du fichier
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' o';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' Ko';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' Mo';
+        }
+
+        // Import
+        importButton.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            importButton.disabled = true;
+            importButton.textContent = '⏳ Import en cours...';
+            resultDiv.style.display = 'none';
+
+            try {
+                const result = await importCSV(selectedFile);
+                displayResult(result);
+            } catch (error) {
+                displayError(error.message);
+            } finally {
+                importButton.disabled = false;
+                importButton.textContent = 'Importer les transactions';
+            }
+        });
+
+        // Afficher le résultat
+        function displayResult(result) {
+            const isSuccess = result.inserted > 0;
+            
+            resultDiv.className = 'result-card ' + (isSuccess ? 'result-success' : 'result-error');
+            
+            let html = `
+                <h3 style="color: ${isSuccess ? '#4ade80' : '#f87171'}; margin-bottom: 1rem;">
+                    ${isSuccess ? '✅ Import terminé' : '❌ Échec de l\'import'}
+                </h3>
+                
+                <div class="stat-row">
+                    <span class="stat-label">Transactions importées</span>
+                    <span class="stat-value" style="color: #4ade80;">${result.inserted}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Lignes ignorées</span>
+                    <span class="stat-value" style="color: #f87171;">${result.skipped}</span>
+                </div>
+            `;
+
+            if (result.errors && result.errors.length > 0) {
+                html += `
+                    <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: #f87171;">
+                        Erreurs (${result.errors.length})
+                    </h4>
+                    <div class="error-list">
+                        ${result.errors.map(err => `<div class="error-item">• ${err}</div>`).join('')}
+                    </div>
+                `;
+            }
+
+            if (result.inserted > 0) {
+                html += `
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <a href="index.html" class="import-button" style="display: inline-block;">
+                            Voir le dashboard
+                        </a>
+                    </div>
+                `;
+            }
+
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+        }
+
+        // Afficher une erreur
+        function displayError(message) {
+            resultDiv.className = 'result-card result-error';
+            resultDiv.innerHTML = `
+                <h3 style="color: #f87171; margin-bottom: 1rem;">❌ Erreur</h3>
+                <p style="color: #e4e4e7;">${message}</p>
+            `;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

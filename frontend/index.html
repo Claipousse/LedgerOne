@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerOne - Dépenses Globales</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-logo">LedgerOne</h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="categories.html" class="sidebar-link">
+                <span class="sidebar-icon">🏷️</span>
+                <span>Catégories</span>
+            </a>
+            <a href="transactions.html" class="sidebar-link">
+                <span class="sidebar-icon">📝</span>
+                <span>Transactions</span>
+            </a>
+            <a href="import.html" class="sidebar-link">
+                <span class="sidebar-icon">📥</span>
+                <span>Importation</span>
+            </a>
+            <a href="budget.html" class="sidebar-link">
+                <span class="sidebar-icon">💰</span>
+                <span>Budget</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Dépenses Globales</h1>
+                <p class="page-subtitle">Aperçu de vos dépenses et statistiques financières</p>
+            </div>
+        </header>
+
+        <!-- KPI Cards -->
+        <section class="kpi-section">
+            <div class="kpi-card">
+                <div class="kpi-icon">💳</div>
+                <div class="kpi-content">
+                    <div class="kpi-header">
+                        <span class="kpi-trend positive" id="trend-total">
+                            <span class="trend-arrow">↗</span> +12.5%
+                        </span>
+                    </div>
+                    <p class="kpi-label">Dépenses totales ce mois</p>
+                    <h2 class="kpi-value" id="kpi-total">2 367,67€</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon">📋</div>
+                <div class="kpi-content">
+                    <div class="kpi-header">
+                        <span class="kpi-trend positive" id="trend-count">
+                            <span class="trend-arrow">↗</span> +8
+                        </span>
+                    </div>
+                    <p class="kpi-label">Nombres d'opérations ce mois</p>
+                    <h2 class="kpi-value" id="kpi-count">73</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon">🎯</div>
+                <div class="kpi-content">
+                    <div class="kpi-header">
+                        <span class="kpi-trend negative" id="trend-budget">
+                            <span class="trend-arrow">↘</span> -87%
+                        </span>
+                    </div>
+                    <p class="kpi-label">Budget restant (Global)</p>
+                    <h2 class="kpi-value" id="kpi-budget">300,33€</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon">📈</div>
+                <div class="kpi-content">
+                    <div class="kpi-header">
+                        <span class="kpi-trend" id="trend-avg"></span>
+                    </div>
+                    <p class="kpi-label">Nombres d'opérations moyennes/jr</p>
+                    <h2 class="kpi-value" id="kpi-avg">8</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <!-- Pie Chart -->
+            <div class="chart-card">
+                <h3 class="chart-title">Répartition par catégorie</h3>
+                <p class="chart-subtitle">Distribution des dépenses ce mois</p>
+                <div class="chart-container">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+                <div class="chart-legend" id="pie-legend">
+                    <!-- Légende générée dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="chart-card">
+                <h3 class="chart-title">Évolution mensuelle</h3>
+                <p class="chart-subtitle">Tendance des dépenses sur 3 mois</p>
+                <div class="chart-container">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top 5 Categories -->
+        <section class="top5-section">
+            <h3 class="section-title">Top 5 catégories</h3>
+            <p class="section-subtitle">Les catégories avec les dépenses les plus élevées ce mois</p>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>RANG</th>
+                            <th>CATÉGORIE</th>
+                            <th>POURCENTAGE</th>
+                            <th>MONTANT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top5-tbody">
+                        <!-- Lignes générées dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
