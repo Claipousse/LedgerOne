@@ -328,8 +328,7 @@ function updateCounters() {
 //              ACTIONS
 // ============================================
 function goToDetail(categoryId) {
-    alert(`Page détail catégorie ${categoryId} (à créer)`);
-    // Plus tard: window.location.href = `category-detail.html?id=${categoryId}`;
+    window.location.href = `detail_categorie.html?id=${categoryId}`;
 }
 
 // ============================================

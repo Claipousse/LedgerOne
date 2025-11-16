@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerOne - Détail Catégorie</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-logo">LedgerOne</h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="categories.html" class="sidebar-link active">
+                <span class="sidebar-icon">🏷️</span>
+                <span>Catégories</span>
+            </a>
+            <a href="transactions.html" class="sidebar-link">
+                <span class="sidebar-icon">📝</span>
+                <span>Transactions</span>
+            </a>
+            <a href="import.html" class="sidebar-link">
+                <span class="sidebar-icon">📥</span>
+                <span>Importation</span>
+            </a>
+            <a href="budget.html" class="sidebar-link">
+                <span class="sidebar-icon">💰</span>
+                <span>Budget</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button onclick="goBack()" class="btn-icon" title="Retour" style="font-size: 1.2rem;">←</button>
+                <div>
+                    <h1 class="page-title">Détail Catégorie</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Month Navigation -->
+        <div class="month-navigation">
+            <div class="month-selector">
+                <button class="month-arrow" id="btn-prev-month">&lt;</button>
+                <div class="month-display" id="month-display">Novembre 2025</div>
+                <button class="month-arrow" id="btn-next-month">&gt;</button>
+            </div>
+            <div class="period-filters">
+                <button class="period-btn active" data-period="1">1M</button>
+                <button class="period-btn" data-period="3">3M</button>
+                <button class="period-btn" data-period="12">1A</button>
+            </div>
+        </div>
+
+        <!-- Category Info Card -->
+        <section class="category-info-section">
+            <div class="category-info-card">
+                <!-- Left: Budget Circle (if defined) -->
+                <div class="budget-circle-container" id="budget-circle-container">
+                    <canvas id="budget-circle" width="180" height="180"></canvas>
+                    <div class="budget-circle-text">
+                        <div class="budget-amount" id="budget-amount">-</div>
+                        <div class="budget-percentage" id="budget-percentage">-%</div>
+                    </div>
+                </div>
+
+                <!-- Center: Category Info -->
+                <div class="category-main-info">
+                    <div class="category-header">
+                        <div class="category-name-row">
+                            <span class="category-dot-large" id="category-dot"></span>
+                            <h2 class="category-name" id="category-name">-</h2>
+                        </div>
+                    </div>
+                    <div class="category-total" id="category-total">0,00 €</div>
+                    <div class="category-stats" id="category-stats">0 transactions - 0%</div>
+                </div>
+
+                <!-- Right: Settings Menu -->
+                <div class="settings-menu-container">
+                    <button class="settings-btn" id="settings-btn">⚙️</button>
+                    <div class="settings-dropdown" id="settings-dropdown">
+                        <button class="dropdown-item" onclick="showEditForm()">✏️ Modifier</button>
+                        <button class="dropdown-item delete" onclick="confirmDelete()">🗑️ Supprimer</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Form (hidden by default) -->
+            <div class="edit-form-container hidden" id="edit-form-container">
+                <div class="edit-form-card">
+                    <h3 class="edit-form-title">Modifier la catégorie</h3>
+                    <form id="edit-form">
+                        <div class="form-group">
+                            <label class="form-label">Nom de la catégorie</label>
+                            <input type="text" id="edit-name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Couleur</label>
+                            <div class="color-preview">
+                                <input type="color" id="edit-color" class="form-input">
+                                <input type="text" id="edit-color-text" class="form-input" pattern="^#[0-9A-Fa-f]{6}$" placeholder="#505050">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Budget mensuel (€)</label>
+                            <input type="number" id="edit-budget" class="form-input" step="0.01" min="0" placeholder="Non défini">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="hideEditForm()">Annuler</button>
+                            <button type="submit" class="btn-primary">Valider</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions List -->
+        <section class="transactions-section">
+            <div class="section-header">
+                <h3 class="section-title">Transactions</h3>
+                <div class="pagination-controls">
+                    <select id="pagination-select" class="sort-select">
+                        <option value="20">20 par page</option>
+                        <option value="50">50 par page</option>
+                        <option value="100">100 par page</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="transactions-list" id="transactions-list">
+                <!-- Transactions générées dynamiquement -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Boutons générés dynamiquement -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmer la suppression</h3>
+                <button class="modal-close" onclick="hideDeleteModal()">×</button>
+            </div>
+            <p style="color: #e4e4e7; margin: 1.5rem 0;">
+                Êtes-vous sûr de vouloir supprimer la catégorie <strong id="delete-category-name"></strong> ?
+                <br><br>
+                Les transactions liées ne seront pas supprimées mais n'auront plus de catégorie.
+            </p>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="hideDeleteModal()">Annuler</button>
+                <button class="btn-primary" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);" onclick="deleteCategoryAction()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/detail_categorie.js"></script>
+</body>
+</html>
