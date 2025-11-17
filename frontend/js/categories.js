@@ -255,7 +255,7 @@ function renderTable() {
     filteredCategories.forEach(category => {
         const row = document.createElement('tr');
         
-        const color = category.color || '#505050';
+        const color = category.color || '#818cf8';
         const amount = formatCurrency(category.amount || 0);
         const percentage = (category.percentage || 0).toFixed(1);
         
@@ -319,8 +319,8 @@ function showAddForm() {
     formTitle.textContent = 'Nouvelle categorie';
 
     document.getElementById('form-name').value = '';
-    document.getElementById('form-color').value = '#505050';
-    document.getElementById('form-color-text').value = '#505050';
+    document.getElementById('form-color').value = '#818cf8';
+    document.getElementById('form-color-text').value = '#818cf8';
     document.getElementById('form-budget').value = '';
 
     categoryFormContainer.classList.remove('hidden');

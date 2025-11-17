@@ -15,7 +15,7 @@ from app.models.transaction import Transaction #Modèle Transaction
 from app.services.category_service import get_category_by_name #Fonction pour chercher catégorie selon son nom
 
 #Constantes pour création automatique des catégories
-DEFAULT_CATEGORY_COLOR = "#505050" #Gris foncé par défaut pour les catégories auto-créées
+DEFAULT_CATEGORY_COLOR = "#818cf8" #Couleur par défaut pour les catégories auto-créées
 DEFAULT_CATEGORY_BUDGET = None #Pas de budget défini par défaut
 
 #Parsing du fichier CSV

@@ -251,8 +251,8 @@ async function loadCategoryData() {
 }
 
 function displayCategoryInfo(totalAmount, percentage) {
-    // Nom + couleur
-    const color = category.color || '#505050';
+    // Nom + couleur (utiliser #818cf8 par défaut au lieu de #505050)
+    const color = category.color || '#818cf8';
     const dotElement = document.getElementById('category-dot');
     dotElement.style.backgroundColor = color;
     dotElement.style.boxShadow = `0 0 16px ${color}`;
@@ -315,6 +315,7 @@ function displayBudgetCircle(totalAmount) {
     const container = document.getElementById('budget-circle-container');
     container.classList.remove('hidden');
     
+    // Utiliser la couleur de la catégorie si définie, sinon #818cf8 par défaut
     const categoryColor = category.color || '#818cf8';
     
     // Adapter le budget selon la période
@@ -340,6 +341,7 @@ function displayBudgetCircle(totalAmount) {
     const remaining = Math.max(100 - percentage, 0);
     
     // Utiliser la couleur de la catégorie si définie, sinon violet par défaut
+    // Si budget dépassé, rouge
     const fillColor = percentage > 100 ? '#ef4444' : categoryColor;
 
     budgetChart = new Chart(ctx, {
