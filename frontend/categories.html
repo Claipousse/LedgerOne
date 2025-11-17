@@ -86,10 +86,40 @@
                     <option value="budget-desc">Budget (décroissant)</option>
                     <option value="budget-asc">Budget (croissant)</option>
                 </select>
-                <a href="ajout_categorie.html" class="btn-primary">
+                <button class="btn-primary" onclick="showAddForm()">
                     <span>➕</span>
                     <span>Ajouter</span>
-                </a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulaire Ajout/Modification (inline, caché par défaut) -->
+        <div class="category-form-container hidden" id="category-form-container">
+            <div class="category-form-card">
+                <h3 class="form-title" id="form-title">Nouvelle catégorie</h3>
+                <form id="category-form">
+                    <div class="form-group">
+                        <label class="form-label">Nom de la catégorie *</label>
+                        <input type="text" id="form-name" class="form-input" maxlength="100" required placeholder="Alimentation">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Couleur</label>
+                            <div class="color-preview">
+                                <input type="color" id="form-color" class="form-input" value="#505050">
+                                <input type="text" id="form-color-text" class="form-input" pattern="^#[0-9A-Fa-f]{6}$" placeholder="#505050" value="#505050">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Budget mensuel (€)</label>
+                            <input type="number" id="form-budget" class="form-input" step="0.01" min="0" placeholder="Non défini">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="hideCategoryForm()">Annuler</button>
+                        <button type="submit" class="btn-primary">Valider</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -103,7 +133,7 @@
                             <th>MONTANT</th>
                             <th>POURCENTAGE</th>
                             <th>BUDGET MENSUEL</th>
-                            <th>ACTIONS</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="categories-tbody">

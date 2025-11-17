@@ -1182,9 +1182,8 @@ body {
     font-weight: 500;
 }
 
-.budget-cell {
-    color: #a1a1aa;
-    font-style: italic;
+.budget-cell.over-budget {
+    font-style: normal !important;
 }
 
 .budget-cell.set {
@@ -2080,4 +2079,82 @@ select option {
 #form-category option {
     background: #1a1a2e !important;
     color: #e4e4e7 !important;
+}
+
+/* ============================================
+   FORMULAIRE CATÉGORIE INLINE (complément)
+   ============================================ */
+.category-form-container {
+    margin-bottom: 2rem;
+    animation: slideDown 0.4s ease;
+}
+
+.category-form-container.hidden {
+    display: none;
+}
+
+.category-form-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+}
+
+/* ============================================
+   BUDGET DEPASSE - Alerte rouge avec icone
+   ============================================ */
+
+/* Budget depasse : texte en rouge */
+.budget-cell.over-budget {
+    color: #ef4444 !important;
+    font-weight: 700;
+}
+
+/* Icone danger d'avertissement */
+.budget-warning {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    cursor: help;
+    animation: warningPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6));
+}
+
+/* Animation de pulsation pour l'icone */
+@keyframes warningPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Tooltip personnalise au survol */
+.budget-warning:hover {
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.9));
+}
+
+/* Optionnel : Styliser toute la ligne si budget depasse */
+.data-table tbody tr:has(.budget-cell.over-budget) {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 3px solid #ef4444;
+}
+
+.data-table tbody tr:has(.budget-cell.over-budget):hover {
+    background: rgba(239, 68, 68, 0.1);
 }

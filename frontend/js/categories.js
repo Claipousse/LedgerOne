@@ -1,29 +1,21 @@
 /**
- * categories.js - Gestion de la page Catégories
- * - Navigation mensuelle avec blocage du futur
- * - Recherche en temps réel
- * - Tri via dropdown
- * - Calcul montants selon période (1M/3M/1A)
- * - Modification/Suppression (création sur page séparée)
+ * categories.js - Gestion de la page Categories
  */
 
-// ============================================
-//              VARIABLES GLOBALES
-// ============================================
+// Variables globales
 let allCategories = [];
 let filteredCategories = [];
 let currentYear = new Date().getFullYear();
-let currentMonth = new Date().getMonth() + 1; // 1-12
-let currentPeriod = 1; // Par défaut 1 mois
+let currentMonth = new Date().getMonth() + 1;
+let currentPeriod = 1;
 let currentSort = 'amount-desc';
 let searchQuery = '';
+let editingCategoryId = null;
 
-// Limites
 const TODAY = new Date();
 const MAX_YEAR = TODAY.getFullYear();
 const MAX_MONTH = TODAY.getMonth() + 1;
 
-// Éléments DOM
 const tbody = document.getElementById('categories-tbody');
 const monthDisplay = document.getElementById('month-display');
 const btnPrevMonth = document.getElementById('btn-prev-month');
@@ -32,48 +24,54 @@ const searchInput = document.getElementById('search-input');
 const sortSelect = document.getElementById('sort-select');
 const counterText = document.getElementById('counter-text');
 const categoryCounter = document.getElementById('category-counter');
+const categoryFormContainer = document.getElementById('category-form-container');
+const categoryForm = document.getElementById('category-form');
+const formTitle = document.getElementById('form-title');
 
-// ============================================
-//              INITIALISATION
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    updateMonthDisplay(); // Initialiser l'affichage dès le chargement
+    updateMonthDisplay();
     setupEventListeners();
     loadCategories();
 });
 
 function setupEventListeners() {
-    // Navigation mois
     btnPrevMonth.addEventListener('click', goToPreviousMonth);
     btnNextMonth.addEventListener('click', goToNextMonth);
 
-    // Boutons période
     document.querySelectorAll('.period-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             currentPeriod = parseInt(e.target.dataset.period);
-            updateMonthDisplay(); // Mettre à jour l'affichage de la période
+            updateMonthDisplay();
             loadCategories();
         });
     });
 
-    // Recherche temps réel
     searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase().trim();
         filterAndRender();
     });
 
-    // Tri
     sortSelect.addEventListener('change', (e) => {
         currentSort = e.target.value;
         filterAndRender();
     });
+
+    categoryForm.addEventListener('submit', handleFormSubmit);
+
+    document.getElementById('form-color').addEventListener('input', (e) => {
+        document.getElementById('form-color-text').value = e.target.value;
+    });
+
+    document.getElementById('form-color-text').addEventListener('input', (e) => {
+        const color = e.target.value;
+        if (/^#[0-9A-Fa-f]{6}$/.test(color)) {
+            document.getElementById('form-color').value = color;
+        }
+    });
 }
 
-// ============================================
-//              NAVIGATION MOIS
-// ============================================
 function goToPreviousMonth() {
     currentMonth--;
     if (currentMonth < 1) {
@@ -85,7 +83,6 @@ function goToPreviousMonth() {
 }
 
 function goToNextMonth() {
-    // Bloquer si on essaie d'aller dans le futur
     if (isFutureMonth(currentYear, currentMonth + 1)) {
         return;
     }
@@ -106,14 +103,12 @@ function isFutureMonth(year, month) {
 }
 
 function updateMonthDisplay() {
-    const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 
-                        'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    const monthNames = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 
+                        'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
     
     if (currentPeriod === 1) {
-        // 1M : "Novembre 2025"
         monthDisplay.textContent = `${monthNames[currentMonth - 1]} ${currentYear}`;
     } else {
-        // 3M ou 1A : afficher la plage "Début - Fin"
         const startDate = getStartDate();
         const endDate = getEndDate();
         
@@ -126,24 +121,17 @@ function updateMonthDisplay() {
         monthDisplay.textContent = `${startMonthName} ${startYear} - ${endMonthName} ${endYear}`;
     }
 
-    // Désactiver flèche droite si mois futur
     btnNextMonth.disabled = isFutureMonth(currentYear, currentMonth + 1);
 }
 
-// ============================================
-//              CHARGEMENT DONNÉES
-// ============================================
 async function loadCategories() {
     try {
         showLoading();
         
-        // Charger toutes les catégories
         allCategories = await getAllCategories();
         
-        // Calculer les montants selon la période
         await calculateAmounts();
         
-        // Filtrer et afficher
         filterAndRender();
         
         hideLoading();
@@ -160,11 +148,9 @@ async function calculateAmounts() {
     
     let totalGlobal = 0;
 
-    // Pour chaque catégorie, récupérer le total sur la période
     for (let category of allCategories) {
         let total = 0;
 
-        // Parcourir tous les mois de la période
         const months = getMonthsInPeriod(startDate, endDate);
         
         for (let { year, month } of months) {
@@ -176,7 +162,6 @@ async function calculateAmounts() {
         totalGlobal += total;
     }
 
-    // Calculer les pourcentages
     allCategories.forEach(cat => {
         cat.percentage = totalGlobal > 0 ? (cat.amount / totalGlobal) * 100 : 0;
     });
@@ -186,10 +171,8 @@ function getStartDate() {
     const date = new Date(currentYear, currentMonth - 1, 1);
     
     if (currentPeriod === 1) {
-        // 1M : juste le mois actuel
         return date;
     } else {
-        // 3M ou 1A : remonter de X mois
         date.setMonth(date.getMonth() - (currentPeriod - 1));
         return date;
     }
@@ -214,11 +197,7 @@ function getMonthsInPeriod(startDate, endDate) {
     return months;
 }
 
-// ============================================
-//              FILTRAGE & TRI
-// ============================================
 function filterAndRender() {
-    // Filtrer par recherche
     if (searchQuery) {
         filteredCategories = allCategories.filter(cat => 
             cat.name.toLowerCase().includes(searchQuery)
@@ -227,7 +206,6 @@ function filterAndRender() {
         filteredCategories = [...allCategories];
     }
 
-    // Trier
     const [column, direction] = currentSort.split('-');
     
     filteredCategories.sort((a, b) => {
@@ -263,16 +241,13 @@ function filterAndRender() {
     updateCounters();
 }
 
-// ============================================
-//              AFFICHAGE TABLEAU
-// ============================================
 function renderTable() {
     tbody.innerHTML = '';
 
     if (filteredCategories.length === 0) {
         const message = searchQuery 
-            ? 'Aucune catégorie trouvée' 
-            : 'Aucune catégorie';
+            ? 'Aucune categorie trouvee' 
+            : 'Aucune categorie';
         tbody.innerHTML = `<tr><td colspan="5" class="text-center empty-state">${message}</td></tr>`;
         return;
     }
@@ -283,10 +258,25 @@ function renderTable() {
         const color = category.color || '#505050';
         const amount = formatCurrency(category.amount || 0);
         const percentage = (category.percentage || 0).toFixed(1);
-        const budget = category.monthly_budget 
-            ? formatCurrency(category.monthly_budget) 
-            : 'Non défini';
-        const budgetClass = category.monthly_budget ? 'set' : '';
+        
+        // Gestion du budget avec dépassement
+        let budgetHTML = '';
+        let budgetClass = '';
+        
+        if (category.monthly_budget) {
+            const budgetValue = category.monthly_budget;
+            const currentAmount = category.amount || 0;
+            const isOverBudget = currentAmount > budgetValue;
+            
+            budgetClass = isOverBudget ? 'over-budget' : 'set';
+            const warningIcon = isOverBudget 
+                ? '<span class="budget-warning" title="Attention : le budget est depasse">⚠️</span>' 
+                : '';
+            
+            budgetHTML = `${formatCurrency(budgetValue)} ${warningIcon}`;
+        } else {
+            budgetHTML = 'Non defini';
+        }
 
         row.innerHTML = `
             <td>
@@ -297,10 +287,10 @@ function renderTable() {
             </td>
             <td class="amount-cell">${amount}</td>
             <td class="percentage-cell">${percentage}%</td>
-            <td class="budget-cell ${budgetClass}">${budget}</td>
+            <td class="budget-cell ${budgetClass}">${budgetHTML}</td>
             <td>
                 <div class="action-buttons">
-                    <button class="btn-icon detail" onclick="goToDetail(${category.id})" title="Détails">
+                    <button class="btn-icon detail" onclick="goToDetail(${category.id})" title="Details">
                         →
                     </button>
                 </div>
@@ -315,25 +305,78 @@ function updateCounters() {
     const count = allCategories.length;
     const filteredCount = filteredCategories.length;
 
-    categoryCounter.textContent = `${count} catégorie${count > 1 ? 's' : ''} de sorties`;
+    categoryCounter.textContent = `${count} categorie${count > 1 ? 's' : ''} de sorties`;
     
     if (searchQuery) {
-        counterText.textContent = `${filteredCount} / ${count} catégories`;
+        counterText.textContent = `${filteredCount} / ${count} categories`;
     } else {
-        counterText.textContent = `${count} catégorie${count > 1 ? 's' : ''} de sorties`;
+        counterText.textContent = `${count} categorie${count > 1 ? 's' : ''} de sorties`;
     }
 }
 
-// ============================================
-//              ACTIONS
-// ============================================
+function showAddForm() {
+    editingCategoryId = null;
+    formTitle.textContent = 'Nouvelle categorie';
+
+    document.getElementById('form-name').value = '';
+    document.getElementById('form-color').value = '#505050';
+    document.getElementById('form-color-text').value = '#505050';
+    document.getElementById('form-budget').value = '';
+
+    categoryFormContainer.classList.remove('hidden');
+    categoryFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function hideCategoryForm() {
+    categoryFormContainer.classList.add('hidden');
+    editingCategoryId = null;
+}
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('form-name').value.trim();
+    const color = document.getElementById('form-color').value;
+    const budgetStr = document.getElementById('form-budget').value.trim();
+    const budget = budgetStr ? parseFloat(budgetStr) : null;
+
+    if (!name) {
+        alert('Le nom est obligatoire');
+        return;
+    }
+
+    if (budget !== null && budget < 0) {
+        alert('Le budget doit etre positif ou nul');
+        return;
+    }
+
+    try {
+        showLoading();
+
+        const data = {
+            name,
+            color,
+            monthly_budget: budget
+        };
+
+        if (editingCategoryId) {
+            await updateCategory(editingCategoryId, data);
+        } else {
+            await createCategory(data);
+        }
+
+        hideCategoryForm();
+        await loadCategories();
+    } catch (error) {
+        hideLoading();
+        showError(`Erreur : ${error.message}`);
+    }
+}
+
 function goToDetail(categoryId) {
     window.location.href = `detail_categorie.html?id=${categoryId}`;
 }
 
-// ============================================
-//              UTILITAIRES
-// ============================================
 function formatCurrency(amount) {
     return new Intl.NumberFormat('fr-FR', {
         style: 'currency',
@@ -357,9 +400,5 @@ function hideLoading() {
 }
 
 function showError(message) {
-    alert('❌ ' + message);
-}
-
-function showSuccess(message) {
-    alert('✅ ' + message);
+    alert(message);
 }
