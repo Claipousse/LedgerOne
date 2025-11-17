@@ -321,15 +321,20 @@ function displayBudgetCircle(totalAmount) {
     // Adapter le budget selon la période
     const adjustedBudget = category.monthly_budget * currentPeriod;
     
+    // Calculer le pourcentage
+    const percentage = (totalAmount / adjustedBudget) * 100;
+    
+    // ✅ NOUVEAU : Choisir la couleur selon si budget dépassé ou non
+    const percentageColor = percentage > 100 ? '#ef4444' : categoryColor;
+    
     container.innerHTML = `
         <canvas id="budget-circle" width="180" height="180"></canvas>
         <div class="budget-circle-text">
             <div class="budget-amount" id="budget-amount">${formatCurrency(adjustedBudget)}</div>
-            <div class="budget-percentage" id="budget-percentage" style="color: ${categoryColor};">-</div>
+            <div class="budget-percentage" id="budget-percentage" style="color: ${percentageColor};">-</div>
         </div>
     `;
 
-    const percentage = (totalAmount / adjustedBudget) * 100;
     document.getElementById('budget-percentage').textContent = `${percentage.toFixed(0)}%`;
 
     const ctx = document.getElementById('budget-circle');
@@ -340,8 +345,6 @@ function displayBudgetCircle(totalAmount) {
 
     const remaining = Math.max(100 - percentage, 0);
     
-    // Utiliser la couleur de la catégorie si définie, sinon violet par défaut
-    // Si budget dépassé, rouge
     const fillColor = percentage > 100 ? '#ef4444' : categoryColor;
 
     budgetChart = new Chart(ctx, {
