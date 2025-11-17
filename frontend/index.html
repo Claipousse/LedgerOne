@@ -99,15 +99,21 @@
         <section class="charts-section">
             <!-- Pie Chart -->
             <div class="chart-card">
-                <h3 class="chart-title">Répartition par catégorie</h3>
-                <p class="chart-subtitle">Distribution des dépenses ce mois</p>
-                <div class="chart-container">
-                    <canvas id="pie-chart"></canvas>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <div>
+                    <h3 class="chart-title">Répartition par catégorie</h3>
+                    <p class="chart-subtitle" id="pie-subtitle">Distribution des dépenses ce mois</p>
                 </div>
-                <div class="chart-legend" id="pie-legend">
-                    <!-- Légende générée dynamiquement -->
+                <div class="period-filters">
+                    <button class="period-btn active" data-period="1">1M</button>
+                    <button class="period-btn" data-period="3">3M</button>
+                    <button class="period-btn" data-period="12">1A</button>
                 </div>
             </div>
+            <div class="chart-container">
+                <canvas id="pie-chart"></canvas>
+            </div>
+        </div>
 
             <!-- Bar Chart -->
             <div class="chart-card">

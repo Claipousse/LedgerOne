@@ -9,6 +9,7 @@
 // Variables globales
 let pieChart = null;
 let barChart = null;
+let currentPiePeriod = 1;
 
 // Palette de couleurs par défaut si catégorie n'a pas de couleur
 const DEFAULT_COLORS = [
@@ -113,6 +114,16 @@ async function initDashboard() {
         
         // Afficher le tableau Top 5
         displayTop5Table(currentSummary);
+
+        // Event listeners pour les boutons de période du camembert
+        document.querySelectorAll('.chart-card .period-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                document.querySelectorAll('.chart-card .period-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentPiePeriod = parseInt(e.target.dataset.period);
+                await updatePieChart();
+            });
+        });
         
     } catch (error) {
         hideLoading();
@@ -431,6 +442,103 @@ function showError(message) {
     main.insertBefore(error, main.firstChild);
     
     setTimeout(() => error.remove(), 10000);
+}
+
+/**
+ * Mettre à jour le camembert selon la période sélectionnée
+ */
+async function updatePieChart() {
+    try {
+        showLoading();
+        
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth() + 1;
+        
+        let totalByCategory = {};
+        let subtitle = '';
+        
+        if (currentPiePeriod === 1) {
+            // 1 mois (mois actuel)
+            const summary = await getMonthlySummary(currentYear, currentMonth);
+            totalByCategory = summary.by_category;
+            subtitle = 'Distribution des dépenses ce mois';
+            
+        } else if (currentPiePeriod === 3) {
+            // 3 derniers mois
+            subtitle = 'Distribution des dépenses sur 3 mois';
+            
+            for (let i = 0; i < 3; i++) {
+                let month = currentMonth - i;
+                let year = currentYear;
+                
+                if (month <= 0) {
+                    month += 12;
+                    year -= 1;
+                }
+                
+                const summary = await getMonthlySummary(year, month);
+                
+                // Additionner les totaux par catégorie
+                Object.entries(summary.by_category).forEach(([catName, data]) => {
+                    if (!totalByCategory[catName]) {
+                        totalByCategory[catName] = { total: 0, count: 0 };
+                    }
+                    totalByCategory[catName].total += data.total;
+                    totalByCategory[catName].count += data.count;
+                });
+            }
+            
+            // Recalculer les pourcentages
+            const grandTotal = Object.values(totalByCategory).reduce((sum, cat) => sum + cat.total, 0);
+            Object.keys(totalByCategory).forEach(catName => {
+                totalByCategory[catName].percentage = (totalByCategory[catName].total / grandTotal) * 100;
+            });
+            
+        } else if (currentPiePeriod === 12) {
+            // Année en cours (janvier à mois actuel)
+            subtitle = `Distribution des dépenses en ${currentYear}`;
+            
+            for (let month = 1; month <= currentMonth; month++) {
+                const summary = await getMonthlySummary(currentYear, month);
+                
+                // Additionner les totaux par catégorie
+                Object.entries(summary.by_category).forEach(([catName, data]) => {
+                    if (!totalByCategory[catName]) {
+                        totalByCategory[catName] = { total: 0, count: 0 };
+                    }
+                    totalByCategory[catName].total += data.total;
+                    totalByCategory[catName].count += data.count;
+                });
+            }
+            
+            // Recalculer les pourcentages
+            const grandTotal = Object.values(totalByCategory).reduce((sum, cat) => sum + cat.total, 0);
+            Object.keys(totalByCategory).forEach(catName => {
+                totalByCategory[catName].percentage = (totalByCategory[catName].total / grandTotal) * 100;
+            });
+        }
+        
+        // Mettre à jour le sous-titre
+        document.getElementById('pie-subtitle').textContent = subtitle;
+        
+        // Récupérer les couleurs des catégories
+        const categories = await getAllCategories();
+        const categoryColors = {};
+        categories.forEach((cat, index) => {
+            categoryColors[cat.name] = cat.color || DEFAULT_COLORS[index % DEFAULT_COLORS.length];
+        });
+        
+        // Mettre à jour le graphique
+        displayPieChart(totalByCategory, categoryColors);
+        
+        hideLoading();
+        
+    } catch (error) {
+        hideLoading();
+        showError(`Erreur lors de la mise à jour: ${error.message}`);
+        console.error('Erreur:', error);
+    }
 }
 
 // Initialiser au chargement de la page
