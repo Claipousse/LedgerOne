@@ -263,36 +263,6 @@ function displayPieChart(byCategory, categoryColors) {
             }
         }
     });
-    
-    // Créer la légende custom
-    displayCustomLegend(byCategory, categoryColors);
-}
-
-/**
- * Afficher la légende custom sous le pie chart
- */
-function displayCustomLegend(byCategory, categoryColors) {
-    const legendContainer = document.getElementById('pie-legend');
-    if (!legendContainer) return;
-    
-    legendContainer.innerHTML = '';
-    
-    Object.entries(byCategory).forEach(([categoryName, data]) => {
-        const item = document.createElement('div');
-        item.className = 'legend-item';
-        
-        const color = categoryColors[categoryName] || '#cccccc';
-        
-        item.innerHTML = `
-            <div class="legend-label">
-                <span class="legend-color" style="background-color: ${color}; box-shadow: 0 0 10px ${color};"></span>
-                <span>${categoryName} ${data.percentage.toFixed(0)}%</span>
-            </div>
-            <span class="legend-value">${formatCurrency(data.total)}</span>
-        `;
-        
-        legendContainer.appendChild(item);
-    });
 }
 
 /**

@@ -324,7 +324,7 @@ function displayBudgetCircle(totalAmount) {
     // Calculer le pourcentage
     const percentage = (totalAmount / adjustedBudget) * 100;
     
-    // ✅ NOUVEAU : Choisir la couleur selon si budget dépassé ou non
+    //Si budget dépassé, pourcentage rouge
     const percentageColor = percentage > 100 ? '#ef4444' : categoryColor;
     
     container.innerHTML = `
