@@ -103,21 +103,21 @@ function isFutureMonth(year, month) {
 }
 
 function updateMonthDisplay() {
-    const monthNames = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 
-                        'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
-    
+    const monthNames = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin',
+        'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+
     if (currentPeriod === 1) {
         monthDisplay.textContent = `${monthNames[currentMonth - 1]} ${currentYear}`;
     } else {
         const startDate = getStartDate();
         const endDate = getEndDate();
-        
+
         const startMonthName = monthNames[startDate.getMonth()];
         const startYear = startDate.getFullYear();
-        
+
         const endMonthName = monthNames[endDate.getMonth()];
         const endYear = endDate.getFullYear();
-        
+
         monthDisplay.textContent = `${startMonthName} ${startYear} - ${endMonthName} ${endYear}`;
     }
 
@@ -127,13 +127,13 @@ function updateMonthDisplay() {
 async function loadCategories() {
     try {
         showLoading();
-        
+
         allCategories = await getAllCategories();
-        
+
         await calculateAmounts();
-        
+
         filterAndRender();
-        
+
         hideLoading();
     } catch (error) {
         hideLoading();
@@ -145,14 +145,14 @@ async function loadCategories() {
 async function calculateAmounts() {
     const startDate = getStartDate();
     const endDate = getEndDate();
-    
+
     let totalGlobal = 0;
 
     for (let category of allCategories) {
         let total = 0;
 
         const months = getMonthsInPeriod(startDate, endDate);
-        
+
         for (let { year, month } of months) {
             const result = await getMonthlyTotal(year, month, category.id);
             total += result.total;
@@ -169,7 +169,7 @@ async function calculateAmounts() {
 
 function getStartDate() {
     const date = new Date(currentYear, currentMonth - 1, 1);
-    
+
     if (currentPeriod === 1) {
         return date;
     } else {
@@ -185,7 +185,7 @@ function getEndDate() {
 function getMonthsInPeriod(startDate, endDate) {
     const months = [];
     const current = new Date(startDate);
-    
+
     while (current <= endDate) {
         months.push({
             year: current.getFullYear(),
@@ -193,13 +193,13 @@ function getMonthsInPeriod(startDate, endDate) {
         });
         current.setMonth(current.getMonth() + 1);
     }
-    
+
     return months;
 }
 
 function filterAndRender() {
     if (searchQuery) {
-        filteredCategories = allCategories.filter(cat => 
+        filteredCategories = allCategories.filter(cat =>
             cat.name.toLowerCase().includes(searchQuery)
         );
     } else {
@@ -207,7 +207,7 @@ function filterAndRender() {
     }
 
     const [column, direction] = currentSort.split('-');
-    
+
     filteredCategories.sort((a, b) => {
         let valA, valB;
 
@@ -239,14 +239,30 @@ function filterAndRender() {
 
     renderTable();
     updateCounters();
+    updateTableHeader();
+}
+
+function updateTableHeader() {
+    const budgetHeader = document.querySelector('.data-table thead th:nth-child(4)');
+    if (!budgetHeader) return;
+
+    let headerText = 'BUDGET MENSUEL';
+
+    if (currentPeriod === 3) {
+        headerText += ' (×3)';
+    } else if (currentPeriod === 12) {
+        headerText += ' (×12)';
+    }
+
+    budgetHeader.textContent = headerText;
 }
 
 function renderTable() {
     tbody.innerHTML = '';
 
     if (filteredCategories.length === 0) {
-        const message = searchQuery 
-            ? 'Aucune categorie trouvee' 
+        const message = searchQuery
+            ? 'Aucune categorie trouvee'
             : 'Aucune categorie';
         tbody.innerHTML = `<tr><td colspan="5" class="text-center empty-state">${message}</td></tr>`;
         return;
@@ -254,26 +270,27 @@ function renderTable() {
 
     filteredCategories.forEach(category => {
         const row = document.createElement('tr');
-        
+
         const color = category.color || '#818cf8';
         const amount = formatCurrency(category.amount || 0);
         const percentage = (category.percentage || 0).toFixed(1);
-        
+
         // Gestion du budget avec dépassement
         let budgetHTML = '';
         let budgetClass = '';
-        
+
         if (category.monthly_budget) {
-            const budgetValue = category.monthly_budget;
+            // Ajuster le budget selon la période
+            const adjustedBudget = category.monthly_budget * currentPeriod;
             const currentAmount = category.amount || 0;
-            const isOverBudget = currentAmount > budgetValue;
-            
+            const isOverBudget = currentAmount > adjustedBudget;
+
             budgetClass = isOverBudget ? 'over-budget' : 'set';
-            const warningIcon = isOverBudget 
-                ? '<span class="budget-warning" title="Attention : le budget est depasse">⚠️</span>' 
+            const warningIcon = isOverBudget
+                ? '<span class="budget-warning" title="Attention : le budget est depassé">⚠️</span>'
                 : '';
-            
-            budgetHTML = `${formatCurrency(budgetValue)} ${warningIcon}`;
+
+            budgetHTML = `${formatCurrency(adjustedBudget)} ${warningIcon}`;
         } else {
             budgetHTML = 'Non defini';
         }
@@ -306,7 +323,7 @@ function updateCounters() {
     const filteredCount = filteredCategories.length;
 
     categoryCounter.textContent = `${count} categorie${count > 1 ? 's' : ''} de sorties`;
-    
+
     if (searchQuery) {
         counterText.textContent = `${filteredCount} / ${count} categories`;
     } else {
