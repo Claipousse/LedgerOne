@@ -2159,3 +2159,54 @@ select option {
 .data-table tbody tr:has(.budget-cell.over-budget):hover {
     background: rgba(239, 68, 68, 0.1);
 }
+
+/* ============================================
+   BUDGET PAGE - BARRE DE PROGRESSION
+   ============================================ */
+.budget-progress-container {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.budget-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.budget-progress-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+.budget-progress-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.budget-progress-bar {
+    background: rgba(99, 102, 241, 0.1);
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.budget-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
+    border-radius: 12px;
+    transition: width 0.5s ease, background 0.3s ease;
+}
+
+.budget-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #a1a1aa;
+}
