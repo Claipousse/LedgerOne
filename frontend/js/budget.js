@@ -85,25 +85,39 @@ function displayGlobalBudget(settings, currentSummary) {
     // KPIs
     document.getElementById('global-budget-value').textContent = formatCurrency(globalBudget);
     document.getElementById('global-spent-value').textContent = formatCurrency(spent);
-    document.getElementById('global-remaining-value').textContent = formatCurrency(remaining);
+    
+    // Budget restant
+    const remainingElement = document.getElementById('global-remaining-value');
+    if (remaining < 0) {
+        remainingElement.textContent = 'Dépassé';
+        remainingElement.style.fontSize = '2rem';
+        remainingElement.style.fontWeight = '800';
+    } else {
+        remainingElement.textContent = formatCurrency(remaining);
+        remainingElement.style.fontSize = '';
+        remainingElement.style.fontWeight = '';
+    }
 
     // Barre de progression
     const progressFill = document.getElementById('global-progress-fill');
     const progressPercentage = document.getElementById('global-progress-percentage');
     
-    progressPercentage.textContent = `${percentage.toFixed(0)}%`;
-    progressFill.style.width = `${Math.min(percentage, 100)}%`;
-
-    // Couleur selon progression
     if (percentage > 100) {
+        progressPercentage.textContent = 'Dépassé';
+        progressFill.style.width = '100%';
         progressFill.style.background = 'linear-gradient(90deg, #ef4444 0%, #dc2626 100%)';
         progressPercentage.style.color = '#ef4444';
-    } else if (percentage > 80) {
-        progressFill.style.background = 'linear-gradient(90deg, #f59e0b 0%, #d97706 100%)';
-        progressPercentage.style.color = '#f59e0b';
     } else {
-        progressFill.style.background = 'linear-gradient(90deg, #818cf8 0%, #c084fc 100%)';
-        progressPercentage.style.color = '#818cf8';
+        progressPercentage.textContent = `${percentage.toFixed(0)}%`;
+        progressFill.style.width = `${Math.min(percentage, 100)}%`;
+        
+        if (percentage > 80) {
+            progressFill.style.background = 'linear-gradient(90deg, #f59e0b 0%, #d97706 100%)';
+            progressPercentage.style.color = '#f59e0b';
+        } else {
+            progressFill.style.background = 'linear-gradient(90deg, #818cf8 0%, #c084fc 100%)';
+            progressPercentage.style.color = '#818cf8';
+        }
     }
 
     // Infos jours

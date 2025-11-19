@@ -2170,22 +2170,26 @@ select option {
     padding: 1.5rem;
 }
 
-.budget-progress-header {
+.budget-progress-header-custom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
+.budget-progress-days {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    font-weight: 500;
+}
+
 .budget-progress-label {
     font-size: 0.95rem;
     font-weight: 600;
     color: #e4e4e7;
-}
-
-.budget-progress-percentage {
-    font-size: 1.1rem;
-    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .budget-progress-bar {
@@ -2203,10 +2207,63 @@ select option {
     transition: width 0.5s ease, background-color 0.3s ease;
 }
 
+.budget-progress-footer-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget-progress-percentage {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #818cf8;
+}
+
 .budget-progress-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.875rem;
     color: #a1a1aa;
+}
+
+/* Uniformisation des KPI Cards - SANS infobulles */
+.kpi-card {
+    padding: 1.5rem; /* Réduit de 1.75rem à 1.5rem */
+}
+
+.kpi-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kpi-label {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    margin-bottom: 0.5rem; /* Réduit l'espace entre label et value */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.budget-progress-label {
+    font-size: 0.95rem;
+    font-weight: 700; /* Changé de 600 à 700 pour mettre en gras */
+    color: #e4e4e7;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }

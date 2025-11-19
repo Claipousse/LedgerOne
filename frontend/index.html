@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
+
 <body>
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1 class="sidebar-logo">LedgerOne</h1>
         </div>
-        
+
         <nav class="sidebar-nav">
             <a href="index.html" class="sidebar-link active">
                 <span class="sidebar-icon">📊</span>
@@ -53,9 +55,6 @@
             <div class="kpi-card">
                 <div class="kpi-icon">💳</div>
                 <div class="kpi-content">
-                    <div class="kpi-header">
-                        <span class="kpi-trend" id="trend-total"></span>
-                    </div>
                     <p class="kpi-label">Dépenses totales ce mois</p>
                     <h2 class="kpi-value" id="kpi-total">-</h2>
                 </div>
@@ -64,9 +63,6 @@
             <div class="kpi-card">
                 <div class="kpi-icon">📋</div>
                 <div class="kpi-content">
-                    <div class="kpi-header">
-                        <span class="kpi-trend" id="trend-count"></span>
-                    </div>
                     <p class="kpi-label">Nombres d'opérations ce mois</p>
                     <h2 class="kpi-value" id="kpi-count">-</h2>
                 </div>
@@ -75,9 +71,6 @@
             <div class="kpi-card">
                 <div class="kpi-icon">🎯</div>
                 <div class="kpi-content">
-                    <div class="kpi-header">
-                        <span class="kpi-trend" id="trend-budget"></span>
-                    </div>
                     <p class="kpi-label">Budget restant (Global)</p>
                     <h2 class="kpi-value" id="kpi-budget">-</h2>
                 </div>
@@ -86,9 +79,6 @@
             <div class="kpi-card">
                 <div class="kpi-icon">📈</div>
                 <div class="kpi-content">
-                    <div class="kpi-header">
-                        <span class="kpi-trend" id="trend-avg"></span>
-                    </div>
                     <p class="kpi-label">Nombres d'opérations moyennes/jr</p>
                     <h2 class="kpi-value" id="kpi-avg">-</h2>
                 </div>
@@ -99,21 +89,22 @@
         <section class="charts-section">
             <!-- Pie Chart -->
             <div class="chart-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                <div>
-                    <h3 class="chart-title">Répartition par catégorie</h3>
-                    <p class="chart-subtitle" id="pie-subtitle">Distribution des dépenses ce mois</p>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                    <div>
+                        <h3 class="chart-title">Répartition par catégorie</h3>
+                        <p class="chart-subtitle" id="pie-subtitle">Distribution des dépenses ce mois</p>
+                    </div>
+                    <div class="period-filters">
+                        <button class="period-btn active" data-period="1">1M</button>
+                        <button class="period-btn" data-period="3">3M</button>
+                        <button class="period-btn" data-period="12">1A</button>
+                    </div>
                 </div>
-                <div class="period-filters">
-                    <button class="period-btn active" data-period="1">1M</button>
-                    <button class="period-btn" data-period="3">3M</button>
-                    <button class="period-btn" data-period="12">1A</button>
+                <div class="chart-container">
+                    <canvas id="pie-chart"></canvas>
                 </div>
             </div>
-            <div class="chart-container">
-                <canvas id="pie-chart"></canvas>
-            </div>
-        </div>
 
             <!-- Bar Chart -->
             <div class="chart-card">
@@ -129,7 +120,7 @@
         <section class="top5-section">
             <h3 class="section-title">Top 5 catégories</h3>
             <p class="section-subtitle">Les catégories avec les dépenses les plus élevées ce mois</p>
-            
+
             <div class="table-container">
                 <table class="data-table">
                     <thead>
@@ -152,4 +143,5 @@
     <script src="js/api.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
 </html>

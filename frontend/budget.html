@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
+
 <body>
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1 class="sidebar-logo">LedgerOne</h1>
         </div>
-        
+
         <nav class="sidebar-nav">
             <a href="index.html" class="sidebar-link">
                 <span class="sidebar-icon">📊</span>
@@ -115,9 +117,11 @@
                 <form id="global-budget-form">
                     <div class="form-group">
                         <label class="form-label">Budget mensuel global (€)</label>
-                        <input type="number" id="global-budget-input" class="form-input" step="0.01" min="0" placeholder="Ex: 2000.00">
+                        <input type="number" id="global-budget-input" class="form-input" step="0.01" min="0"
+                            placeholder="Ex: 2000.00">
                         <p style="margin-top: 0.5rem; color: #71717a; font-size: 0.875rem;">
-                            💡 Ce budget s'applique à l'ensemble de vos dépenses mensuelles. Laissez vide pour désactiver le suivi global.
+                            💡 Ce budget s'applique à l'ensemble de vos dépenses mensuelles. Laissez vide pour
+                            désactiver le suivi global.
                         </p>
                     </div>
                     <div class="form-actions">
@@ -151,7 +155,8 @@
 
         <!-- Lien rapide vers catégories -->
         <section class="top5-section">
-            <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 2rem; text-align: center;">
+            <div
+                style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 2rem; text-align: center;">
                 <p style="color: #a1a1aa; font-size: 1rem; margin-bottom: 1rem;">
                     Pour définir ou modifier les budgets de vos catégories (Alimentation, Transport, etc.),<br>
                     rendez-vous sur la page <strong style="color: #e4e4e7;">Catégories</strong>.
@@ -167,4 +172,5 @@
     <script src="js/api.js"></script>
     <script src="js/budget.js"></script>
 </body>
+
 </html>

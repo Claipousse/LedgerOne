@@ -132,30 +132,24 @@ async function initDashboard() {
     }
 }
 
-/**
- * Afficher les KPI avec comparaisons mois dernier
- */
 function displayKPIs(current, previous, settings) {
     // KPI 1: Total des dépenses
-    const totalChange = calculatePercentageChange(current.total, previous.total);
     document.getElementById('kpi-total').textContent = formatCurrency(current.total);
-    updateTrendIndicator('trend-total', totalChange);
     
     // KPI 2: Nombre d'opérations
-    const countChange = current.count - previous.count;
     document.getElementById('kpi-count').textContent = current.count;
-    updateTrendIndicator('trend-count', countChange, true); // true = nombre absolu
     
     // KPI 3: Budget restant
     if (settings.global_monthly_budget && settings.global_monthly_budget > 0) {
         const remaining = settings.global_monthly_budget - current.total;
-        const remainingPercent = (remaining / settings.global_monthly_budget) * 100;
         
-        document.getElementById('kpi-budget').textContent = formatCurrency(remaining);
-        updateTrendIndicator('trend-budget', remainingPercent);
+        if (remaining < 0) {
+            document.getElementById('kpi-budget').textContent = 'Dépassé';
+        } else {
+            document.getElementById('kpi-budget').textContent = formatCurrency(remaining);
+        }
     } else {
         document.getElementById('kpi-budget').textContent = 'Non défini';
-        document.getElementById('trend-budget').textContent = '';
     }
     
     // KPI 4: Opérations moyennes par jour
@@ -166,7 +160,6 @@ function displayKPIs(current, previous, settings) {
     ).getDate();
     const avgPerDay = current.count > 0 ? (current.count / daysInMonth).toFixed(1) : 0;
     document.getElementById('kpi-avg').textContent = avgPerDay;
-    document.getElementById('trend-avg').textContent = ''; // Pas de tendance pour ce KPI
 }
 
 /**
