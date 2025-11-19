@@ -23,7 +23,6 @@ const btnNextMonth = document.getElementById('btn-next-month');
 const searchInput = document.getElementById('search-input');
 const sortSelect = document.getElementById('sort-select');
 const counterText = document.getElementById('counter-text');
-const categoryCounter = document.getElementById('category-counter');
 const categoryFormContainer = document.getElementById('category-form-container');
 const categoryForm = document.getElementById('category-form');
 const formTitle = document.getElementById('form-title');
@@ -321,8 +320,6 @@ function renderTable() {
 function updateCounters() {
     const count = allCategories.length;
     const filteredCount = filteredCategories.length;
-
-    categoryCounter.textContent = `${count} categorie${count > 1 ? 's' : ''} de sorties`;
 
     if (searchQuery) {
         counterText.textContent = `${filteredCount} / ${count} categories`;
