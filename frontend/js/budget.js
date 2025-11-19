@@ -73,11 +73,9 @@ function displayGlobalBudget(settings, currentSummary) {
         document.getElementById('global-budget-value').textContent = 'Non défini';
         document.getElementById('global-spent-value').textContent = formatCurrency(spent);
         document.getElementById('global-remaining-value').textContent = '-';
-        document.getElementById('global-projection-value').textContent = '-';
         document.getElementById('global-progress-percentage').textContent = '-';
         document.getElementById('global-progress-fill').style.width = '0%';
         document.getElementById('budget-days-info').textContent = '-';
-        document.getElementById('budget-pace-info').textContent = 'Définissez un budget pour activer le suivi';
         return;
     }
 
@@ -88,15 +86,6 @@ function displayGlobalBudget(settings, currentSummary) {
     document.getElementById('global-budget-value').textContent = formatCurrency(globalBudget);
     document.getElementById('global-spent-value').textContent = formatCurrency(spent);
     document.getElementById('global-remaining-value').textContent = formatCurrency(remaining);
-
-    // Projection
-    const today = new Date();
-    const currentDay = today.getDate();
-    const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-    const dailyAverage = spent / currentDay;
-    const projection = dailyAverage * daysInMonth;
-    
-    document.getElementById('global-projection-value').textContent = formatCurrency(projection);
 
     // Barre de progression
     const progressFill = document.getElementById('global-progress-fill');
@@ -118,17 +107,10 @@ function displayGlobalBudget(settings, currentSummary) {
     }
 
     // Infos jours
-    const monthProgress = (currentDay / daysInMonth) * 100;
-    document.getElementById('budget-days-info').textContent = `Jour ${currentDay}/${daysInMonth} (${monthProgress.toFixed(0)}%)`;
-
-    // Rythme
-    if (percentage > monthProgress + 10) {
-        document.getElementById('budget-pace-info').textContent = '🔴 Vous dépensez trop vite';
-    } else if (percentage < monthProgress - 10) {
-        document.getElementById('budget-pace-info').textContent = '🟢 Vous êtes en avance sur le budget';
-    } else {
-        document.getElementById('budget-pace-info').textContent = '🟡 Rythme normal';
-    }
+    const today = new Date();
+    const currentDay = today.getDate();
+    const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+    document.getElementById('budget-days-info').textContent = `Jour ${currentDay}/${daysInMonth}`;
 }
 
 // ============================================

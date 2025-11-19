@@ -62,12 +62,20 @@
                 </div>
                 <button class="btn-primary" onclick="showEditGlobalBudget()">
                     <span>✏️</span>
-                    <span>Modifier</span>
+                    <span>Définir le budget global</span>
                 </button>
             </div>
 
             <!-- KPI Budget Global -->
-            <div class="kpi-section" style="margin-bottom: 2rem;">
+            <div class="kpi-section" style="margin-bottom: 2rem; grid-template-columns: 1fr 1fr 1fr;">
+                <div class="kpi-card">
+                    <div class="kpi-icon">💳</div>
+                    <div class="kpi-content">
+                        <p class="kpi-label">Dépenses totales actuelles</p>
+                        <h2 class="kpi-value" id="global-spent-value">-</h2>
+                    </div>
+                </div>
+
                 <div class="kpi-card">
                     <div class="kpi-icon">💰</div>
                     <div class="kpi-content">
@@ -77,42 +85,25 @@
                 </div>
 
                 <div class="kpi-card">
-                    <div class="kpi-icon">💳</div>
-                    <div class="kpi-content">
-                        <p class="kpi-label">Dépenses actuelles</p>
-                        <h2 class="kpi-value" id="global-spent-value">-</h2>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
                     <div class="kpi-icon">🎯</div>
                     <div class="kpi-content">
-                        <p class="kpi-label">Budget restant</p>
+                        <p class="kpi-label">Budget mensuel restant</p>
                         <h2 class="kpi-value" id="global-remaining-value">-</h2>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-icon">📈</div>
-                    <div class="kpi-content">
-                        <p class="kpi-label">Projection fin de mois</p>
-                        <h2 class="kpi-value" id="global-projection-value">-</h2>
                     </div>
                 </div>
             </div>
 
             <!-- Barre de progression globale -->
             <div class="budget-progress-container">
-                <div class="budget-progress-header">
+                <div class="budget-progress-header-custom">
+                    <span id="budget-days-info" class="budget-progress-days">Jour 0/30</span>
                     <span class="budget-progress-label">Progression du budget global</span>
-                    <span class="budget-progress-percentage" id="global-progress-percentage">0%</span>
                 </div>
                 <div class="budget-progress-bar">
                     <div class="budget-progress-fill" id="global-progress-fill" style="width: 0%;"></div>
                 </div>
-                <div class="budget-progress-info">
-                    <span id="budget-days-info">Jour 0/30</span>
-                    <span id="budget-pace-info">-</span>
+                <div class="budget-progress-footer-custom">
+                    <span class="budget-progress-percentage" id="global-progress-percentage">0%</span>
                 </div>
             </div>
         </section>
@@ -160,17 +151,6 @@
 
         <!-- Lien rapide vers catégories -->
         <section class="top5-section">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                <div>
-                    <h3 class="section-title">Budgets par catégorie</h3>
-                    <p class="section-subtitle">Gérez les budgets individuels de vos catégories</p>
-                </div>
-                <a href="categories.html" class="btn-primary">
-                    <span>🏷️</span>
-                    <span>Gérer les catégories</span>
-                </a>
-            </div>
-            
             <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 2rem; text-align: center;">
                 <p style="color: #a1a1aa; font-size: 1rem; margin-bottom: 1rem;">
                     Pour définir ou modifier les budgets de vos catégories (Alimentation, Transport, etc.),<br>

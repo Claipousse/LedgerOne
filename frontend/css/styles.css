@@ -2161,7 +2161,7 @@ select option {
 }
 
 /* ============================================
-   BUDGET PAGE - BARRE DE PROGRESSION
+   BUDGET PAGE - BARRE DE PROGRESSION (MODIFIÉ)
    ============================================ */
 .budget-progress-container {
     background: rgba(99, 102, 241, 0.08);
@@ -2170,22 +2170,26 @@ select option {
     padding: 1.5rem;
 }
 
-.budget-progress-header {
+.budget-progress-header-custom {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    position: relative;
+}
+
+.budget-progress-days {
+    position: absolute;
+    left: 0;
+    font-size: 0.875rem;
+    color: #a1a1aa;
 }
 
 .budget-progress-label {
     font-size: 0.95rem;
     font-weight: 600;
     color: #e4e4e7;
-}
-
-.budget-progress-percentage {
-    font-size: 1.1rem;
-    font-weight: 700;
+    text-align: center;
 }
 
 .budget-progress-bar {
@@ -2200,13 +2204,19 @@ select option {
     height: 100%;
     background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
     border-radius: 12px;
-    transition: width 0.5s ease, background 0.3s ease;
+    transition: width 0.5s ease, background-color 0.3s ease;
 }
 
-.budget-progress-info {
+.budget-progress-footer-custom {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-size: 0.875rem;
-    color: #a1a1aa;
 }
+
+.budget-progress-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+
