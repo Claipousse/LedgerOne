@@ -1,54 +1,71 @@
 /**
- * styles.css - LedgerOne
- * Design sombre moderne et élégant - VERSION COMPLÈTE
+ * ============================================================================
+ * LedgerOne - styles.css
+ * Feuille de style qui regroupe tous le CSS de l'app
+ * ============================================================================
  */
 
-/* ============================================
-   RESET & BASE
-   ============================================ */
+
+/**
+ * ============================================================================
+ * RESET & BASE
+ * Styles de réinitialisation globaux et configuration de base
+ * Utilisé sur : Toutes les pages
+ * ============================================================================
+ */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Force le calcul de largeur incluant padding et border */
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
-    background: #0a0a0f;
-    color: #e4e4e7;
-    line-height: 1.6;
-    display: flex;
-    min-height: 100vh;
+    background: #0a0a0f; /* Fond noir profond */
+    color: #e4e4e7; /* Texte blanc cassé */
+    line-height: 1.6; /* Espacement vertical du texte */
+    display: flex; /* Active flexbox pour layout avec sidebar */
+    min-height: 100vh; /* Hauteur minimale = hauteur viewport */
 }
 
-/* ============================================
-   SIDEBAR
-   ============================================ */
+
+/**
+ * ============================================================================
+ * COMPOSANTS GLOBAUX
+ * Éléments partagés par toutes les pages (sidebar, loading, scrollbar...)
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   Sidebar - Menu de navigation latéral
+   ---------------------------------------------------------------------------- */
+
 .sidebar {
     width: 240px;
-    background: linear-gradient(180deg, #13131f 0%, #0f0f18 100%);
-    border-right: 1px solid rgba(99, 102, 241, 0.2);
+    background: linear-gradient(180deg, #13131f 0%, #0f0f18 100%); /* Dégradé sombre vertical */
+    border-right: 1px solid rgba(99, 102, 241, 0.2); /* Bordure violette légère */
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
-    overflow-y: auto;
-    z-index: 1000;
-    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
+    overflow-y: auto; /* Scroll si contenu déborde */
+    z-index: 1000; /* Au-dessus du contenu principal */
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7); /* Ombre portée à droite */
 }
 
 .sidebar-header {
     padding: 2rem 1.5rem;
     border-bottom: 1px solid rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(99, 102, 241, 0.08); /* Fond violet très léger */
 }
 
 .sidebar-logo {
     font-size: 1.35rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); /* Dégradé violet→rose */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; /* Texte avec dégradé (compatible Webkit) */
     background-clip: text;
 }
 
@@ -60,9 +77,9 @@ body {
     display: flex;
     align-items: center;
     padding: 0.875rem 1.5rem;
-    color: #a1a1aa;
+    color: #a1a1aa; /* Gris neutre par défaut */
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide personnalisée */
     font-size: 0.95rem;
     position: relative;
     margin: 0.25rem 0.75rem;
@@ -77,51 +94,55 @@ body {
     transform: translateY(-50%);
     width: 3px;
     height: 0;
-    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%);
+    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%); /* Indicateur violet gauche */
     border-radius: 0 3px 3px 0;
     transition: height 0.3s ease;
 }
 
 .sidebar-link:hover {
-    background: rgba(99, 102, 241, 0.15);
-    color: #e4e4e7;
-    transform: translateX(5px);
+    background: rgba(99, 102, 241, 0.15); /* Fond violet au survol */
+    color: #e4e4e7; /* Texte plus clair */
+    transform: translateX(5px); /* Décalage léger à droite */
 }
 
 .sidebar-link:hover::before {
-    height: 70%;
+    height: 70%; /* Barre indicatrice apparaît au survol */
 }
 
 .sidebar-link.active {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.15) 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.15) 100%); /* Fond dégradé pour lien actif */
+    color: #ffffff; /* Texte blanc */
     font-weight: 600;
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3); /* Ombre violette */
 }
 
 .sidebar-link.active::before {
-    height: 70%;
+    height: 70%; /* Barre indicatrice visible */
 }
 
 .sidebar-icon {
     margin-right: 0.75rem;
     font-size: 1.2rem;
-    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4)); /* Lueur violette sur icône */
 }
 
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Main Content - Zone de contenu principal
+   ---------------------------------------------------------------------------- */
+
 .main-content {
-    margin-left: 240px;
-    flex: 1;
+    margin-left: 240px; /* Décalage pour ne pas chevaucher la sidebar */
+    flex: 1; /* Prend tout l'espace restant */
     padding: 2.5rem;
     max-width: 1400px;
 }
 
-/* ============================================
-   PAGE HEADER
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Page Header - En-tête de page
+   ---------------------------------------------------------------------------- */
+
 .page-header {
     margin-bottom: 2.5rem;
 }
@@ -129,25 +150,452 @@ body {
 .page-title {
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%); /* Dégradé blanc→gris */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; /* Texte avec dégradé */
     background-clip: text;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.5px; /* Resserrement des lettres */
 }
 
 .page-subtitle {
     font-size: 0.95rem;
-    color: #71717a;
+    color: #71717a; /* Gris moyen */
 }
 
-/* ============================================
-   KPI SECTION
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Loading & Error - États de chargement et erreurs
+   ---------------------------------------------------------------------------- */
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+}
+
+.spinner {
+    border: 4px solid rgba(99, 102, 241, 0.2); /* Cercle de fond */
+    border-top: 4px solid #818cf8; /* Partie animée violette */
+    border-radius: 50%; /* Forme circulaire */
+    width: 50px;
+    height: 50px;
+    animation: spin 0.8s linear infinite; /* Rotation continue */
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); /* Lueur violette */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.15); /* Fond rouge transparent */
+    border: 1px solid rgba(239, 68, 68, 0.4); /* Bordure rouge */
+    color: #f87171; /* Texte rouge clair */
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px); /* Effet de flou d'arrière-plan */
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    color: #71717a; /* Gris moyen */
+    font-style: italic;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Boutons - Styles des boutons globaux
+   ---------------------------------------------------------------------------- */
+
+.btn-primary {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); /* Dégradé violet→rose */
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px); /* Léger soulèvement au survol */
+    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4); /* Ombre violette agrandie */
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.3); /* Bordure violette */
+    color: #a1a1aa; /* Texte gris */
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background: rgba(99, 102, 241, 0.1); /* Fond violet léger au survol */
+    border-color: rgba(99, 102, 241, 0.5); /* Bordure plus visible */
+    color: #e4e4e7; /* Texte plus clair */
+}
+
+.btn-icon {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a1a1aa;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.btn-icon:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #e4e4e7;
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+.btn-icon.edit:hover {
+    border-color: rgba(129, 140, 248, 0.6); /* Bordure violette */
+    color: #818cf8;
+}
+
+.btn-icon.delete:hover {
+    border-color: rgba(239, 68, 68, 0.6); /* Bordure rouge */
+    color: #f87171;
+}
+
+.btn-icon.detail:hover {
+    border-color: rgba(34, 197, 94, 0.6); /* Bordure verte */
+    color: #4ade80;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Formulaires - Styles des formulaires globaux
+   ---------------------------------------------------------------------------- */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #a1a1aa; /* Gris moyen */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Espacement des lettres */
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(99, 102, 241, 0.1); /* Fond violet très léger */
+    border: 1px solid rgba(99, 102, 241, 0.3); /* Bordure violette */
+    color: #e4e4e7; /* Texte blanc cassé */
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgba(129, 140, 248, 0.6); /* Bordure violette plus visible */
+    background: rgba(99, 102, 241, 0.15); /* Fond plus marqué */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); /* Ombre de focus */
+}
+
+.form-input[type="color"] {
+    height: 50px;
+    cursor: pointer;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    gap: 1.5rem;
+}
+
+.color-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.color-preview input[type="color"] {
+    width: 80px;
+}
+
+.color-preview input[type="text"] {
+    flex: 1; /* Prend l'espace restant */
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-actions .btn-secondary,
+.form-actions .btn-primary {
+    flex: 1; /* Boutons prennent chacun 50% de la largeur */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Tables - Styles des tableaux
+   ---------------------------------------------------------------------------- */
+
+.table-container {
+    overflow-x: auto; /* Scroll horizontal si débordement */
+    border-radius: 12px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate; /* Nécessaire pour border-radius */
+    border-spacing: 0;
+}
+
+.data-table thead {
+    background: rgba(99, 102, 241, 0.15); /* Fond violet léger */
+}
+
+.data-table th {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a1a1aa; /* Gris moyen */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Espacement lettres augmenté */
+    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.data-table td {
+    padding: 1.25rem;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.15); /* Bordure violette légère */
+    font-size: 0.95rem;
+    color: #e4e4e7;
+}
+
+.data-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(99, 102, 241, 0.12); /* Fond violet au survol */
+    transform: scale(1.01); /* Léger agrandissement */
+}
+
+
+/* ----------------------------------------------------------------------------
+   Modal - Fenêtre modale
+   ---------------------------------------------------------------------------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Fond noir semi-transparent */
+    backdrop-filter: blur(8px); /* Flou d'arrière-plan */
+    z-index: 9999; /* Au-dessus de tout */
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.show {
+    display: flex; /* Affiche la modal */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%); /* Dégradé sombre */
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); /* Ombre profonde */
+    animation: modalSlideIn 0.3s ease; /* Animation d'entrée */
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* Glissement depuis le haut */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.modal-close:hover {
+    background: rgba(239, 68, 68, 0.2); /* Fond rouge au survol */
+    color: #f87171; /* Texte rouge */
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.modal-footer .btn-primary {
+    flex: 1;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Scrollbar Custom - Barre de défilement personnalisée
+   ---------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 10, 15, 0.8); /* Fond sombre */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%); /* Dégradé violet→rose */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #6366f1 0%, #a855f7 100%); /* Dégradé plus foncé au survol */
+}
+
+
+/* ----------------------------------------------------------------------------
+   Utilities - Classes utilitaires
+   ---------------------------------------------------------------------------- */
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Fix Category Dots - Correction des points de catégorie
+   ---------------------------------------------------------------------------- */
+
+.category-dot {
+    animation: none !important; /* Désactive animation par défaut */
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Fix Dropdown Select - Correction de la visibilité des options
+   ---------------------------------------------------------------------------- */
+
+select option {
+    background: #1a1a2e !important; /* Fond sombre pour toutes les options */
+    color: #e4e4e7 !important;
+}
+
+.form-input select option,
+#form-category option {
+    background: #1a1a2e !important;
+    color: #e4e4e7 !important;
+}
+
+
+/**
+ * ============================================================================
+ * index.html - PAGE DASHBOARD
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   KPI Cards - Cartes d'indicateurs clés
+   ---------------------------------------------------------------------------- */
+
 .kpi-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grille responsive auto-adaptée */
     gap: 1.5rem;
     margin-bottom: 2.5rem;
 }
@@ -157,7 +605,7 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 16px;
-    padding: 1.75rem;
+    padding: 1.5rem; /* Réduit pour uniformité */
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
@@ -173,32 +621,35 @@ body {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent); /* Ligne décorative supérieure */
 }
 
 .kpi-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); /* Soulèvement au survol */
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.5),
         0 0 0 1px rgba(99, 102, 241, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        inset 0 1px 0 rgba(255, 255, 255, 0.08); /* Ombres multiples pour effet de profondeur */
     border-color: rgba(99, 102, 241, 0.5);
 }
 
 .kpi-icon {
     font-size: 2.5rem;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.7));
-    animation: float 3s ease-in-out infinite;
+    flex-shrink: 0; /* Ne rétrécit pas */
+    filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.7)); /* Lueur violette */
+    animation: float 3s ease-in-out infinite; /* Animation de flottement */
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-10px); } /* Monte puis descend */
 }
 
 .kpi-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .kpi-header {
@@ -219,13 +670,13 @@ body {
 }
 
 .kpi-trend.positive {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.2); /* Fond vert pour tendance positive */
     color: #4ade80;
     box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
 }
 
 .kpi-trend.negative {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.2); /* Fond rouge pour tendance négative */
     color: #f87171;
     box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
 }
@@ -238,7 +689,7 @@ body {
 .kpi-label {
     font-size: 0.875rem;
     color: #a1a1aa;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 500;
@@ -252,14 +703,17 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: -1px;
+    margin: 0;
 }
 
-/* ============================================
-   CHARTS SECTION
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Charts Section - Section des graphiques
+   ---------------------------------------------------------------------------- */
+
 .charts-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
     gap: 1.5rem;
     margin-bottom: 2.5rem;
 }
@@ -311,7 +765,7 @@ body {
 
 .chart-container {
     position: relative;
-    height: 300px;
+    height: 300px; /* Hauteur fixe pour Chart.js */
 }
 
 .chart-legend {
@@ -335,7 +789,7 @@ body {
 .legend-item:hover {
     background: rgba(99, 102, 241, 0.15);
     border-color: rgba(99, 102, 241, 0.4);
-    transform: translateX(5px);
+    transform: translateX(5px); /* Décalage à droite au survol */
 }
 
 .legend-label {
@@ -346,14 +800,6 @@ body {
     color: #e4e4e7;
 }
 
-.legend-color {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 10px currentColor;
-}
-
 .legend-value {
     font-weight: 700;
     background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
@@ -362,9 +808,11 @@ body {
     background-clip: text;
 }
 
-/* ============================================
-   TOP 5 SECTION
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Top 5 Section - Tableau des 5 meilleures catégories
+   ---------------------------------------------------------------------------- */
+
 .top5-section {
     background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
     backdrop-filter: blur(10px);
@@ -401,48 +849,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.table-container {
-    overflow-x: auto;
-    border-radius: 12px;
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.data-table thead {
-    background: rgba(99, 102, 241, 0.15);
-}
-
-.data-table th {
-    text-align: left;
-    padding: 1rem 1.25rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #a1a1aa;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
-}
-
-.data-table td {
-    padding: 1.25rem;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.15);
-    font-size: 0.95rem;
-    color: #e4e4e7;
-}
-
-.data-table tbody tr {
-    transition: all 0.3s ease;
-}
-
-.data-table tbody tr:hover {
-    background: rgba(99, 102, 241, 0.12);
-    transform: scale(1.01);
-}
-
 .rank-cell {
     font-weight: 700;
     background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
@@ -458,20 +864,6 @@ body {
     gap: 1rem;
 }
 
-.category-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 12px currentColor;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
-
 .percentage-cell {
     color: #a1a1aa;
     font-weight: 500;
@@ -485,276 +877,17 @@ body {
     background-clip: text;
 }
 
-/* ============================================
-   LOADING & ERROR
-   ============================================ */
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem;
-}
 
-.spinner {
-    border: 4px solid rgba(99, 102, 241, 0.2);
-    border-top: 4px solid #818cf8;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.8s linear infinite;
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-}
+/**
+ * ============================================================================
+ * categories.html - PAGE CATÉGORIES
+ * ============================================================================
+ */
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* ----------------------------------------------------------------------------
+   Navigation mensuelle - Barre de navigation mois/période
+   ---------------------------------------------------------------------------- */
 
-.error-message {
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    color: #f87171;
-    padding: 1.25rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
-}
-
-.empty-state {
-    text-align: center;
-    padding: 4rem;
-    color: #71717a;
-    font-style: italic;
-}
-
-/* ============================================
-   IMPORT PAGE STYLES
-   ============================================ */
-.upload-zone {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 2px dashed rgba(99, 102, 241, 0.5);
-    border-radius: 16px;
-    padding: 3rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin-bottom: 2rem;
-}
-
-.upload-zone:hover,
-.upload-zone.dragover {
-    border-color: rgba(129, 140, 248, 0.8);
-    background: rgba(99, 102, 241, 0.1);
-    transform: scale(1.02);
-}
-
-.upload-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6));
-}
-
-.upload-text {
-    font-size: 1.2rem;
-    color: #e4e4e7;
-    margin-bottom: 0.5rem;
-}
-
-.upload-hint {
-    font-size: 0.9rem;
-    color: #71717a;
-}
-
-.file-input {
-    display: none;
-}
-
-.import-button {
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-    border: none;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.import-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
-}
-
-.import-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.result-card {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.result-success {
-    border-color: rgba(34, 197, 94, 0.5);
-    background: rgba(34, 197, 94, 0.05);
-}
-
-.result-error {
-    border-color: rgba(239, 68, 68, 0.5);
-    background: rgba(239, 68, 68, 0.05);
-}
-
-.stat-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-}
-
-.stat-row:last-child {
-    border-bottom: none;
-}
-
-.stat-label {
-    color: #a1a1aa;
-}
-
-.stat-value {
-    font-weight: 700;
-    color: #e4e4e7;
-}
-
-.error-list {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-}
-
-.error-item {
-    color: #f87171;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.selected-file {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.file-icon {
-    font-size: 2rem;
-}
-
-.file-details {
-    flex: 1;
-}
-
-.file-name {
-    font-weight: 600;
-    color: #e4e4e7;
-}
-
-.file-size {
-    font-size: 0.85rem;
-    color: #71717a;
-}
-
-.format-example {
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
-
-.format-title {
-    font-weight: 700;
-    color: #e4e4e7;
-    margin-bottom: 1rem;
-}
-
-.code-block {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 1rem;
-    border-radius: 8px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    color: #a1a1aa;
-    overflow-x: auto;
-    white-space: pre-wrap;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 1024px) {
-    .charts-section {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-    
-    .main-content {
-        margin-left: 200px;
-        padding: 1.5rem;
-    }
-    
-    .kpi-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .page-title {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .sidebar {
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-    }
-    
-    .sidebar.open {
-        transform: translateX(0);
-    }
-    
-    .main-content {
-        margin-left: 0;
-        padding: 1rem;
-    }
-    
-    .kpi-value {
-        font-size: 1.5rem;
-    }
-    
-    .kpi-card {
-        padding: 1.25rem;
-    }
-}
-
-/* ============================================
-   CATEGORIES PAGE STYLES
-   ============================================ */
 .month-navigation {
     display: flex;
     justify-content: space-between;
@@ -792,11 +925,11 @@ body {
     background: rgba(99, 102, 241, 0.15);
     border-color: rgba(99, 102, 241, 0.5);
     color: #e4e4e7;
-    transform: scale(1.05);
+    transform: scale(1.05); /* Léger agrandissement */
 }
 
 .month-arrow:disabled {
-    opacity: 0.3;
+    opacity: 0.3; /* Flèche grisée quand désactivée */
     cursor: not-allowed;
 }
 
@@ -806,88 +939,6 @@ body {
     color: #e4e4e7;
     min-width: 280px;
     text-align: center;
-}
-
-.page-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.controls-left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.controls-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-input {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e4e4e7;
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    width: 250px;
-    transition: all 0.3s ease;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: rgba(129, 140, 248, 0.6);
-    background: rgba(99, 102, 241, 0.15);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.search-input::placeholder {
-    color: #71717a;
-}
-
-.search-icon {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #71717a;
-    font-size: 1rem;
-}
-
-.sort-select {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e4e4e7;
-    padding: 0.75rem 2.5rem 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a1a1aa' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-}
-
-.sort-select:focus {
-    outline: none;
-    border-color: rgba(129, 140, 248, 0.6);
-    background-color: rgba(99, 102, 241, 0.15);
-}
-
-.sort-select option {
-    background: #1a1a2e;
-    color: #e4e4e7;
 }
 
 .period-filters {
@@ -917,264 +968,35 @@ body {
 }
 
 .period-btn.active {
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); /* Bouton actif avec dégradé */
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(129, 140, 248, 0.4);
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-    border: none;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-}
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
-}
+/* ----------------------------------------------------------------------------
+   Page Controls - Barre de contrôles (recherche, tri, filtres)
+   ---------------------------------------------------------------------------- */
 
-.action-buttons {
+.page-controls {
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Passage à la ligne si écran trop petit */
 }
 
-.btn-icon {
-    background: transparent;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a1a1aa;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.controls-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1rem;
+    gap: 2rem;
 }
 
-.btn-icon:hover {
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #e4e4e7;
-    transform: scale(1.1);
-}
-
-.btn-icon.edit:hover {
-    border-color: rgba(129, 140, 248, 0.6);
-    color: #818cf8;
-}
-
-.btn-icon.delete:hover {
-    border-color: rgba(239, 68, 68, 0.6);
-    color: #f87171;
-}
-
-.btn-icon.detail:hover {
-    border-color: rgba(34, 197, 94, 0.6);
-    color: #4ade80;
-}
-
-.sortable {
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-}
-
-.sortable:hover {
-    color: #818cf8;
-}
-
-.sortable::after {
-    content: '↕';
-    margin-left: 0.5rem;
-    opacity: 0.3;
-    font-size: 0.8rem;
-}
-
-.sortable.asc::after {
-    content: '↑';
-    opacity: 1;
-    color: #818cf8;
-}
-
-.sortable.desc::after {
-    content: '↓';
-    opacity: 1;
-    color: #818cf8;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 16px;
-    padding: 2rem;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    animation: modalSlideIn 0.3s ease;
-}
-
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.modal-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.modal-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: transparent;
-    border: none;
-    color: #a1a1aa;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-}
-
-.modal-close:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #a1a1aa;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.form-input {
-    width: 100%;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e4e4e7;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: rgba(129, 140, 248, 0.6);
-    background: rgba(99, 102, 241, 0.15);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.form-input[type="color"] {
-    height: 50px;
-    cursor: pointer;
-}
-
-.color-preview {
+.controls-right {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
-.color-preview input[type="color"] {
-    width: 80px;
-}
-
-.color-preview input[type="text"] {
-    flex: 1;
-}
-
-.modal-footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.btn-secondary {
-    background: transparent;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a1a1aa;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex: 1;
-}
-
-.btn-secondary:hover {
-    background: rgba(99, 102, 241, 0.1);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #e4e4e7;
-}
-
-.modal-footer .btn-primary {
-    flex: 1;
 }
 
 .counter-text {
@@ -1183,70 +1005,112 @@ body {
     font-weight: 500;
 }
 
-.budget-cell.over-budget {
-    font-style: normal !important;
+
+/* ----------------------------------------------------------------------------
+   Recherche - Barre de recherche
+   ---------------------------------------------------------------------------- */
+
+.search-box {
+    position: relative;
 }
 
-.budget-cell.set {
+.search-input {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
     color: #e4e4e7;
-    font-weight: 600;
-    font-style: normal;
+    padding: 0.75rem 1rem 0.75rem 2.5rem; /* Padding gauche pour l'icône */
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 250px;
+    transition: all 0.3s ease;
 }
 
-/* ============================================
-   UTILITIES
-   ============================================ */
-.hidden {
+.search-input:focus {
+    outline: none;
+    border-color: rgba(129, 140, 248, 0.6);
+    background: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); /* Ombre de focus */
+}
+
+.search-input::placeholder {
+    color: #71717a;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%); /* Centrage vertical */
+    color: #71717a;
+    font-size: 1rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Sort Select - Menu déroulant de tri
+   ---------------------------------------------------------------------------- */
+
+.sort-select {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #e4e4e7;
+    padding: 0.75rem 2.5rem 0.75rem 1rem; /* Padding droit pour flèche */
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none; /* Supprime le style natif */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a1a1aa' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); /* Flèche SVG personnalisée */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: rgba(129, 140, 248, 0.6);
+    background-color: rgba(99, 102, 241, 0.15);
+}
+
+.sort-select option {
+    background: #1a1a2e; /* Fond sombre pour les options */
+    color: #e4e4e7;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Formulaire catégorie inline
+   ---------------------------------------------------------------------------- */
+
+.category-form-container {
+    margin-bottom: 2rem;
+    animation: slideDown 0.4s ease; /* Animation d'apparition */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Glissement depuis le haut */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-form-container.hidden {
     display: none;
 }
 
-.text-center {
-    text-align: center;
-}
-
-/* ============================================
-   SCROLLBAR CUSTOM (Dark Theme)
-   ============================================ */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(10, 10, 15, 0.8);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #6366f1 0%, #a855f7 100%);
-}
-
-
-/* CSS pour detail_categorie.html
-
-/* Category Info Card */
-.category-info-section {
-    margin-bottom: 2rem;
-}
-
-.category-info-card {
+.category-form-card {
     background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
     border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 16px;
-    padding: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
+    padding: 2rem;
     position: relative;
     overflow: hidden;
 }
 
-.category-info-card::before {
+.category-form-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1256,215 +1120,293 @@ body {
     background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
 }
 
-/* Budget Circle */
-.budget-circle-container {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    flex-shrink: 0;
-}
-
-.budget-circle-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.budget-amount {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #e4e4e7;
-    margin-bottom: 0.25rem;
-}
-
-.budget-percentage {
-    font-size: 1.5rem;
-    font-weight: 800;
-    /*background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;*/
-}
-
-.no-budget-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 180px;
-    border: 2px dashed rgba(99, 102, 241, 0.3);
-    border-radius: 50%;
-    color: #71717a;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.4;
-}
-
-/* Category Main Info */
-.category-main-info {
-    flex: 1;
-    text-align: center;
-}
-
-.category-header {
-    margin-bottom: 1rem;
-}
-
-.category-name-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.category-dot-large {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 16px currentColor;
-}
-
-.category-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-}
-
-.category-total {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1px;
-}
-
-.category-stats {
-    font-size: 1rem;
-    color: #a1a1aa;
-    font-weight: 500;
-}
-
-/* Settings Menu */
-.settings-menu-container {
-    position: relative;
-}
-
-.settings-btn {
-    background: transparent;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a1a1aa;
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.5rem;
-}
-
-.settings-btn:hover {
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #e4e4e7;
-    transform: rotate(90deg);
-}
-
-.settings-dropdown {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    right: 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 12px;
-    padding: 0.5rem;
-    min-width: 180px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.settings-dropdown.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-item {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #e4e4e7;
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-item:hover {
-    background: rgba(99, 102, 241, 0.15);
-}
-
-.dropdown-item.delete:hover {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-}
-
-/* Edit Form */
-.edit-form-container {
-    margin-top: 1.5rem;
-}
-
-.edit-form-container.hidden {
-    display: none;
-}
-
-.edit-form-card {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 16px;
-    padding: 2rem;
-}
-
-.edit-form-title {
+.form-title {
     font-size: 1.2rem;
     font-weight: 700;
     color: #e4e4e7;
     margin-bottom: 1.5rem;
 }
 
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+
+/* ----------------------------------------------------------------------------
+   Affichage spécifique des budgets dans le tableau
+   ---------------------------------------------------------------------------- */
+
+.budget-cell.over-budget {
+    color: #ef4444 !important; /* Rouge pour budget dépassé */
+    font-weight: 700;
+    font-style: normal !important;
 }
 
-.form-actions .btn-secondary,
-.form-actions .btn-primary {
-    flex: 1;
-    justify-content: center;
+.budget-cell.set {
+    color: #e4e4e7;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.budget-warning {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    cursor: help; /* Curseur point d'interrogation */
+    animation: warningPulse 2s ease-in-out infinite; /* Pulsation */
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6)); /* Lueur rouge */
+}
+
+@keyframes warningPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1); /* Agrandissement */
+    }
+}
+
+.budget-warning:hover {
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.9)); /* Lueur plus intense au survol */
+}
+
+/* Ligne entière en rouge si budget dépassé */
+.data-table tbody tr:has(.budget-cell.over-budget) {
+    background: rgba(239, 68, 68, 0.05); /* Fond rouge très léger */
+    border-left: 3px solid #ef4444; /* Barre rouge à gauche */
+}
+
+.data-table tbody tr:has(.budget-cell.over-budget):hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+
+/**
+ * ============================================================================
+ * transactions.html - PAGE TRANSACTIONS
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   Multiselect catégories - Sélection multiple avec recherche
+   ---------------------------------------------------------------------------- */
+
+.multiselect-container {
+    position: relative;
+}
+
+.multiselect-btn {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #e4e4e7;
+    padding: 0.75rem 2.5rem 0.75rem 1rem; /* Padding droit pour flèche */
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap; /* Pas de retour à la ligne */
+    min-width: 140px;
 }
 
-/* Transactions Section */
+.multiselect-btn:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+}
+
+.multiselect-arrow {
+    position: absolute;
+    right: 0.75rem;
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    color: #a1a1aa;
+}
+
+.multiselect-dropdown.show .multiselect-arrow {
+    transform: rotate(180deg); /* Flèche vers le haut quand ouvert */
+}
+
+.multiselect-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem); /* Juste en dessous du bouton */
+    left: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 280px;
+    max-width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Légèrement au-dessus */
+    transition: all 0.3s ease;
+    z-index: 1000;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.multiselect-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Position normale */
+}
+
+.multiselect-search {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #e4e4e7;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.multiselect-search:focus {
+    outline: none;
+    border-color: rgba(129, 140, 248, 0.5);
+    background: rgba(99, 102, 241, 0.12);
+}
+
+.multiselect-search::placeholder {
+    color: #71717a;
+}
+
+.multiselect-options {
+    max-height: 300px;
+    overflow-y: auto; /* Scroll si trop d'options */
+}
+
+.multiselect-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #e4e4e7;
+    font-size: 0.95rem;
+    background: transparent;
+}
+
+.multiselect-option:hover {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.multiselect-option input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #818cf8; /* Couleur violette pour la checkbox */
+}
+
+.multiselect-option .category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Tags sélectionnés - Affichage des catégories sélectionnées
+   ---------------------------------------------------------------------------- */
+
+.selected-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* Passage à la ligne si trop de tags */
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #e4e4e7;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    animation: tagSlideIn 0.3s ease; /* Animation d'apparition */
+}
+
+@keyframes tagSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8); /* Apparaît en agrandissant */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tag-remove {
+    background: transparent;
+    border: none;
+    color: #f87171; /* Rouge */
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.tag-remove:hover {
+    background: rgba(239, 68, 68, 0.2); /* Fond rouge au survol */
+    transform: scale(1.1);
+}
+
+
+/* ----------------------------------------------------------------------------
+   Formulaire transaction inline
+   ---------------------------------------------------------------------------- */
+
+.transaction-form-container {
+    margin-bottom: 2rem;
+    animation: slideDown 0.4s ease;
+}
+
+.transaction-form-container.hidden {
+    display: none;
+}
+
+.transaction-form-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.transaction-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+}
+
+
+/* ----------------------------------------------------------------------------
+   Affichage transactions - Liste avec groupement par date
+   ---------------------------------------------------------------------------- */
+
 .transactions-section {
     background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
     border: 1px solid rgba(99, 102, 241, 0.3);
@@ -1508,11 +1450,12 @@ body {
 }
 
 .transaction-date-header:first-child {
-    margin-top: 0;
+    margin-top: 0; /* Pas de marge pour le premier header */
 }
 
 .transaction-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3px 1fr auto auto 40px; /* Barre | Description | Catégorie | Montant | Menu */
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 0;
@@ -1529,373 +1472,7 @@ body {
 .transaction-bar {
     width: 3px;
     height: 20px;
-    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%);
-    border-radius: 2px;
-    flex-shrink: 0;
-}
-
-.transaction-desc {
-    flex: 1;
-    color: #e4e4e7;
-    font-size: 0.95rem;
-}
-
-.transaction-amount {
-    font-weight: 700;
-    color: #e4e4e7;
-    font-size: 1rem;
-}
-
-/* Pagination */
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-}
-
-.pagination-btn {
-    background: transparent;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a1a1aa;
-    padding: 0.5rem 0.875rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #e4e4e7;
-}
-
-.pagination-btn.active {
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-    color: #ffffff;
-    border-color: transparent;
-}
-
-.pagination-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* Pagination Controls */
-.pagination-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-/* Budget Alert */
-.budget-alert {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.1) 100%);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    border-radius: 12px;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    animation: slideDown 0.4s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.alert-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
-}
-
-.alert-content {
-    flex: 1;
-}
-
-.alert-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #f87171;
-    margin-bottom: 0.25rem;
-}
-
-.alert-text {
-    font-size: 0.9rem;
-    color: #fca5a5;
-}
-
-/**
- * styles_transactions.css - Styles spécifiques à la page Transactions
- * À ajouter à styles.css ou importer séparément
- */
-
-/* ============================================
-   MULTISELECT CATÉGORIES
-   ============================================ */
-.multiselect-container {
-    position: relative;
-}
-
-.multiselect-btn {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e4e4e7;
-    padding: 0.75rem 2.5rem 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-    min-width: 140px;
-}
-
-.multiselect-btn:hover {
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.5);
-}
-
-.multiselect-arrow {
-    position: absolute;
-    right: 0.75rem;
-    transition: transform 0.3s ease;
-    font-size: 0.8rem;
-    color: #a1a1aa;
-}
-
-.multiselect-dropdown.show .multiselect-arrow {
-    transform: rotate(180deg);
-}
-
-.multiselect-dropdown {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    left: 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 12px;
-    padding: 0.5rem;
-    min-width: 280px;
-    max-width: 320px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    max-height: 400px;
-    display: flex;
-    flex-direction: column;
-}
-
-.multiselect-dropdown.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.multiselect-search {
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    color: #e4e4e7;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    width: 100%;
-}
-
-.multiselect-search:focus {
-    outline: none;
-    border-color: rgba(129, 140, 248, 0.5);
-    background: rgba(99, 102, 241, 0.12);
-}
-
-.multiselect-search::placeholder {
-    color: #71717a;
-}
-
-.multiselect-options {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.multiselect-option {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #e4e4e7;
-    font-size: 0.95rem;
-    background: transparent;
-}
-
-.multiselect-option:hover {
-    background: rgba(99, 102, 241, 0.15);
-}
-
-.multiselect-option input[type="checkbox"] {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-    accent-color: #818cf8;
-}
-
-.multiselect-option .category-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-/* ============================================
-   TAGS SÉLECTIONNÉS
-   ============================================ */
-.selected-tags {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e4e4e7;
-    padding: 0.4rem 0.75rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    animation: tagSlideIn 0.3s ease;
-}
-
-@keyframes tagSlideIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.tag-remove {
-    background: transparent;
-    border: none;
-    color: #f87171;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.tag-remove:hover {
-    background: rgba(239, 68, 68, 0.2);
-    transform: scale(1.1);
-}
-
-/* ============================================
-   FORMULAIRE TRANSACTION INLINE
-   ============================================ */
-.transaction-form-container {
-    margin-bottom: 2rem;
-    animation: slideDown 0.4s ease;
-}
-
-.transaction-form-container.hidden {
-    display: none;
-}
-
-.transaction-form-card {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 16px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.transaction-form-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
-}
-
-.form-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #e4e4e7;
-    margin-bottom: 1.5rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ============================================
-   AFFICHAGE TRANSACTIONS
-   ============================================ */
-.transaction-item {
-    display: grid;
-    grid-template-columns: 3px 1fr auto auto 40px;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.transaction-item:hover {
-    background: rgba(99, 102, 241, 0.08);
-    padding-left: 1rem;
-    border-radius: 8px;
-}
-
-.transaction-bar {
-    width: 3px;
-    height: 20px;
-    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%);
+    background: linear-gradient(180deg, #818cf8 0%, #c084fc 100%); /* Barre décorative violette */
     border-radius: 2px;
     flex-shrink: 0;
 }
@@ -1946,11 +1523,13 @@ body {
     color: #e4e4e7;
 }
 
-/* ============================================
-   MENU CONTEXTUEL
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Menu contextuel - Menu surgissant au clic sur ⋮
+   ---------------------------------------------------------------------------- */
+
 .transaction-context-menu {
-    position: fixed;
+    position: fixed; /* Position absolue par rapport à la fenêtre */
     background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
     border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 12px;
@@ -1964,7 +1543,7 @@ body {
 @keyframes menuFadeIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.95); /* Apparaît en agrandissant légèrement */
     }
     to {
         opacity: 1;
@@ -1993,16 +1572,652 @@ body {
 }
 
 .context-menu-item.delete:hover {
+    background: rgba(239, 68, 68, 0.15); /* Fond rouge pour action de suppression */
+    color: #f87171;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Pagination - Navigation entre pages de résultats
+   ---------------------------------------------------------------------------- */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pagination-btn {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a1a1aa;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #e4e4e7;
+}
+
+.pagination-btn.active {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); /* Bouton actif avec dégradé */
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.3; /* Bouton grisé quand désactivé */
+    cursor: not-allowed;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/**
+ * ============================================================================
+ * budget.html - PAGE BUDGET
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   Barre de progression budget global
+   ---------------------------------------------------------------------------- */
+
+.budget-progress-container {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.budget-progress-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.budget-progress-days {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    font-weight: 500;
+}
+
+.budget-progress-label {
+    font-size: 0.95rem;
+    font-weight: 700; /* En gras */
+    color: #e4e4e7;
+    position: absolute;
+    left: 50%; /* Centré horizontalement */
+    transform: translateX(-50%);
+}
+
+.budget-progress-bar {
+    background: rgba(99, 102, 241, 0.1); /* Fond de la barre */
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.budget-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%); /* Remplissage avec dégradé */
+    border-radius: 12px;
+    transition: width 0.5s ease, background-color 0.3s ease; /* Animation du remplissage */
+}
+
+.budget-progress-footer-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget-progress-percentage {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #818cf8; /* Couleur changée dynamiquement via JS si dépassement */
+}
+
+.budget-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #a1a1aa;
+}
+
+
+/**
+ * ============================================================================
+ * detail_categorie.html - PAGE DÉTAIL CATÉGORIE
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   Category Info Card - Carte d'informations de la catégorie
+   ---------------------------------------------------------------------------- */
+
+.category-info-section {
+    margin-bottom: 2rem;
+}
+
+.category-info-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+}
+
+
+/* ----------------------------------------------------------------------------
+   Budget Circle - Cercle de progression du budget (Chart.js)
+   ---------------------------------------------------------------------------- */
+
+.budget-circle-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+.budget-circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrage absolu */
+    text-align: center;
+}
+
+.budget-amount {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e4e4e7;
+    margin-bottom: 0.25rem;
+}
+
+.budget-percentage {
+    font-size: 1.5rem;
+    font-weight: 800;
+    /* Couleur appliquée dynamiquement via JS (violet ou rouge si dépassement) */
+}
+
+.no-budget-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border: 2px dashed rgba(99, 102, 241, 0.3); /* Cercle en pointillés */
+    border-radius: 50%;
+    color: #71717a;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Category Main Info - Informations principales de la catégorie
+   ---------------------------------------------------------------------------- */
+
+.category-main-info {
+    flex: 1;
+    text-align: center;
+}
+
+.category-header {
+    margin-bottom: 1rem;
+}
+
+.category-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.category-dot-large {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    /* box-shadow appliqué dynamiquement via style inline */
+}
+
+.category-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.category-total {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.category-stats {
+    font-size: 1rem;
+    color: #a1a1aa;
+    font-weight: 500;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Settings Menu - Menu engrenage (modifier/supprimer)
+   ---------------------------------------------------------------------------- */
+
+.settings-menu-container {
+    position: relative;
+}
+
+.settings-btn {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a1a1aa;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.settings-btn:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #e4e4e7;
+    transform: rotate(90deg); /* Rotation de l'engrenage au survol */
+}
+
+.settings-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 180px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.settings-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #e4e4e7;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-item:hover {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.dropdown-item.delete:hover {
     background: rgba(239, 68, 68, 0.15);
     color: #f87171;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+
+/* ----------------------------------------------------------------------------
+   Edit Form - Formulaire de modification inline
+   ---------------------------------------------------------------------------- */
+
+.edit-form-container {
+    margin-top: 1.5rem;
+}
+
+.edit-form-container.hidden {
+    display: none;
+}
+
+.edit-form-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.edit-form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e4e4e7;
+    margin-bottom: 1.5rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Budget Alert - Alerte de dépassement de budget
+   ---------------------------------------------------------------------------- */
+
+.budget-alert {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.1) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideDown 0.4s ease;
+}
+
+.alert-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6)); /* Lueur rouge */
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-bottom: 0.25rem;
+}
+
+.alert-text {
+    font-size: 0.9rem;
+    color: #fca5a5;
+}
+
+
+/**
+ * ============================================================================
+ * import.html - PAGE IMPORTATION CSV
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   Upload Zone - Zone de dépôt de fichiers
+   ---------------------------------------------------------------------------- */
+
+.upload-zone {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 2px dashed rgba(99, 102, 241, 0.5); /* Bordure en pointillés */
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+    border-color: rgba(129, 140, 248, 0.8); /* Bordure plus visible au survol/drag */
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.02); /* Léger agrandissement */
+}
+
+.upload-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6)); /* Lueur violette */
+}
+
+.upload-text {
+    font-size: 1.2rem;
+    color: #e4e4e7;
+    margin-bottom: 0.5rem;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: #71717a;
+}
+
+.file-input {
+    display: none; /* Input caché, activation via JS */
+}
+
+
+/* ----------------------------------------------------------------------------
+   Selected File - Affichage du fichier sélectionné
+   ---------------------------------------------------------------------------- */
+
+.selected-file {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-icon {
+    font-size: 2rem;
+}
+
+.file-details {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+.file-size {
+    font-size: 0.85rem;
+    color: #71717a;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Import Button - Bouton d'importation
+   ---------------------------------------------------------------------------- */
+
+.import-button {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.import-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
+}
+
+.import-button:disabled {
+    opacity: 0.5; /* Bouton grisé quand désactivé */
+    cursor: not-allowed;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Result Card - Affichage du résultat d'importation
+   ---------------------------------------------------------------------------- */
+
+.result-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.result-success {
+    border-color: rgba(34, 197, 94, 0.5); /* Bordure verte pour succès */
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.result-error {
+    border-color: rgba(239, 68, 68, 0.5); /* Bordure rouge pour erreur */
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #a1a1aa;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #e4e4e7;
+}
+
+.error-list {
+    max-height: 300px;
+    overflow-y: auto; /* Scroll si trop d'erreurs */
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.error-item {
+    color: #f87171;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+   Format Example - Exemple de format CSV
+   ---------------------------------------------------------------------------- */
+
+.format-example {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.format-title {
+    font-weight: 700;
+    color: #e4e4e7;
+    margin-bottom: 1rem;
+}
+
+.code-block {
+    background: rgba(0, 0, 0, 0.4); /* Fond noir pour code */
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace; /* Police monospace */
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    overflow-x: auto; /* Scroll horizontal si débordement */
+    white-space: pre-wrap; /* Conserve les sauts de ligne */
+}
+
+
+/**
+ * ============================================================================
+ * RESPONSIVE
+ * Adaptation aux différentes tailles d'écran
+ * ============================================================================
+ */
+
+@media (max-width: 1024px) {
+    .charts-section {
+        grid-template-columns: 1fr; /* 1 colonne sur tablette */
+    }
+}
+
 @media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Sidebar plus étroite */
+    }
+    
+    .main-content {
+        margin-left: 200px;
+        padding: 1.5rem;
+    }
+    
+    .kpi-section {
+        grid-template-columns: 1fr; /* KPI en colonne */
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+
     .page-controls {
-        flex-direction: column;
+        flex-direction: column; /* Contrôles en colonne */
         align-items: stretch;
     }
 
@@ -2025,8 +2240,12 @@ body {
         justify-content: space-between;
     }
 
+    .form-row {
+        grid-template-columns: 1fr; /* Formulaires en colonne */
+    }
+
     .transaction-item {
-        grid-template-columns: 3px 1fr auto;
+        grid-template-columns: 3px 1fr auto; /* Simplification pour mobile */
         grid-template-areas:
             "bar desc amount"
             "bar category menu";
@@ -2055,215 +2274,26 @@ body {
     }
 }
 
-/* ============================================
-   FIX: Category Dots - Ombres colorées
-   ============================================ */
-
-.category-dot {
-    animation: none !important;
-}
-
-.legend-color {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-/* Fix: Dropdown select visible */
-select option {
-    background: #1a1a2e !important;
-    color: #e4e4e7 !important;
-}
-
-.form-input select option,
-#form-category option {
-    background: #1a1a2e !important;
-    color: #e4e4e7 !important;
-}
-
-/* ============================================
-   FORMULAIRE CATÉGORIE INLINE (complément)
-   ============================================ */
-.category-form-container {
-    margin-bottom: 2rem;
-    animation: slideDown 0.4s ease;
-}
-
-.category-form-container.hidden {
-    display: none;
-}
-
-.category-form-card {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 16px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.category-form-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
-}
-
-/* ============================================
-   BUDGET DEPASSE - Alerte rouge avec icone
-   ============================================ */
-
-/* Budget depasse : texte en rouge */
-.budget-cell.over-budget {
-    color: #ef4444 !important;
-    font-weight: 700;
-}
-
-/* Icone danger d'avertissement */
-.budget-warning {
-    display: inline-block;
-    margin-left: 0.5rem;
-    font-size: 1.1rem;
-    cursor: help;
-    animation: warningPulse 2s ease-in-out infinite;
-    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6));
-}
-
-/* Animation de pulsation pour l'icone */
-@keyframes warningPulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
+@media (max-width: 640px) {
+    .sidebar {
+        transform: translateX(-100%); /* Sidebar cachée par défaut */
+        transition: transform 0.3s;
     }
-    50% {
-        opacity: 0.7;
-        transform: scale(1.1);
+    
+    .sidebar.open {
+        transform: translateX(0); /* Sidebar visible quand ouverte */
     }
-}
-
-/* Tooltip personnalise au survol */
-.budget-warning:hover {
-    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.9));
-}
-
-/* Optionnel : Styliser toute la ligne si budget depasse */
-.data-table tbody tr:has(.budget-cell.over-budget) {
-    background: rgba(239, 68, 68, 0.05);
-    border-left: 3px solid #ef4444;
-}
-
-.data-table tbody tr:has(.budget-cell.over-budget):hover {
-    background: rgba(239, 68, 68, 0.1);
-}
-
-/* ============================================
-   BUDGET PAGE - BARRE DE PROGRESSION
-   ============================================ */
-.budget-progress-container {
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
-}
-
-.budget-progress-header-custom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.budget-progress-days {
-    font-size: 0.875rem;
-    color: #a1a1aa;
-    font-weight: 500;
-}
-
-.budget-progress-label {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #e4e4e7;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.budget-progress-bar {
-    background: rgba(99, 102, 241, 0.1);
-    height: 24px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-}
-
-.budget-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
-    border-radius: 12px;
-    transition: width 0.5s ease, background-color 0.3s ease;
-}
-
-.budget-progress-footer-custom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.budget-progress-percentage {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #818cf8;
-}
-
-.budget-progress-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-    color: #a1a1aa;
-}
-
-/* Uniformisation des KPI Cards - SANS infobulles */
-.kpi-card {
-    padding: 1.5rem; /* Réduit de 1.75rem à 1.5rem */
-}
-
-.kpi-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.kpi-label {
-    font-size: 0.875rem;
-    color: #a1a1aa;
-    margin-bottom: 0.5rem; /* Réduit l'espace entre label et value */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 500;
-}
-
-.kpi-value {
-    font-size: 2rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -1px;
-    margin: 0;
-}
-
-.budget-progress-label {
-    font-size: 0.95rem;
-    font-weight: 700; /* Changé de 600 à 700 pour mettre en gras */
-    color: #e4e4e7;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    
+    .main-content {
+        margin-left: 0; /* Pas de marge pour sidebar */
+        padding: 1rem;
+    }
+    
+    .kpi-value {
+        font-size: 1.5rem;
+    }
+    
+    .kpi-card {
+        padding: 1.25rem;
+    }
 }
