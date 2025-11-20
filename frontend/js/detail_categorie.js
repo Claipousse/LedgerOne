@@ -251,7 +251,7 @@ async function loadCategoryData() {
 }
 
 function displayCategoryInfo(totalAmount, percentage) {
-    // Nom + couleur (utiliser #818cf8 par défaut au lieu de #505050)
+    // Nom + couleur
     const color = category.color || '#818cf8';
     const dotElement = document.getElementById('category-dot');
     dotElement.style.backgroundColor = color;
@@ -507,8 +507,8 @@ function showEditForm() {
 
     // Pré-remplir le formulaire
     document.getElementById('edit-name').value = category.name;
-    document.getElementById('edit-color').value = category.color || '#505050';
-    document.getElementById('edit-color-text').value = category.color || '#505050';
+    document.getElementById('edit-color').value = category.color || '#818cf8';
+    document.getElementById('edit-color-text').value = category.color || '#818cf8';
     document.getElementById('edit-budget').value = category.monthly_budget || '';
 
     editFormContainer.classList.remove('hidden');
