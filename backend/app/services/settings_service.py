@@ -26,7 +26,7 @@ def update_settings(db:Session, settings_data:SettingsUpdate) -> Settings:
     Retourne settings mis à jour
     '''
     settings = get_settings(db) #On récup les settings
-    update_data = settings_data.dict(exclude_unset=True) #On extrait les champs fournis
+    update_data = settings_data.model_dump(exclude_unset=True) #On extrait les champs fournis
     
     for field, value in update_data.items():
         setattr(settings, field, value)

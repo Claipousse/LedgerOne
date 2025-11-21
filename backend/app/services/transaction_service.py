@@ -98,7 +98,7 @@ def update_transaction(db: Session, transaction_id: int, transaction_data: Trans
         raise ValueError("Le montant ne peut pas être exactement 0")
     
     #Met à jour les champs fournis
-    update_data = transaction_data.dict(exclude_unset=True)
+    update_data = transaction_data.model_dump(exclude_unset=True)
 
     for field, value in update_data.items():
         setattr(transaction, field, value)

@@ -69,7 +69,7 @@ def update_category(db:Session, category_id:int, category_data:CategoryUpdate) -
             raise ValueError(f"Une catégorie avec le nom '{category_data.name}' existe déjà")
     
     #Mettre à jour uniquement les champs fournis (exclude_unset=True)
-    update_data = category_data.dict(exclude_unset=True)
+    update_data = category_data.model_dump(exclude_unset=True)
 
     for field, value in update_data.items():
         setattr(category, field, value)

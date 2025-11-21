@@ -3,6 +3,31 @@ test_models.py - Tests pour les modèles SQLAlchemy
 Vérifie que les tables, contraintes et relations fonctionnent bien
 '''
 
+"""
+CATEGORY (6 tests)
+1. Création valide
+2. Nom unique (UNIQUE)
+3. Budget positif (CHECK)
+4. Budget nullable
+5. Couleur optionnelle
+6. Index sur name
+
+TRANSACTION (9 tests)
+7. Création valide
+8. Sans catégorie (nullable)
+9. Montant négatif autorisé
+10. Suppression catégorie → NULL (CASCADE)
+11. Relation bidirectionnelle
+12. Index sur date
+13. Index sur category_id
+
+SETTINGS (3 tests)
+14. Création valide
+15. Budget positif (CHECK)
+16. Une seule ligne (CHECK id=1)
+17. Budget nullable
+"""
+
 # IMPORTS
 
 import pytest # framework de tests Python, permet de créer des fonctions de tests et d'utiliser des assertions
