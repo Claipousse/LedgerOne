@@ -3,6 +3,8 @@ test_models.py - Tests pour les modèles SQLAlchemy
 Vérifie que les tables, contraintes et relations fonctionnent bien
 '''
 
+#SOMMAIRE DES TESTS
+
 """
 CATEGORY (6 tests)
 1. Création valide
