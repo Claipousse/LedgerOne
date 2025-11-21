@@ -5,6 +5,7 @@ Cela permet de pouvoir changer de config (dev/test/prod), sans devoir toucher au
 Cependant, les variables dans ce fichiers servent si jamais il n'y a pas de .env fournit, pour avoir des valeurs par défauts
 '''
 from pathlib import Path
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic_settings import BaseSettings #Sert à gérer la configuration via variables d'environnements/.env par exemple
 
 #Chemin jusqu'a la racine du projet
@@ -20,8 +21,9 @@ class Settings(BaseSettings): #Hérite de BaseSettings (Pydantic)
     PROJECT_NAME: str = "LedgerOne API"
     VERSION: str = "1.0.0" #v1 pour le moment, si jamais on fait des patch/mises à jour on peut mettre 1.0.1 par exemple
 
-    class Config:
-        env_file = ".env" #Fichier à lire pour changer les variables
+    model_config = SettingsConfigDict(
+        env_file = ".env", #Fichier à lire pour changer les variables
         case_sensitive = True #Sensible à la casse
+    )
 
 settings = Settings() #Pydantic lit le .env et charge les valeurs

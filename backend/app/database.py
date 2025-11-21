@@ -4,8 +4,7 @@ Evite qu'on doive le faire à chaque fichier, et donc évite les répétitions, 
 '''
 #SQL Alchemy
 from sqlalchemy import create_engine #Sert à créer la connexion à la bdd
-from sqlalchemy.ext.declarative import declarative_base #Crée la classe de base de tous les modèles
-from sqlalchemy.orm import sessionmaker #Crée une session (= conversation avec une bdd en gros)
+from sqlalchemy.orm import sessionmaker, DeclarativeBase #Crée une session (= conversation avec une bdd en gros) & Crée la classe de base de tous les modèles
 
 #On veut récup des infos de config.py
 from app.config import settings
@@ -24,7 +23,8 @@ SessionLocal = sessionmaker(
     bind=engine #On utilise le moteur de connexion crée au dessus
 )
 
-Base = declarative_base() #Classe mère pour les modèles
+class Base(DeclarativeBase): #Classe mère pour les modèles
+    pass
 
 def get_db():
     db = SessionLocal() #Ouvre session
