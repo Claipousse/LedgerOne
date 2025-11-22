@@ -20,7 +20,7 @@ END_DATE = TODAY
 START_DATE = date(TODAY.year - 2, TODAY.month, TODAY.day)
 
 # Nombre total de transactions a generer
-TOTAL_TRANSACTIONS = 500
+TOTAL_TRANSACTIONS = 1500
 
 # ============================================
 #              CATEGORIES
