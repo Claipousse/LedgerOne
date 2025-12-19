@@ -1,24 +1,19 @@
-.PHONY: install run test lint clean init-db reset-db seed help run-backend run-frontend
+.PHONY: install run-backend run-frontend test lint clean init-db reset-db seed help format
 
 # Installation des dépendances
 install:
-	pip install -r requirements.txt
+	python -m pip install -r requirements.txt
 
-# Lancer l'application
-run:
-	@echo "Backend  : http://localhost:8000/docs"
-	@echo "Frontend : http://localhost:8080"
-	@$(MAKE) -j2 run-backend run-frontend
-
-# Lancer uniquement le backend
+# Lancer backend
 run-backend:
 	@echo "Backend demarre sur http://localhost:8000"
-	@python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	@echo "Documentation: http://localhost:8000/docs"
+	python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
-# Lancer uniquement le frontend
+# Lancer frontend
 run-frontend:
 	@echo "Frontend demarre sur http://localhost:8080"
-	@cd ../frontend && python -m http.server 8080
+	cd ../frontend && python -m http.server 8080
 
 # Initialiser la base de données
 init-db:
@@ -30,39 +25,48 @@ reset-db:
 
 # Générer des données de test
 seed:
+	@echo "Generation de donnees de test..."
 	python scripts/generation_csv.py
-	# Importer le CSV via l'API ou un script d'import
+	@echo ""
+	@echo "=========================================="
+	@echo "Fichier CSV genere dans /backend/tests"
+	@echo "Pour importer les donnees:"
+	@echo "  1. Lancer le backend (make run-backend)"
+	@echo "  2. Aller sur http://localhost:8080/import.html"
+	@echo "  3. Uploader le fichier transactions_generated.csv"
+	@echo "=========================================="
 
 # Lancer les tests
 test:
-	pytest tests/ -v --cov=app --cov-report=html
+	python -m pytest tests/ -v --cov=app --cov-report=html
 
 # Linter le code
 lint:
-	flake8 app/ tests/
-	black app/ tests/ --check
-	isort app/ tests/ --check
+	python -m flake8 app/ tests/ --max-line-length=120 --extend-ignore=E203,W503
+	python -m black app/ tests/ --check
+	python -m isort app/ tests/ --check-only
 
 # Formater le code
 format:
-	black app/ tests/
-	isort app/ tests/
+	python -m black app/ tests/
+	python -m isort app/ tests/
 
-# Nettoyer les fichiers temporaires
+# Nettoyer les fichiers temporaires (compatible Windows)
 clean:
-	find . -type d -name "__pycache__" -exec rm -rf {} +
-	find . -type f -name "*.pyc" -delete
-	rm -rf .pytest_cache
-	rm -rf htmlcov
-	rm -rf .coverage
+	@echo "Nettoyage des fichiers temporaires..."
+	@if exist __pycache__ rd /s /q __pycache__
+	@for /d /r . %%d in (__pycache__) do @if exist "%%d" rd /s /q "%%d"
+	@if exist .pytest_cache rd /s /q .pytest_cache
+	@if exist htmlcov rd /s /q htmlcov
+	@if exist .coverage del /q .coverage
+	@echo "Nettoyage termine"
 
 # Aide
 help:
 	@echo "Commandes disponibles :"
 	@echo "  make install      - Installer les dependances"
-	@echo "  make run          - Lancer backend + frontend"
-	@echo "  make run-backend  - Lancer uniquement le backend"
-	@echo "  make run-frontend - Lancer uniquement le frontend"
+	@echo "  make run-backend  - Lancer le backend"
+	@echo "  make run-frontend - Lancer le frontend"
 	@echo "  make init-db      - Initialiser la base de donnees"
 	@echo "  make reset-db     - Reinitialiser la base de donnees"
 	@echo "  make seed         - Generer des donnees de test"

@@ -291,10 +291,35 @@ def display_statistics(transactions):
 #              EXPORT CSV
 # ============================================
 
-def export_to_csv(transactions, filename="transactions_generated.csv"):
-    """Exporte les transactions en CSV"""
+def export_to_csv(transactions, base_filename="transactions_generated.csv"):
+    """Exporte les transactions en CSV dans le dossier tests/"""
+    import csv
+    import os
+    from pathlib import Path
     
-    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+    # Le script est dans /backend/scripts, on veut aller dans /backend/tests
+    script_dir = Path(__file__).resolve().parent
+    backend_dir = script_dir.parent
+    tests_dir = backend_dir / "tests"
+    
+    # Créer le dossier tests s'il n'existe pas
+    tests_dir.mkdir(exist_ok=True)
+    
+    # Gestion des doublons : ajouter un numéro si le fichier existe
+    base_name = Path(base_filename).stem  # transactions_generated
+    extension = Path(base_filename).suffix  # .csv
+    
+    filename = base_filename
+    counter = 1
+    full_path = tests_dir / filename
+    
+    while full_path.exists():
+        filename = f"{base_name}_{counter}{extension}"
+        full_path = tests_dir / filename
+        counter += 1
+    
+    # Écrire le CSV
+    with open(full_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['date', 'description', 'amount', 'category']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
@@ -303,7 +328,7 @@ def export_to_csv(transactions, filename="transactions_generated.csv"):
             writer.writerow(tx)
     
     print("\n" + "=" * 60)
-    print(f"EXPORT REUSSI : {filename}")
+    print(f"EXPORT REUSSI : {full_path}")
     print(f"{len(transactions)} transactions generees")
     print("=" * 60)
 
