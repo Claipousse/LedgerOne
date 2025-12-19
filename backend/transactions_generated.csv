@@ -1,0 +1,1501 @@
+date,description,amount,category
+2023-12-20,Taxi,96.0,Transport
+2023-12-22,Boulangerie,41.26,Alimentation
+2023-12-23,Supermarche Auchan,42.9,Alimentation
+2023-12-25,Osteopathe,25.56,Soins
+2023-12-25,Boulangerie,132.09,Alimentation
+2023-12-27,Casino,26.1,Alimentation
+2023-12-28,Eau,295.26,Logement
+2023-12-29,Theatre,34.27,Loisirs
+2023-12-29,Massage,24.95,Soins
+2023-12-29,Musee,71.43,Loisirs
+2023-12-31,Courses Lidl,33.05,Alimentation
+2023-12-31,Primeur,18.49,Alimentation
+2024-01-02,Controle technique,25.64,Transport
+2024-01-02,Spotify Premium,5.6,Streaming
+2024-01-05,Marche local,39.48,Alimentation
+2024-01-06,Bowling,67.92,Loisirs
+2024-01-08,Taxe fonciere,78.71,Logement
+2024-01-08,Concert,20.06,Loisirs
+2024-01-08,Bijouterie,40.19,Shopping
+2024-01-08,Formation en ligne,84.23,Education
+2024-01-09,Concert,68.75,Loisirs
+2024-01-09,Controle technique,89.64,Transport
+2024-01-10,Librairie,200.76,Shopping
+2024-01-10,Boucherie,16.33,Alimentation
+2024-01-10,Livres scolaires,26.68,Education
+2024-01-13,Bowling,14.11,Loisirs
+2024-01-15,Medecin generaliste,26.34,Soins
+2024-01-15,Materiel informatique etudes,156.92,Education
+2024-01-16,Parc d'attractions,61.56,Loisirs
+2024-01-18,Intermarche,18.32,Alimentation
+2024-01-19,Theatre,62.86,Loisirs
+2024-01-22,Parking centre-ville,23.22,Transport
+2024-01-22,Sephora,71.56,Shopping
+2024-01-23,Intermarche,8.47,Alimentation
+2024-01-23,Loyer appartement,951.03,Logement
+2024-01-29,Controle technique,23.29,Transport
+2024-01-30,Courses Carrefour,18.34,Alimentation
+2024-01-31,Frais de scolarite,92.43,Education
+2024-02-02,Fnac,34.68,Shopping
+2024-02-05,Revision voiture,118.69,Transport
+2024-02-07,Intermarche,12.22,Alimentation
+2024-02-08,Decathlon,41.88,Shopping
+2024-02-10,Taxi,106.24,Transport
+2024-02-10,Uber,36.28,Transport
+2024-02-11,Bowling,43.17,Loisirs
+2024-02-13,Intermarche,28.26,Alimentation
+2024-02-14,Escape Game,65.65,Loisirs
+2024-02-14,Decathlon,69.89,Shopping
+2024-02-15,Pharmacie,26.55,Soins
+2024-02-15,Sephora,106.85,Shopping
+2024-02-17,Livres scolaires,110.32,Education
+2024-02-17,Essence Shell,54.03,Transport
+2024-02-18,Courses Carrefour,39.74,Alimentation
+2024-02-18,Cinema UGC,21.36,Loisirs
+2024-02-19,Parking centre-ville,81.31,Transport
+2024-02-19,Peage autoroute,13.33,Transport
+2024-02-20,Intermarche,69.35,Alimentation
+2024-02-21,Opticien,33.53,Soins
+2024-02-23,Spotify Premium,17.36,Streaming
+2024-02-24,Courses Lidl,108.88,Alimentation
+2024-02-24,Controle technique,8.23,Transport
+2024-02-24,Essence Shell,53.43,Transport
+2024-02-25,Chaussures,87.26,Shopping
+2024-02-28,Deezer,12.75,Streaming
+2024-02-28,Marche local,9.93,Alimentation
+2024-03-01,Taxi,42.13,Transport
+2024-03-01,Bowling,56.71,Loisirs
+2024-03-04,Electronique,211.5,Shopping
+2024-03-05,Massage,37.05,Soins
+2024-03-10,Boulangerie,52.39,Alimentation
+2024-03-10,Electronique,126.95,Shopping
+2024-03-10,Controle technique,40.28,Transport
+2024-03-12,Chaussures,19.17,Shopping
+2024-03-12,Bijouterie,102.66,Shopping
+2024-03-13,Boulangerie,16.36,Alimentation
+2024-03-16,Concert,20.7,Loisirs
+2024-03-16,Courses Lidl,9.11,Alimentation
+2024-03-16,Loyer appartement,287.44,Logement
+2024-03-17,YouTube Premium,11.01,Streaming
+2024-03-17,Essence Shell,39.6,Transport
+2024-03-17,Intermarche,23.01,Alimentation
+2024-03-18,Fromagerie,146.09,Alimentation
+2024-03-19,Supermarche Auchan,114.99,Alimentation
+2024-03-23,Restaurant Le Gourmet,27.79,Loisirs
+2024-03-24,Bowling,60.04,Loisirs
+2024-03-25,Parc d'attractions,23.36,Loisirs
+2024-03-26,Internet SFR,149.86,Logement
+2024-03-26,YouTube Premium,5.98,Streaming
+2024-03-27,Bricolage Leroy Merlin,242.73,Logement
+2024-03-29,Controle technique,18.77,Transport
+2024-03-29,Bar entre amis,38.56,Loisirs
+2024-04-02,Boucherie,80.01,Alimentation
+2024-04-02,Cinema UGC,53.03,Loisirs
+2024-04-03,Cours particuliers,82.87,Education
+2024-04-03,Fnac,47.18,Shopping
+2024-04-03,Fournitures,55.32,Education
+2024-04-04,Supermarche Auchan,41.15,Alimentation
+2024-04-06,Opticien,94.61,Soins
+2024-04-07,Frais de scolarite,98.17,Education
+2024-04-07,Peage autoroute,21.27,Transport
+2024-04-08,Courses Lidl,113.62,Alimentation
+2024-04-09,Dentiste,24.23,Soins
+2024-04-10,Concert,69.17,Loisirs
+2024-04-12,Restaurant Le Gourmet,73.32,Loisirs
+2024-04-12,Pharmacie,19.57,Soins
+2024-04-14,Parking centre-ville,32.04,Transport
+2024-04-14,Opticien,27.89,Soins
+2024-04-14,Restaurant Le Gourmet,90.55,Loisirs
+2024-04-15,Librairie,106.56,Shopping
+2024-04-18,Vetements Zara,18.42,Shopping
+2024-04-18,Cinema UGC,21.06,Loisirs
+2024-04-20,Controle technique,17.08,Transport
+2024-04-21,Bijouterie,71.83,Shopping
+2024-04-23,Marche local,15.11,Alimentation
+2024-04-24,Uber,21.83,Transport
+2024-04-25,Bar entre amis,38.11,Loisirs
+2024-04-25,Electricite EDF,44.83,Logement
+2024-04-26,Casino,22.53,Alimentation
+2024-04-26,Courses Carrefour,15.01,Alimentation
+2024-04-26,Osteopathe,38.19,Soins
+2024-04-27,Medecin generaliste,19.49,Soins
+2024-04-28,Parking centre-ville,8.23,Transport
+2024-04-29,Deezer,13.6,Streaming
+2024-05-02,Fournitures,62.32,Education
+2024-05-03,Supermarche Auchan,60.55,Alimentation
+2024-05-03,Casino,12.91,Alimentation
+2024-05-03,Ticket metro,23.93,Transport
+2024-05-03,Sephora,279.32,Shopping
+2024-05-04,Fnac,21.37,Shopping
+2024-05-05,Primeur,25.86,Alimentation
+2024-05-05,Boucherie,42.25,Alimentation
+2024-05-06,Casino,33.54,Alimentation
+2024-05-06,Marche local,48.11,Alimentation
+2024-05-07,Medecin generaliste,12.58,Soins
+2024-05-09,Essence Shell,102.53,Transport
+2024-05-09,Restaurant Le Gourmet,25.49,Loisirs
+2024-05-09,Supermarche Auchan,31.96,Alimentation
+2024-05-10,Ticket metro,30.85,Transport
+2024-05-11,Electricite EDF,34.24,Logement
+2024-05-12,Loyer appartement,382.79,Logement
+2024-05-13,Livres scolaires,135.09,Education
+2024-05-13,Sephora,42.14,Shopping
+2024-05-15,Pharmacie,28.12,Soins
+2024-05-17,Medecin generaliste,29.33,Soins
+2024-05-17,Ticket metro,22.45,Transport
+2024-05-18,H&M,100.4,Shopping
+2024-05-18,Bricolage Leroy Merlin,125.55,Logement
+2024-05-19,Concert,21.14,Loisirs
+2024-05-19,Coiffeur,32.81,Soins
+2024-05-20,Decathlon,220.95,Shopping
+2024-05-23,Pharmacie,16.91,Soins
+2024-05-24,Supermarche Auchan,115.15,Alimentation
+2024-05-25,Spotify Premium,13.02,Streaming
+2024-05-26,Assurance habitation,188.33,Logement
+2024-05-26,Station Total,67.23,Transport
+2024-05-26,Uber,8.1,Transport
+2024-05-27,Parking centre-ville,34.87,Transport
+2024-05-27,Decathlon,103.13,Shopping
+2024-05-29,Livres scolaires,178.9,Education
+2024-05-31,Assurance habitation,173.08,Logement
+2024-06-01,Bowling,72.15,Loisirs
+2024-06-03,Vetements Zara,107.36,Shopping
+2024-06-03,Decathlon,62.73,Shopping
+2024-06-04,Concert,37.48,Loisirs
+2024-06-05,Assurance habitation,200.84,Logement
+2024-06-05,Bowling,67.15,Loisirs
+2024-06-07,Marche local,51.51,Alimentation
+2024-06-08,Taxe fonciere,918.88,Logement
+2024-06-08,Essence Shell,59.78,Transport
+2024-06-10,Medecin generaliste,98.63,Soins
+2024-06-10,Decathlon,20.81,Shopping
+2024-06-10,Restaurant Le Gourmet,40.2,Loisirs
+2024-06-11,Udemy,75.05,Education
+2024-06-11,Massage,10.94,Soins
+2024-06-12,Chaussures,102.15,Shopping
+2024-06-12,Boucherie,17.45,Alimentation
+2024-06-14,Musee,47.96,Loisirs
+2024-06-16,Fnac,284.0,Shopping
+2024-06-17,Intermarche,30.09,Alimentation
+2024-06-17,Revision voiture,26.97,Transport
+2024-06-17,Theatre,29.46,Loisirs
+2024-06-19,Eau,811.1,Logement
+2024-06-21,Boulangerie,114.78,Alimentation
+2024-06-22,Casino,52.38,Alimentation
+2024-06-23,Bijouterie,105.79,Shopping
+2024-06-24,Vetements Zara,80.25,Shopping
+2024-06-25,Concert,126.39,Loisirs
+2024-06-26,Opticien,11.16,Soins
+2024-06-26,Boulangerie,36.27,Alimentation
+2024-06-27,Massage,35.85,Soins
+2024-06-27,Theatre,38.71,Loisirs
+2024-06-28,Loyer appartement,268.36,Logement
+2024-06-28,Bijouterie,93.18,Shopping
+2024-06-28,Escape Game,70.28,Loisirs
+2024-07-01,Marche local,15.37,Alimentation
+2024-07-01,Boulangerie,12.79,Alimentation
+2024-07-02,Intermarche,13.74,Alimentation
+2024-07-03,Sephora,47.67,Shopping
+2024-07-03,Courses Carrefour,141.21,Alimentation
+2024-07-04,Primeur,28.15,Alimentation
+2024-07-04,Parking centre-ville,97.05,Transport
+2024-07-05,Taxe fonciere,401.23,Logement
+2024-07-05,Udemy,465.85,Education
+2024-07-05,Station Total,10.48,Transport
+2024-07-08,Casino,47.04,Alimentation
+2024-07-10,Courses Lidl,77.2,Alimentation
+2024-07-13,Bijouterie,58.79,Shopping
+2024-07-14,Bricolage Leroy Merlin,93.87,Logement
+2024-07-15,Parking centre-ville,17.94,Transport
+2024-07-17,Amazon Prime,7.75,Streaming
+2024-07-18,Intermarche,12.32,Alimentation
+2024-07-19,Boulangerie,71.63,Alimentation
+2024-07-20,Parc d'attractions,122.0,Loisirs
+2024-07-21,Dentiste,62.29,Soins
+2024-07-23,Librairie,164.3,Shopping
+2024-07-25,Peage autoroute,41.76,Transport
+2024-07-25,Spotify Premium,9.96,Streaming
+2024-07-28,H&M,39.41,Shopping
+2024-07-30,Manucure,54.1,Soins
+2024-07-31,Electricite EDF,351.97,Logement
+2024-07-31,Bricolage Leroy Merlin,369.14,Logement
+2024-08-01,Supermarche Auchan,15.85,Alimentation
+2024-08-02,Decathlon,35.09,Shopping
+2024-08-05,Supermarche Auchan,38.55,Alimentation
+2024-08-07,Sephora,38.51,Shopping
+2024-08-08,Manucure,36.96,Soins
+2024-08-08,Essence Shell,6.74,Transport
+2024-08-08,Electricite EDF,286.66,Logement
+2024-08-10,Primeur,90.43,Alimentation
+2024-08-13,Fromagerie,13.9,Alimentation
+2024-08-14,Boulangerie,58.93,Alimentation
+2024-08-16,Peage autoroute,26.32,Transport
+2024-08-17,Restaurant Le Gourmet,51.11,Loisirs
+2024-08-17,Primeur,48.99,Alimentation
+2024-08-18,Parking centre-ville,80.41,Transport
+2024-08-18,Livres scolaires,76.55,Education
+2024-08-19,Formation en ligne,105.55,Education
+2024-08-20,Manucure,91.95,Soins
+2024-08-21,Internet SFR,201.44,Logement
+2024-08-23,Electronique,217.43,Shopping
+2024-08-24,Osteopathe,26.08,Soins
+2024-08-24,Fnac,108.91,Shopping
+2024-08-24,Theatre,30.89,Loisirs
+2024-08-24,Intermarche,122.28,Alimentation
+2024-08-24,Bijouterie,30.92,Shopping
+2024-08-25,Chaussures,188.49,Shopping
+2024-08-26,H&M,55.69,Shopping
+2024-08-26,Pharmacie,35.47,Soins
+2024-08-27,Osteopathe,22.11,Soins
+2024-08-28,Taxi,10.93,Transport
+2024-08-29,Internet SFR,282.0,Logement
+2024-08-29,Assurance habitation,175.88,Logement
+2024-08-29,Fnac,56.48,Shopping
+2024-08-29,Disney+,5.66,Streaming
+2024-08-31,H&M,105.88,Shopping
+2024-08-31,Casino,22.58,Alimentation
+2024-09-01,Amazon Prime,7.4,Streaming
+2024-09-01,Casino,34.95,Alimentation
+2024-09-02,Uber,31.75,Transport
+2024-09-02,Parking centre-ville,12.77,Transport
+2024-09-03,Parc d'attractions,33.62,Loisirs
+2024-09-05,Station Total,17.12,Transport
+2024-09-05,Boulangerie,43.96,Alimentation
+2024-09-06,Medecin generaliste,15.0,Soins
+2024-09-07,Taxe fonciere,265.07,Logement
+2024-09-08,Coiffeur,33.73,Soins
+2024-09-09,Fromagerie,7.52,Alimentation
+2024-09-10,Intermarche,139.96,Alimentation
+2024-09-12,Materiel informatique etudes,136.72,Education
+2024-09-12,Essence Shell,7.41,Transport
+2024-09-12,Revision voiture,55.96,Transport
+2024-09-13,Boucherie,30.96,Alimentation
+2024-09-13,Revision voiture,14.45,Transport
+2024-09-13,Manucure,35.32,Soins
+2024-09-14,Concert,67.1,Loisirs
+2024-09-14,Intermarche,11.24,Alimentation
+2024-09-15,Escape Game,61.0,Loisirs
+2024-09-16,Supermarche Auchan,37.62,Alimentation
+2024-09-17,Primeur,111.74,Alimentation
+2024-09-21,Cinema UGC,68.9,Loisirs
+2024-09-21,Chaussures,38.22,Shopping
+2024-09-23,Boulangerie,8.45,Alimentation
+2024-09-24,Bar entre amis,15.15,Loisirs
+2024-09-25,Udemy,237.31,Education
+2024-09-26,Intermarche,40.96,Alimentation
+2024-09-27,Fournitures,292.39,Education
+2024-09-28,Boucherie,79.93,Alimentation
+2024-09-29,Taxi,13.08,Transport
+2024-09-30,Eau,95.08,Logement
+2024-10-01,Controle technique,23.44,Transport
+2024-10-02,Vetements Zara,64.68,Shopping
+2024-10-02,Boulangerie,35.97,Alimentation
+2024-10-03,Cours particuliers,78.37,Education
+2024-10-03,Sephora,171.26,Shopping
+2024-10-04,Uber,44.98,Transport
+2024-10-05,Taxe fonciere,42.65,Logement
+2024-10-06,Boucherie,19.27,Alimentation
+2024-10-07,Electricite EDF,581.08,Logement
+2024-10-16,Boucherie,48.59,Alimentation
+2024-10-17,Fnac,73.83,Shopping
+2024-10-17,Electronique,107.23,Shopping
+2024-10-18,Chaussures,56.48,Shopping
+2024-10-18,Taxe fonciere,76.4,Logement
+2024-10-18,Bowling,23.94,Loisirs
+2024-10-21,Controle technique,25.65,Transport
+2024-10-24,Courses Lidl,50.08,Alimentation
+2024-10-25,Taxi,21.0,Transport
+2024-10-25,Loyer appartement,404.18,Logement
+2024-10-26,Uber,25.39,Transport
+2024-10-27,Librairie,30.68,Shopping
+2024-10-27,Boulangerie,43.81,Alimentation
+2024-10-28,Taxi,41.36,Transport
+2024-10-28,Chaussures,32.63,Shopping
+2024-10-30,Parc d'attractions,16.91,Loisirs
+2024-10-30,Boulangerie,108.92,Alimentation
+2024-10-31,Boucherie,20.32,Alimentation
+2024-10-31,Primeur,39.03,Alimentation
+2024-11-01,Boulangerie,35.26,Alimentation
+2024-11-03,Taxe fonciere,248.87,Logement
+2024-11-04,Cinema UGC,17.29,Loisirs
+2024-11-04,Udemy,77.51,Education
+2024-11-05,Eau,341.57,Logement
+2024-11-05,Taxi,117.92,Transport
+2024-11-06,Bijouterie,223.7,Shopping
+2024-11-07,Bowling,63.47,Loisirs
+2024-11-08,Revision voiture,19.76,Transport
+2024-11-09,Osteopathe,30.97,Soins
+2024-11-10,Loyer appartement,709.34,Logement
+2024-11-10,Taxi,33.07,Transport
+2024-11-11,Taxi,7.64,Transport
+2024-11-11,Chaussures,48.4,Shopping
+2024-11-13,H&M,23.73,Shopping
+2024-11-15,Essence Shell,35.55,Transport
+2024-11-15,Concert,69.78,Loisirs
+2024-11-18,Concert,45.0,Loisirs
+2024-11-18,Electronique,56.98,Shopping
+2024-11-19,Osteopathe,35.18,Soins
+2024-11-20,Vetements Zara,102.74,Shopping
+2024-11-20,Intermarche,23.88,Alimentation
+2024-11-20,Parc d'attractions,22.39,Loisirs
+2024-11-20,Chaussures,79.14,Shopping
+2024-11-25,Casino,10.34,Alimentation
+2024-11-25,Uber,32.87,Transport
+2024-11-26,Taxi,27.11,Transport
+2024-11-26,Loyer appartement,370.0,Logement
+2024-11-28,Marche local,35.12,Alimentation
+2024-11-28,Intermarche,108.96,Alimentation
+2024-11-28,Marche local,88.41,Alimentation
+2024-11-29,Controle technique,18.06,Transport
+2024-11-30,Fromagerie,8.52,Alimentation
+2024-12-02,Casino,45.94,Alimentation
+2024-12-02,Boucherie,40.79,Alimentation
+2024-12-02,Boulangerie,6.34,Alimentation
+2024-12-04,Parc d'attractions,71.94,Loisirs
+2024-12-04,Musee,31.74,Loisirs
+2024-12-04,Amazon Prime,16.99,Streaming
+2024-12-04,Escape Game,57.96,Loisirs
+2024-12-04,H&M,73.53,Shopping
+2024-12-07,Escape Game,152.98,Loisirs
+2024-12-08,Loyer appartement,66.46,Logement
+2024-12-09,Concert,65.28,Loisirs
+2024-12-10,Dentiste,22.04,Soins
+2024-12-12,H&M,54.73,Shopping
+2024-12-12,Station Total,24.2,Transport
+2024-12-13,Assurance habitation,174.76,Logement
+2024-12-13,Musee,38.12,Loisirs
+2024-12-15,Fromagerie,13.39,Alimentation
+2024-12-16,Pharmacie,87.21,Soins
+2024-12-17,Intermarche,50.53,Alimentation
+2024-12-17,Sephora,266.51,Shopping
+2024-12-18,Assurance habitation,307.61,Logement
+2024-12-18,Boulangerie,19.63,Alimentation
+2024-12-18,Fnac,79.39,Shopping
+2024-12-19,Coiffeur,10.45,Soins
+2024-12-19,Controle technique,9.75,Transport
+2024-12-19,Primeur,131.86,Alimentation
+2024-12-19,Courses Lidl,22.94,Alimentation
+2024-12-20,Sephora,17.85,Shopping
+2024-12-20,Electricite EDF,667.45,Logement
+2024-12-20,Marche local,146.46,Alimentation
+2024-12-21,Apple Music,5.22,Streaming
+2024-12-22,Supermarche Auchan,18.91,Alimentation
+2024-12-22,Musee,19.76,Loisirs
+2024-12-22,Bowling,77.37,Loisirs
+2024-12-22,Casino,64.57,Alimentation
+2024-12-23,Fnac,42.64,Shopping
+2024-12-24,Primeur,18.68,Alimentation
+2024-12-25,Electronique,197.68,Shopping
+2024-12-25,YouTube Premium,5.56,Streaming
+2024-12-25,Musee,89.49,Loisirs
+2024-12-26,Intermarche,47.8,Alimentation
+2024-12-26,Uber,7.88,Transport
+2024-12-26,Parking centre-ville,8.83,Transport
+2024-12-28,Boulangerie,9.6,Alimentation
+2024-12-28,Decathlon,53.86,Shopping
+2024-12-29,Boucherie,12.18,Alimentation
+2024-12-29,Assurance habitation,107.05,Logement
+2024-12-29,Electricite EDF,228.66,Logement
+2024-12-30,Musee,21.34,Loisirs
+2024-12-31,Decathlon,89.89,Shopping
+2024-12-31,Amazon Prime,9.17,Streaming
+2025-01-01,Charges copropriete,213.5,Logement
+2025-01-02,Librairie,20.55,Shopping
+2025-01-02,Marche local,15.28,Alimentation
+2025-01-03,Supermarche Auchan,41.0,Alimentation
+2025-01-03,Abonnement Netflix,7.17,Streaming
+2025-01-03,Boucherie,46.6,Alimentation
+2025-01-03,Courses Lidl,6.25,Alimentation
+2025-01-03,Boucherie,16.43,Alimentation
+2025-01-04,Dentiste,40.06,Soins
+2025-01-04,Fnac,49.33,Shopping
+2025-01-05,Controle technique,47.85,Transport
+2025-01-05,Essence Shell,22.48,Transport
+2025-01-08,Electronique,34.3,Shopping
+2025-01-08,Cinema UGC,123.55,Loisirs
+2025-01-08,Courses Carrefour,76.15,Alimentation
+2025-01-08,H&M,120.83,Shopping
+2025-01-08,Vetements Zara,21.6,Shopping
+2025-01-08,Manucure,10.08,Soins
+2025-01-09,Manucure,19.21,Soins
+2025-01-09,Marche local,28.92,Alimentation
+2025-01-10,Decathlon,107.04,Shopping
+2025-01-10,Courses Lidl,17.08,Alimentation
+2025-01-10,Parking centre-ville,35.14,Transport
+2025-01-12,Decathlon,36.43,Shopping
+2025-01-12,Chaussures,91.64,Shopping
+2025-01-13,Chaussures,58.33,Shopping
+2025-01-13,Cours particuliers,168.26,Education
+2025-01-13,Theatre,73.89,Loisirs
+2025-01-13,Electricite EDF,144.89,Logement
+2025-01-14,Peage autoroute,109.89,Transport
+2025-01-14,Boulangerie,64.25,Alimentation
+2025-01-14,Peage autoroute,39.8,Transport
+2025-01-15,Manucure,25.68,Soins
+2025-01-15,Marche local,45.47,Alimentation
+2025-01-16,Boucherie,12.73,Alimentation
+2025-01-16,Peage autoroute,108.25,Transport
+2025-01-17,Intermarche,50.1,Alimentation
+2025-01-17,Marche local,148.0,Alimentation
+2025-01-17,Vetements Zara,66.01,Shopping
+2025-01-18,Taxe fonciere,119.15,Logement
+2025-01-19,Courses Lidl,5.58,Alimentation
+2025-01-19,Boucherie,31.48,Alimentation
+2025-01-19,Chaussures,66.6,Shopping
+2025-01-21,Assurance habitation,958.16,Logement
+2025-01-22,Decathlon,76.36,Shopping
+2025-01-22,Ticket metro,14.5,Transport
+2025-01-22,Primeur,129.3,Alimentation
+2025-01-23,Musee,134.67,Loisirs
+2025-01-23,Restaurant Le Gourmet,117.36,Loisirs
+2025-01-23,Eau,1069.09,Logement
+2025-01-24,Electronique,78.94,Shopping
+2025-01-26,Restaurant Le Gourmet,45.93,Loisirs
+2025-01-26,Intermarche,36.71,Alimentation
+2025-01-27,Electronique,107.98,Shopping
+2025-01-27,Primeur,46.59,Alimentation
+2025-01-28,Amazon Prime,8.49,Streaming
+2025-01-29,Fromagerie,84.49,Alimentation
+2025-01-30,Decathlon,47.44,Shopping
+2025-01-30,Uber,7.69,Transport
+2025-01-30,Musee,53.93,Loisirs
+2025-01-30,Taxi,67.88,Transport
+2025-01-31,Bar entre amis,193.47,Loisirs
+2025-01-31,Fnac,88.29,Shopping
+2025-02-01,Bricolage Leroy Merlin,319.94,Logement
+2025-02-02,Bijouterie,98.68,Shopping
+2025-02-02,Boulangerie,60.02,Alimentation
+2025-02-03,Essence Shell,35.85,Transport
+2025-02-04,Supermarche Auchan,34.45,Alimentation
+2025-02-04,Boucherie,24.55,Alimentation
+2025-02-05,Bijouterie,44.41,Shopping
+2025-02-05,Dentiste,34.61,Soins
+2025-02-06,Electronique,101.32,Shopping
+2025-02-08,Essence Shell,41.46,Transport
+2025-02-08,Escape Game,55.99,Loisirs
+2025-02-09,Formation en ligne,385.92,Education
+2025-02-09,Boulangerie,11.24,Alimentation
+2025-02-10,Courses Carrefour,7.49,Alimentation
+2025-02-10,Internet SFR,339.7,Logement
+2025-02-12,Bijouterie,89.8,Shopping
+2025-02-13,Fromagerie,68.88,Alimentation
+2025-02-13,Taxi,7.06,Transport
+2025-02-13,Bowling,11.1,Loisirs
+2025-02-13,Controle technique,10.78,Transport
+2025-02-14,Escape Game,35.17,Loisirs
+2025-02-16,Vetements Zara,39.55,Shopping
+2025-02-16,Essence Shell,18.78,Transport
+2025-02-16,Bar entre amis,18.67,Loisirs
+2025-02-18,Supermarche Auchan,51.92,Alimentation
+2025-02-18,Supermarche Auchan,42.37,Alimentation
+2025-02-19,Primeur,46.94,Alimentation
+2025-02-19,Casino,24.27,Alimentation
+2025-02-20,Livres scolaires,134.35,Education
+2025-02-20,Uber,29.34,Transport
+2025-02-20,Eau,369.37,Logement
+2025-02-20,Librairie,71.34,Shopping
+2025-02-21,Marche local,129.33,Alimentation
+2025-02-21,Marche local,139.16,Alimentation
+2025-02-24,Escape Game,13.86,Loisirs
+2025-02-25,Disney+,5.04,Streaming
+2025-02-26,Coiffeur,19.93,Soins
+2025-02-27,Eau,404.38,Logement
+2025-02-28,Boucherie,34.04,Alimentation
+2025-02-28,Internet SFR,232.14,Logement
+2025-03-01,Bricolage Leroy Merlin,259.75,Logement
+2025-03-01,Marche local,6.63,Alimentation
+2025-03-01,Vetements Zara,56.84,Shopping
+2025-03-03,Electronique,103.11,Shopping
+2025-03-03,Intermarche,40.42,Alimentation
+2025-03-04,Fromagerie,92.7,Alimentation
+2025-03-04,Charges copropriete,107.29,Logement
+2025-03-05,Manucure,28.32,Soins
+2025-03-06,Station Total,21.9,Transport
+2025-03-06,Bijouterie,241.91,Shopping
+2025-03-07,Pharmacie,31.89,Soins
+2025-03-07,Intermarche,16.08,Alimentation
+2025-03-07,Decathlon,97.56,Shopping
+2025-03-07,Intermarche,28.31,Alimentation
+2025-03-08,Boucherie,13.34,Alimentation
+2025-03-08,Charges copropriete,226.57,Logement
+2025-03-08,Charges copropriete,342.55,Logement
+2025-03-08,Vetements Zara,106.17,Shopping
+2025-03-09,Marche local,6.38,Alimentation
+2025-03-11,Bijouterie,118.86,Shopping
+2025-03-11,Escape Game,105.87,Loisirs
+2025-03-11,Sephora,16.85,Shopping
+2025-03-11,Essence Shell,10.2,Transport
+2025-03-11,Bowling,102.78,Loisirs
+2025-03-12,Uber,31.75,Transport
+2025-03-12,Bijouterie,18.58,Shopping
+2025-03-16,Ticket metro,12.96,Transport
+2025-03-17,Marche local,64.85,Alimentation
+2025-03-17,Formation en ligne,145.35,Education
+2025-03-17,Disney+,7.58,Streaming
+2025-03-19,Marche local,37.45,Alimentation
+2025-03-19,Controle technique,35.9,Transport
+2025-03-19,Concert,59.59,Loisirs
+2025-03-20,Frais de scolarite,52.37,Education
+2025-03-21,Courses Carrefour,64.74,Alimentation
+2025-03-22,Theatre,28.79,Loisirs
+2025-03-22,Massage,85.92,Soins
+2025-03-22,Essence Shell,34.69,Transport
+2025-03-22,Livres scolaires,106.7,Education
+2025-03-22,Electricite EDF,126.45,Logement
+2025-03-23,Electronique,99.51,Shopping
+2025-03-23,Peage autoroute,116.34,Transport
+2025-03-23,Coiffeur,14.92,Soins
+2025-03-24,Bar entre amis,178.94,Loisirs
+2025-03-24,Musee,56.82,Loisirs
+2025-03-24,Dentiste,10.88,Soins
+2025-03-24,Theatre,73.0,Loisirs
+2025-03-25,Revision voiture,34.96,Transport
+2025-03-25,Eau,305.66,Logement
+2025-03-25,Librairie,84.38,Shopping
+2025-03-25,Loyer appartement,254.36,Logement
+2025-03-25,Dentiste,23.22,Soins
+2025-03-25,Chaussures,103.57,Shopping
+2025-03-25,Courses Lidl,31.28,Alimentation
+2025-03-26,Boulangerie,18.68,Alimentation
+2025-03-27,Fromagerie,28.48,Alimentation
+2025-03-28,Bricolage Leroy Merlin,334.08,Logement
+2025-03-29,Pharmacie,16.96,Soins
+2025-03-29,Casino,29.64,Alimentation
+2025-03-30,Station Total,41.52,Transport
+2025-03-30,Coiffeur,35.73,Soins
+2025-03-31,Restaurant Le Gourmet,11.38,Loisirs
+2025-03-31,Escape Game,19.95,Loisirs
+2025-03-31,Musee,25.84,Loisirs
+2025-03-31,Courses Lidl,7.11,Alimentation
+2025-03-31,Bricolage Leroy Merlin,147.97,Logement
+2025-04-01,Peage autoroute,21.63,Transport
+2025-04-01,Essence Shell,99.11,Transport
+2025-04-02,Primeur,40.43,Alimentation
+2025-04-04,Supermarche Auchan,132.46,Alimentation
+2025-04-05,Casino,41.03,Alimentation
+2025-04-06,OCS,19.76,Streaming
+2025-04-06,Dentiste,21.66,Soins
+2025-04-06,Eau,48.98,Logement
+2025-04-06,Restaurant Le Gourmet,24.02,Loisirs
+2025-04-08,Massage,20.25,Soins
+2025-04-08,Supermarche Auchan,118.95,Alimentation
+2025-04-09,Peage autoroute,109.74,Transport
+2025-04-10,Intermarche,10.19,Alimentation
+2025-04-11,Chaussures,69.69,Shopping
+2025-04-11,Bowling,52.83,Loisirs
+2025-04-11,Peage autoroute,21.48,Transport
+2025-04-12,Librairie,53.13,Shopping
+2025-04-13,Apple Music,5.49,Streaming
+2025-04-13,Bowling,45.77,Loisirs
+2025-04-14,Eau,200.06,Logement
+2025-04-15,Concert,29.56,Loisirs
+2025-04-16,Pharmacie,48.78,Soins
+2025-04-16,Disney+,8.24,Streaming
+2025-04-16,Disney+,6.21,Streaming
+2025-04-16,Cinema UGC,22.59,Loisirs
+2025-04-17,Librairie,84.24,Shopping
+2025-04-17,Revision voiture,12.83,Transport
+2025-04-17,Supermarche Auchan,18.55,Alimentation
+2025-04-17,Fnac,85.25,Shopping
+2025-04-18,Disney+,7.76,Streaming
+2025-04-19,Restaurant Le Gourmet,30.73,Loisirs
+2025-04-19,Coiffeur,28.89,Soins
+2025-04-20,Marche local,8.8,Alimentation
+2025-04-20,Osteopathe,70.6,Soins
+2025-04-21,Peage autoroute,37.93,Transport
+2025-04-21,Concert,30.57,Loisirs
+2025-04-21,Cinema UGC,24.86,Loisirs
+2025-04-22,Taxe fonciere,888.22,Logement
+2025-04-23,Marche local,91.33,Alimentation
+2025-04-23,Librairie,49.42,Shopping
+2025-04-24,Materiel informatique etudes,338.46,Education
+2025-04-24,Revision voiture,31.83,Transport
+2025-04-24,Theatre,57.1,Loisirs
+2025-04-24,Charges copropriete,387.24,Logement
+2025-04-24,Osteopathe,20.85,Soins
+2025-04-25,Revision voiture,22.29,Transport
+2025-04-25,Parking centre-ville,7.48,Transport
+2025-04-25,Bowling,123.07,Loisirs
+2025-04-26,Controle technique,18.92,Transport
+2025-04-26,Electronique,67.09,Shopping
+2025-04-27,Escape Game,71.82,Loisirs
+2025-04-28,Parking centre-ville,15.68,Transport
+2025-04-29,Electronique,80.2,Shopping
+2025-04-29,Bowling,97.75,Loisirs
+2025-04-29,Chaussures,71.86,Shopping
+2025-04-29,Ticket metro,25.23,Transport
+2025-04-29,Parc d'attractions,134.23,Loisirs
+2025-04-29,Medecin generaliste,38.06,Soins
+2025-04-30,Amazon Prime,8.93,Streaming
+2025-05-01,Essence Shell,33.47,Transport
+2025-05-01,Electricite EDF,1065.14,Logement
+2025-05-02,Primeur,76.53,Alimentation
+2025-05-03,YouTube Premium,13.9,Streaming
+2025-05-03,Formation en ligne,321.1,Education
+2025-05-03,Chaussures,90.15,Shopping
+2025-05-03,Controle technique,40.33,Transport
+2025-05-04,Medecin generaliste,64.56,Soins
+2025-05-05,Courses Lidl,46.75,Alimentation
+2025-05-05,Taxi,68.89,Transport
+2025-05-05,Medecin generaliste,62.72,Soins
+2025-05-06,Parking centre-ville,9.59,Transport
+2025-05-06,Bijouterie,121.17,Shopping
+2025-05-06,Electricite EDF,127.75,Logement
+2025-05-07,Disney+,7.98,Streaming
+2025-05-07,Taxi,20.91,Transport
+2025-05-07,Fromagerie,137.73,Alimentation
+2025-05-08,Primeur,21.07,Alimentation
+2025-05-08,Bijouterie,105.48,Shopping
+2025-05-08,Restaurant Le Gourmet,157.96,Loisirs
+2025-05-09,Restaurant Le Gourmet,26.65,Loisirs
+2025-05-10,H&M,35.19,Shopping
+2025-05-10,Courses Carrefour,58.24,Alimentation
+2025-05-11,Vetements Zara,150.59,Shopping
+2025-05-12,Uber,35.9,Transport
+2025-05-12,Theatre,15.73,Loisirs
+2025-05-12,Bricolage Leroy Merlin,289.01,Logement
+2025-05-12,Bowling,41.0,Loisirs
+2025-05-13,Eau,72.07,Logement
+2025-05-13,Electronique,24.87,Shopping
+2025-05-14,Boucherie,34.15,Alimentation
+2025-05-14,Supermarche Auchan,67.02,Alimentation
+2025-05-14,Boulangerie,34.03,Alimentation
+2025-05-15,Musee,116.46,Loisirs
+2025-05-16,Escape Game,54.35,Loisirs
+2025-05-17,Fnac,97.72,Shopping
+2025-05-18,Intermarche,29.89,Alimentation
+2025-05-18,Opticien,49.12,Soins
+2025-05-19,Bijouterie,78.37,Shopping
+2025-05-19,Assurance habitation,246.57,Logement
+2025-05-19,Abonnement Netflix,5.39,Streaming
+2025-05-19,Ticket metro,29.47,Transport
+2025-05-19,Opticien,10.86,Soins
+2025-05-20,Theatre,155.85,Loisirs
+2025-05-20,Courses Lidl,17.3,Alimentation
+2025-05-20,Medecin generaliste,13.29,Soins
+2025-05-21,Formation en ligne,27.22,Education
+2025-05-23,Concert,58.05,Loisirs
+2025-05-23,Charges copropriete,380.02,Logement
+2025-05-24,Taxe fonciere,585.34,Logement
+2025-05-24,Uber,24.94,Transport
+2025-05-24,Essence Shell,18.79,Transport
+2025-05-25,Boucherie,32.82,Alimentation
+2025-05-26,Bar entre amis,104.01,Loisirs
+2025-05-26,Ticket metro,13.32,Transport
+2025-05-27,Taxi,28.3,Transport
+2025-05-27,Concert,17.08,Loisirs
+2025-05-28,Intermarche,111.73,Alimentation
+2025-05-29,Casino,17.24,Alimentation
+2025-05-29,Parc d'attractions,24.49,Loisirs
+2025-05-29,Udemy,58.89,Education
+2025-05-31,Intermarche,30.84,Alimentation
+2025-05-31,Uber,102.2,Transport
+2025-05-31,Coiffeur,13.18,Soins
+2025-05-31,Ticket metro,21.42,Transport
+2025-06-01,Essence Shell,30.49,Transport
+2025-06-03,Osteopathe,25.64,Soins
+2025-06-04,Station Total,6.5,Transport
+2025-06-04,Abonnement Netflix,19.37,Streaming
+2025-06-04,Vetements Zara,29.44,Shopping
+2025-06-04,Taxi,26.36,Transport
+2025-06-05,Vetements Zara,24.85,Shopping
+2025-06-05,Boucherie,34.63,Alimentation
+2025-06-06,Primeur,86.41,Alimentation
+2025-06-07,Bowling,55.77,Loisirs
+2025-06-08,Casino,6.14,Alimentation
+2025-06-08,Osteopathe,24.78,Soins
+2025-06-08,Chaussures,43.48,Shopping
+2025-06-09,Electricite EDF,315.29,Logement
+2025-06-09,Primeur,34.95,Alimentation
+2025-06-09,Station Total,78.48,Transport
+2025-06-10,Marche local,111.59,Alimentation
+2025-06-10,Formation en ligne,152.84,Education
+2025-06-11,Courses Carrefour,12.34,Alimentation
+2025-06-11,Casino,51.16,Alimentation
+2025-06-11,Primeur,34.85,Alimentation
+2025-06-11,Courses Carrefour,13.99,Alimentation
+2025-06-12,Uber,117.07,Transport
+2025-06-13,Formation en ligne,55.88,Education
+2025-06-13,Osteopathe,62.49,Soins
+2025-06-14,Peage autoroute,29.95,Transport
+2025-06-16,Massage,37.55,Soins
+2025-06-17,Courses Carrefour,23.6,Alimentation
+2025-06-17,Librairie,72.07,Shopping
+2025-06-18,Parking centre-ville,7.43,Transport
+2025-06-19,Escape Game,42.49,Loisirs
+2025-06-19,Courses Carrefour,13.15,Alimentation
+2025-06-19,Courses Lidl,127.94,Alimentation
+2025-06-20,Courses Carrefour,48.71,Alimentation
+2025-06-20,Intermarche,7.54,Alimentation
+2025-06-20,Marche local,35.22,Alimentation
+2025-06-21,Courses Lidl,67.59,Alimentation
+2025-06-24,Ticket metro,36.9,Transport
+2025-06-24,Boucherie,23.45,Alimentation
+2025-06-26,Amazon Prime,5.77,Streaming
+2025-06-26,Peage autoroute,42.76,Transport
+2025-06-27,Courses Lidl,110.81,Alimentation
+2025-06-27,Charges copropriete,339.54,Logement
+2025-06-27,Peage autoroute,44.79,Transport
+2025-06-28,Parking centre-ville,38.36,Transport
+2025-06-29,Assurance habitation,272.22,Logement
+2025-06-29,Courses Carrefour,16.14,Alimentation
+2025-06-29,Assurance habitation,120.29,Logement
+2025-06-29,Osteopathe,29.64,Soins
+2025-06-30,Electricite EDF,350.81,Logement
+2025-06-30,Fournitures,107.17,Education
+2025-07-01,Dentiste,23.02,Soins
+2025-07-01,Supermarche Auchan,125.4,Alimentation
+2025-07-02,Fnac,114.75,Shopping
+2025-07-03,Restaurant Le Gourmet,77.18,Loisirs
+2025-07-03,Casino,26.26,Alimentation
+2025-07-03,Fromagerie,47.74,Alimentation
+2025-07-04,Bowling,13.28,Loisirs
+2025-07-04,Primeur,45.4,Alimentation
+2025-07-04,Supermarche Auchan,99.64,Alimentation
+2025-07-05,Librairie,79.43,Shopping
+2025-07-06,Librairie,232.93,Shopping
+2025-07-06,Sephora,19.83,Shopping
+2025-07-09,Parking centre-ville,100.06,Transport
+2025-07-09,Courses Carrefour,10.55,Alimentation
+2025-07-10,Boulangerie,46.14,Alimentation
+2025-07-10,Essence Shell,10.44,Transport
+2025-07-10,Bricolage Leroy Merlin,252.02,Logement
+2025-07-11,Peage autoroute,15.53,Transport
+2025-07-11,Bijouterie,136.73,Shopping
+2025-07-12,Librairie,32.14,Shopping
+2025-07-12,Fromagerie,21.48,Alimentation
+2025-07-12,Parc d'attractions,27.49,Loisirs
+2025-07-12,Librairie,62.27,Shopping
+2025-07-13,Eau,393.01,Logement
+2025-07-13,Bijouterie,74.8,Shopping
+2025-07-14,Station Total,31.12,Transport
+2025-07-15,Cinema UGC,36.24,Loisirs
+2025-07-15,Revision voiture,15.68,Transport
+2025-07-16,Dentiste,20.45,Soins
+2025-07-17,Eau,129.94,Logement
+2025-07-17,Casino,40.02,Alimentation
+2025-07-18,Concert,16.02,Loisirs
+2025-07-18,Frais de scolarite,316.58,Education
+2025-07-18,Escape Game,73.31,Loisirs
+2025-07-19,Theatre,79.51,Loisirs
+2025-07-20,Electricite EDF,735.53,Logement
+2025-07-20,Escape Game,135.97,Loisirs
+2025-07-20,Coiffeur,57.59,Soins
+2025-07-21,Massage,20.19,Soins
+2025-07-22,Restaurant Le Gourmet,146.86,Loisirs
+2025-07-22,Restaurant Le Gourmet,192.79,Loisirs
+2025-07-23,Parc d'attractions,140.42,Loisirs
+2025-07-23,Cinema UGC,25.85,Loisirs
+2025-07-23,Librairie,26.74,Shopping
+2025-07-25,H&M,88.37,Shopping
+2025-07-25,Peage autoroute,28.04,Transport
+2025-07-25,Abonnement Netflix,8.8,Streaming
+2025-07-26,YouTube Premium,5.69,Streaming
+2025-07-27,Massage,68.21,Soins
+2025-07-27,Peage autoroute,34.16,Transport
+2025-07-27,Taxi,14.79,Transport
+2025-07-27,Electricite EDF,203.88,Logement
+2025-07-28,Fnac,105.3,Shopping
+2025-07-29,Taxe fonciere,323.03,Logement
+2025-07-30,Bricolage Leroy Merlin,283.85,Logement
+2025-07-30,Restaurant Le Gourmet,27.69,Loisirs
+2025-07-30,Opticien,26.97,Soins
+2025-07-31,Pharmacie,10.98,Soins
+2025-07-31,Formation en ligne,35.29,Education
+2025-07-31,Concert,65.28,Loisirs
+2025-08-01,Electronique,105.81,Shopping
+2025-08-01,Essence Shell,85.76,Transport
+2025-08-01,Medecin generaliste,38.26,Soins
+2025-08-02,Pharmacie,31.08,Soins
+2025-08-02,Intermarche,15.39,Alimentation
+2025-08-02,Opticien,17.86,Soins
+2025-08-02,Disney+,6.15,Streaming
+2025-08-03,Librairie,73.18,Shopping
+2025-08-03,Revision voiture,28.05,Transport
+2025-08-04,Taxi,9.73,Transport
+2025-08-04,Boulangerie,90.79,Alimentation
+2025-08-04,Primeur,7.59,Alimentation
+2025-08-04,Theatre,56.95,Loisirs
+2025-08-04,Fnac,60.61,Shopping
+2025-08-05,Marche local,86.9,Alimentation
+2025-08-05,Bowling,51.13,Loisirs
+2025-08-05,Uber,20.75,Transport
+2025-08-05,Supermarche Auchan,29.37,Alimentation
+2025-08-05,Intermarche,80.5,Alimentation
+2025-08-06,Courses Lidl,37.18,Alimentation
+2025-08-06,Boulangerie,11.76,Alimentation
+2025-08-07,Formation en ligne,27.38,Education
+2025-08-07,Electricite EDF,1194.57,Logement
+2025-08-07,Bijouterie,140.92,Shopping
+2025-08-08,Courses Carrefour,27.02,Alimentation
+2025-08-08,Casino,148.74,Alimentation
+2025-08-08,Internet SFR,964.47,Logement
+2025-08-09,Revision voiture,19.66,Transport
+2025-08-10,Librairie,69.67,Shopping
+2025-08-10,Courses Lidl,79.42,Alimentation
+2025-08-10,Primeur,43.81,Alimentation
+2025-08-10,Fromagerie,29.63,Alimentation
+2025-08-10,Casino,36.02,Alimentation
+2025-08-11,Bar entre amis,48.65,Loisirs
+2025-08-12,Essence Shell,16.31,Transport
+2025-08-14,Peage autoroute,7.73,Transport
+2025-08-14,Cours particuliers,161.02,Education
+2025-08-16,Sephora,122.36,Shopping
+2025-08-17,Uber,32.02,Transport
+2025-08-19,Internet SFR,407.36,Logement
+2025-08-20,Courses Carrefour,16.73,Alimentation
+2025-08-20,Taxi,63.21,Transport
+2025-08-21,H&M,77.53,Shopping
+2025-08-22,Fromagerie,30.71,Alimentation
+2025-08-23,Peage autoroute,25.16,Transport
+2025-08-24,Sephora,155.64,Shopping
+2025-08-24,Fromagerie,17.34,Alimentation
+2025-08-25,Courses Lidl,14.62,Alimentation
+2025-08-25,Controle technique,8.08,Transport
+2025-08-25,Vetements Zara,96.8,Shopping
+2025-08-25,Controle technique,8.53,Transport
+2025-08-25,Parking centre-ville,39.74,Transport
+2025-08-27,Loyer appartement,68.44,Logement
+2025-08-27,Decathlon,194.27,Shopping
+2025-08-28,Taxi,21.49,Transport
+2025-08-29,Primeur,9.51,Alimentation
+2025-08-29,Dentiste,84.61,Soins
+2025-08-29,Apple Music,5.47,Streaming
+2025-08-31,Intermarche,25.39,Alimentation
+2025-08-31,Restaurant Le Gourmet,38.43,Loisirs
+2025-08-31,Casino,15.72,Alimentation
+2025-08-31,Librairie,123.03,Shopping
+2025-09-01,Fromagerie,26.75,Alimentation
+2025-09-01,Casino,7.61,Alimentation
+2025-09-02,Essence Shell,46.59,Transport
+2025-09-02,Peage autoroute,33.87,Transport
+2025-09-02,Cinema UGC,32.79,Loisirs
+2025-09-02,Theatre,36.99,Loisirs
+2025-09-02,Bijouterie,282.2,Shopping
+2025-09-04,Courses Carrefour,116.81,Alimentation
+2025-09-04,Internet SFR,1027.26,Logement
+2025-09-04,Taxe fonciere,275.1,Logement
+2025-09-06,Essence Shell,21.86,Transport
+2025-09-06,Controle technique,24.23,Transport
+2025-09-06,Bijouterie,108.66,Shopping
+2025-09-07,Fromagerie,12.99,Alimentation
+2025-09-07,Bricolage Leroy Merlin,1057.94,Logement
+2025-09-07,H&M,26.83,Shopping
+2025-09-08,Theatre,26.69,Loisirs
+2025-09-08,Eau,560.54,Logement
+2025-09-09,Controle technique,42.76,Transport
+2025-09-09,Revision voiture,66.57,Transport
+2025-09-10,Taxi,18.76,Transport
+2025-09-10,Cinema UGC,62.06,Loisirs
+2025-09-10,Casino,12.56,Alimentation
+2025-09-10,Opticien,34.32,Soins
+2025-09-11,Escape Game,24.42,Loisirs
+2025-09-13,Concert,195.34,Loisirs
+2025-09-14,Revision voiture,40.03,Transport
+2025-09-14,Restaurant Le Gourmet,25.52,Loisirs
+2025-09-15,Essence Shell,84.75,Transport
+2025-09-16,Dentiste,35.15,Soins
+2025-09-16,Electronique,64.06,Shopping
+2025-09-17,Courses Carrefour,104.33,Alimentation
+2025-09-17,Intermarche,7.84,Alimentation
+2025-09-20,Spotify Premium,6.75,Streaming
+2025-09-20,Cinema UGC,77.93,Loisirs
+2025-09-20,Boulangerie,43.1,Alimentation
+2025-09-20,Taxe fonciere,608.3,Logement
+2025-09-21,Bar entre amis,10.12,Loisirs
+2025-09-21,Opticien,27.19,Soins
+2025-09-21,Sephora,80.1,Shopping
+2025-09-21,Eau,77.85,Logement
+2025-09-21,Restaurant Le Gourmet,34.82,Loisirs
+2025-09-21,Sephora,84.16,Shopping
+2025-09-21,Decathlon,107.25,Shopping
+2025-09-21,Dentiste,11.67,Soins
+2025-09-21,Taxe fonciere,69.07,Logement
+2025-09-21,Fnac,252.3,Shopping
+2025-09-22,Fromagerie,20.79,Alimentation
+2025-09-22,Courses Lidl,35.55,Alimentation
+2025-09-22,Essence Shell,28.99,Transport
+2025-09-22,Abonnement Netflix,8.83,Streaming
+2025-09-22,Supermarche Auchan,5.25,Alimentation
+2025-09-22,Cours particuliers,97.73,Education
+2025-09-23,Ticket metro,12.26,Transport
+2025-09-23,Chaussures,283.23,Shopping
+2025-09-23,Cinema UGC,139.55,Loisirs
+2025-09-23,Casino,58.19,Alimentation
+2025-09-24,Taxi,38.71,Transport
+2025-09-24,Librairie,39.44,Shopping
+2025-09-24,H&M,219.64,Shopping
+2025-09-24,Charges copropriete,114.29,Logement
+2025-09-24,Pharmacie,16.67,Soins
+2025-09-25,Controle technique,26.03,Transport
+2025-09-25,Parc d'attractions,16.76,Loisirs
+2025-09-25,Livres scolaires,66.76,Education
+2025-09-25,YouTube Premium,11.68,Streaming
+2025-09-26,Uber,103.75,Transport
+2025-09-26,Supermarche Auchan,28.09,Alimentation
+2025-09-26,Uber,39.34,Transport
+2025-09-26,YouTube Premium,11.1,Streaming
+2025-09-26,Taxe fonciere,265.47,Logement
+2025-09-26,Loyer appartement,172.29,Logement
+2025-09-27,Fromagerie,30.82,Alimentation
+2025-09-27,Frais de scolarite,158.41,Education
+2025-09-27,Peage autoroute,35.03,Transport
+2025-09-28,Station Total,33.2,Transport
+2025-09-28,Bricolage Leroy Merlin,512.24,Logement
+2025-09-28,Medecin generaliste,12.12,Soins
+2025-09-28,Controle technique,115.74,Transport
+2025-09-29,Massage,20.59,Soins
+2025-09-29,Frais de scolarite,72.9,Education
+2025-09-29,Bar entre amis,23.53,Loisirs
+2025-09-29,Parking centre-ville,17.79,Transport
+2025-09-30,Massage,63.27,Soins
+2025-09-30,Manucure,37.53,Soins
+2025-09-30,Intermarche,73.17,Alimentation
+2025-09-30,Musee,35.35,Loisirs
+2025-09-30,Chaussures,164.74,Shopping
+2025-09-30,Musee,21.09,Loisirs
+2025-09-30,Primeur,51.89,Alimentation
+2025-10-01,Amazon Prime,8.75,Streaming
+2025-10-01,Marche local,13.05,Alimentation
+2025-10-01,Sephora,52.46,Shopping
+2025-10-01,Marche local,51.33,Alimentation
+2025-10-02,Musee,79.58,Loisirs
+2025-10-02,Charges copropriete,958.23,Logement
+2025-10-02,Loyer appartement,163.53,Logement
+2025-10-02,Materiel informatique etudes,166.75,Education
+2025-10-02,Medecin generaliste,20.17,Soins
+2025-10-02,Parc d'attractions,167.12,Loisirs
+2025-10-02,Boulangerie,40.07,Alimentation
+2025-10-02,Boucherie,54.72,Alimentation
+2025-10-03,Boucherie,31.14,Alimentation
+2025-10-03,Peage autoroute,36.14,Transport
+2025-10-03,Charges copropriete,1143.09,Logement
+2025-10-03,Chaussures,90.72,Shopping
+2025-10-03,Courses Lidl,14.4,Alimentation
+2025-10-04,Electronique,16.57,Shopping
+2025-10-04,Dentiste,36.82,Soins
+2025-10-04,Coiffeur,36.01,Soins
+2025-10-04,Uber,33.83,Transport
+2025-10-04,Boulangerie,5.28,Alimentation
+2025-10-04,Revision voiture,14.21,Transport
+2025-10-04,Station Total,31.88,Transport
+2025-10-04,Decathlon,45.57,Shopping
+2025-10-04,Cinema UGC,193.18,Loisirs
+2025-10-04,Courses Carrefour,34.38,Alimentation
+2025-10-04,Bricolage Leroy Merlin,833.28,Logement
+2025-10-05,Boucherie,16.79,Alimentation
+2025-10-05,Revision voiture,67.38,Transport
+2025-10-05,Musee,73.15,Loisirs
+2025-10-05,Boulangerie,47.31,Alimentation
+2025-10-05,Supermarche Auchan,88.6,Alimentation
+2025-10-05,Massage,53.95,Soins
+2025-10-05,Fromagerie,25.06,Alimentation
+2025-10-06,Uber,30.54,Transport
+2025-10-06,Dentiste,19.65,Soins
+2025-10-06,Casino,38.38,Alimentation
+2025-10-06,Peage autoroute,50.21,Transport
+2025-10-06,Restaurant Le Gourmet,92.73,Loisirs
+2025-10-06,Electronique,49.77,Shopping
+2025-10-06,Boulangerie,23.65,Alimentation
+2025-10-06,Courses Lidl,33.74,Alimentation
+2025-10-07,Fnac,79.44,Shopping
+2025-10-07,Essence Shell,12.3,Transport
+2025-10-07,Courses Lidl,140.39,Alimentation
+2025-10-07,Peage autoroute,12.43,Transport
+2025-10-07,Boulangerie,148.76,Alimentation
+2025-10-07,Musee,68.61,Loisirs
+2025-10-07,Taxe fonciere,605.87,Logement
+2025-10-07,Vetements Zara,71.83,Shopping
+2025-10-07,Essence Shell,21.67,Transport
+2025-10-08,Concert,53.45,Loisirs
+2025-10-08,Eau,102.19,Logement
+2025-10-08,Station Total,5.05,Transport
+2025-10-08,Parc d'attractions,15.77,Loisirs
+2025-10-08,Revision voiture,19.59,Transport
+2025-10-08,Fnac,52.99,Shopping
+2025-10-08,Essence Shell,23.32,Transport
+2025-10-08,Bijouterie,236.85,Shopping
+2025-10-08,Bowling,15.06,Loisirs
+2025-10-08,Abonnement Netflix,5.19,Streaming
+2025-10-08,Bar entre amis,114.34,Loisirs
+2025-10-09,Materiel informatique etudes,58.93,Education
+2025-10-09,Boucherie,49.23,Alimentation
+2025-10-09,Bricolage Leroy Merlin,372.96,Logement
+2025-10-09,Dentiste,75.87,Soins
+2025-10-10,Peage autoroute,27.25,Transport
+2025-10-10,Controle technique,5.79,Transport
+2025-10-10,Boulangerie,33.76,Alimentation
+2025-10-10,Livres scolaires,138.66,Education
+2025-10-10,Coiffeur,11.75,Soins
+2025-10-10,Taxi,54.62,Transport
+2025-10-11,Parking centre-ville,89.88,Transport
+2025-10-11,Manucure,21.03,Soins
+2025-10-11,Charges copropriete,174.01,Logement
+2025-10-11,Librairie,37.95,Shopping
+2025-10-11,Courses Lidl,47.99,Alimentation
+2025-10-11,H&M,153.5,Shopping
+2025-10-11,Manucure,28.96,Soins
+2025-10-11,Fnac,131.72,Shopping
+2025-10-11,Internet SFR,560.42,Logement
+2025-10-12,Formation en ligne,33.71,Education
+2025-10-12,Coiffeur,28.27,Soins
+2025-10-12,Bar entre amis,14.74,Loisirs
+2025-10-12,Station Total,6.75,Transport
+2025-10-12,Opticien,93.08,Soins
+2025-10-12,Electricite EDF,929.55,Logement
+2025-10-12,Boulangerie,93.93,Alimentation
+2025-10-12,Chaussures,84.34,Shopping
+2025-10-13,Bricolage Leroy Merlin,190.56,Logement
+2025-10-13,Courses Lidl,16.3,Alimentation
+2025-10-13,Peage autoroute,36.41,Transport
+2025-10-13,Sephora,54.12,Shopping
+2025-10-13,Assurance habitation,379.09,Logement
+2025-10-13,Pharmacie,71.2,Soins
+2025-10-13,Vetements Zara,33.88,Shopping
+2025-10-13,Fnac,53.98,Shopping
+2025-10-14,Bijouterie,15.11,Shopping
+2025-10-14,Medecin generaliste,49.32,Soins
+2025-10-14,Opticien,12.26,Soins
+2025-10-14,Taxe fonciere,346.77,Logement
+2025-10-14,H&M,88.21,Shopping
+2025-10-14,Pharmacie,37.36,Soins
+2025-10-14,Charges copropriete,81.08,Logement
+2025-10-14,Librairie,83.1,Shopping
+2025-10-15,YouTube Premium,8.73,Streaming
+2025-10-15,Supermarche Auchan,34.55,Alimentation
+2025-10-15,Supermarche Auchan,7.08,Alimentation
+2025-10-15,Bar entre amis,18.54,Loisirs
+2025-10-15,Concert,23.72,Loisirs
+2025-10-15,Manucure,27.68,Soins
+2025-10-16,Bricolage Leroy Merlin,392.16,Logement
+2025-10-16,Courses Carrefour,28.99,Alimentation
+2025-10-16,Bijouterie,24.66,Shopping
+2025-10-16,Abonnement Netflix,6.14,Streaming
+2025-10-16,Taxi,6.82,Transport
+2025-10-16,Boucherie,20.94,Alimentation
+2025-10-16,Station Total,16.11,Transport
+2025-10-16,Intermarche,26.62,Alimentation
+2025-10-16,Peage autoroute,15.49,Transport
+2025-10-16,Apple Music,5.45,Streaming
+2025-10-16,Ticket metro,37.06,Transport
+2025-10-16,Fromagerie,28.53,Alimentation
+2025-10-16,Bowling,44.64,Loisirs
+2025-10-17,Manucure,13.31,Soins
+2025-10-17,Assurance habitation,299.65,Logement
+2025-10-17,Boulangerie,9.58,Alimentation
+2025-10-17,Musee,69.79,Loisirs
+2025-10-17,Boucherie,36.44,Alimentation
+2025-10-17,Cinema UGC,168.12,Loisirs
+2025-10-17,Cinema UGC,102.15,Loisirs
+2025-10-17,Supermarche Auchan,117.71,Alimentation
+2025-10-18,Udemy,72.95,Education
+2025-10-18,Courses Carrefour,36.99,Alimentation
+2025-10-18,Internet SFR,38.2,Logement
+2025-10-18,Taxi,70.73,Transport
+2025-10-19,H&M,42.29,Shopping
+2025-10-19,Concert,176.54,Loisirs
+2025-10-19,H&M,36.81,Shopping
+2025-10-19,Osteopathe,12.02,Soins
+2025-10-19,Escape Game,71.53,Loisirs
+2025-10-19,Taxe fonciere,78.12,Logement
+2025-10-20,Uber,39.13,Transport
+2025-10-20,Fromagerie,141.78,Alimentation
+2025-10-20,Electronique,84.35,Shopping
+2025-10-20,Controle technique,81.46,Transport
+2025-10-20,Decathlon,153.81,Shopping
+2025-10-20,Librairie,106.09,Shopping
+2025-10-21,Revision voiture,89.91,Transport
+2025-10-21,Station Total,22.69,Transport
+2025-10-21,Fromagerie,18.71,Alimentation
+2025-10-21,Restaurant Le Gourmet,64.48,Loisirs
+2025-10-21,Electricite EDF,183.13,Logement
+2025-10-21,Fromagerie,11.15,Alimentation
+2025-10-22,Deezer,8.88,Streaming
+2025-10-22,Frais de scolarite,38.2,Education
+2025-10-22,Peage autoroute,27.22,Transport
+2025-10-22,Vetements Zara,103.18,Shopping
+2025-10-22,Boulangerie,23.04,Alimentation
+2025-10-23,Uber,39.96,Transport
+2025-10-23,Uber,18.62,Transport
+2025-10-23,H&M,29.16,Shopping
+2025-10-23,Spotify Premium,8.34,Streaming
+2025-10-23,Frais de scolarite,68.08,Education
+2025-10-23,Bricolage Leroy Merlin,936.75,Logement
+2025-10-23,Marche local,30.97,Alimentation
+2025-10-23,Charges copropriete,266.27,Logement
+2025-10-24,Vetements Zara,277.38,Shopping
+2025-10-24,Opticien,39.97,Soins
+2025-10-24,Restaurant Le Gourmet,20.35,Loisirs
+2025-10-24,Boulangerie,20.67,Alimentation
+2025-10-24,Assurance habitation,62.43,Logement
+2025-10-24,Parc d'attractions,41.34,Loisirs
+2025-10-24,Marche local,49.98,Alimentation
+2025-10-24,Fromagerie,39.74,Alimentation
+2025-10-24,Loyer appartement,253.14,Logement
+2025-10-25,Decathlon,109.2,Shopping
+2025-10-25,Bricolage Leroy Merlin,288.11,Logement
+2025-10-25,Chaussures,26.11,Shopping
+2025-10-25,Bar entre amis,50.11,Loisirs
+2025-10-25,Essence Shell,27.02,Transport
+2025-10-25,Bar entre amis,141.39,Loisirs
+2025-10-25,Opticien,34.42,Soins
+2025-10-26,Bijouterie,236.82,Shopping
+2025-10-26,Courses Lidl,7.82,Alimentation
+2025-10-26,Decathlon,72.1,Shopping
+2025-10-26,Coiffeur,14.81,Soins
+2025-10-26,Courses Lidl,105.72,Alimentation
+2025-10-26,Bijouterie,107.09,Shopping
+2025-10-26,Concert,21.89,Loisirs
+2025-10-26,Charges copropriete,157.53,Logement
+2025-10-26,Boucherie,129.17,Alimentation
+2025-10-26,Vetements Zara,19.9,Shopping
+2025-10-26,Boulangerie,14.24,Alimentation
+2025-10-27,Amazon Prime,8.89,Streaming
+2025-10-27,Fournitures,147.38,Education
+2025-10-27,Marche local,10.16,Alimentation
+2025-10-27,H&M,102.32,Shopping
+2025-10-27,Courses Lidl,50.05,Alimentation
+2025-10-27,Intermarche,50.72,Alimentation
+2025-10-27,Cinema UGC,126.66,Loisirs
+2025-10-27,Parc d'attractions,63.49,Loisirs
+2025-10-27,Controle technique,119.85,Transport
+2025-10-28,Essence Shell,105.51,Transport
+2025-10-28,Ticket metro,9.11,Transport
+2025-10-28,Chaussures,93.27,Shopping
+2025-10-28,Deezer,6.35,Streaming
+2025-10-28,Peage autoroute,7.49,Transport
+2025-10-28,Concert,63.01,Loisirs
+2025-10-28,Pharmacie,36.23,Soins
+2025-10-28,Uber,19.87,Transport
+2025-10-29,Parc d'attractions,29.56,Loisirs
+2025-10-29,Boucherie,52.24,Alimentation
+2025-10-29,Boulangerie,37.4,Alimentation
+2025-10-29,Primeur,20.09,Alimentation
+2025-10-29,Parc d'attractions,49.84,Loisirs
+2025-10-29,Bar entre amis,51.07,Loisirs
+2025-10-30,Librairie,31.06,Shopping
+2025-10-30,Formation en ligne,54.34,Education
+2025-10-30,Marche local,5.83,Alimentation
+2025-10-30,Cours particuliers,26.34,Education
+2025-10-30,Decathlon,279.39,Shopping
+2025-10-30,Bijouterie,47.19,Shopping
+2025-10-30,Pharmacie,11.11,Soins
+2025-10-30,Spotify Premium,5.56,Streaming
+2025-10-30,Electronique,265.42,Shopping
+2025-10-30,Bar entre amis,61.42,Loisirs
+2025-10-31,Boulangerie,34.07,Alimentation
+2025-10-31,Theatre,67.43,Loisirs
+2025-10-31,Bricolage Leroy Merlin,298.12,Logement
+2025-10-31,Medecin generaliste,57.14,Soins
+2025-10-31,Supermarche Auchan,27.2,Alimentation
+2025-10-31,Fromagerie,45.45,Alimentation
+2025-10-31,Taxi,17.92,Transport
+2025-10-31,Revision voiture,27.82,Transport
+2025-10-31,OCS,6.37,Streaming
+2025-10-31,Escape Game,64.98,Loisirs
+2025-11-01,Primeur,30.72,Alimentation
+2025-11-01,Fnac,90.46,Shopping
+2025-11-01,Primeur,11.21,Alimentation
+2025-11-01,Decathlon,25.74,Shopping
+2025-11-01,Medecin generaliste,24.21,Soins
+2025-11-01,Fromagerie,15.78,Alimentation
+2025-11-01,Dentiste,26.37,Soins
+2025-11-03,Electronique,41.6,Shopping
+2025-11-03,Charges copropriete,61.99,Logement
+2025-11-03,Massage,23.1,Soins
+2025-11-03,Eau,305.84,Logement
+2025-11-03,Internet SFR,212.53,Logement
+2025-11-03,Supermarche Auchan,29.54,Alimentation
+2025-11-03,Concert,29.17,Loisirs
+2025-11-04,Sephora,74.82,Shopping
+2025-11-04,Concert,11.16,Loisirs
+2025-11-04,Bar entre amis,18.54,Loisirs
+2025-11-04,Electricite EDF,56.37,Logement
+2025-11-04,Pharmacie,89.63,Soins
+2025-11-04,Cinema UGC,32.32,Loisirs
+2025-11-04,H&M,55.76,Shopping
+2025-11-04,Ticket metro,42.72,Transport
+2025-11-04,Bowling,35.66,Loisirs
+2025-11-05,Restaurant Le Gourmet,72.51,Loisirs
+2025-11-05,Boulangerie,135.76,Alimentation
+2025-11-05,Taxe fonciere,536.79,Logement
+2025-11-05,Massage,60.01,Soins
+2025-11-05,Bowling,114.5,Loisirs
+2025-11-06,Restaurant Le Gourmet,153.0,Loisirs
+2025-11-06,Courses Carrefour,37.78,Alimentation
+2025-11-06,Udemy,44.58,Education
+2025-11-06,Parking centre-ville,109.57,Transport
+2025-11-06,Bijouterie,185.51,Shopping
+2025-11-06,Vetements Zara,132.58,Shopping
+2025-11-06,Deezer,7.9,Streaming
+2025-11-06,Supermarche Auchan,49.51,Alimentation
+2025-11-06,Primeur,106.64,Alimentation
+2025-11-06,Supermarche Auchan,89.94,Alimentation
+2025-11-07,Charges copropriete,49.29,Logement
+2025-11-07,Boucherie,81.84,Alimentation
+2025-11-07,Casino,38.91,Alimentation
+2025-11-07,Revision voiture,27.71,Transport
+2025-11-07,Courses Lidl,45.41,Alimentation
+2025-11-07,Charges copropriete,1154.4,Logement
+2025-11-08,Electronique,91.67,Shopping
+2025-11-08,Essence Shell,14.83,Transport
+2025-11-08,Spotify Premium,14.35,Streaming
+2025-11-08,Ticket metro,105.5,Transport
+2025-11-08,Cinema UGC,182.27,Loisirs
+2025-11-08,Assurance habitation,200.21,Logement
+2025-11-08,Fnac,216.15,Shopping
+2025-11-09,Controle technique,8.16,Transport
+2025-11-09,Concert,44.43,Loisirs
+2025-11-09,Courses Carrefour,33.56,Alimentation
+2025-11-09,Fromagerie,19.69,Alimentation
+2025-11-09,Taxi,31.12,Transport
+2025-11-09,Boucherie,9.2,Alimentation
+2025-11-10,Abonnement Netflix,7.55,Streaming
+2025-11-10,Internet SFR,395.18,Logement
+2025-11-10,Boucherie,43.21,Alimentation
+2025-11-10,Electronique,100.15,Shopping
+2025-11-10,Intermarche,34.18,Alimentation
+2025-11-10,Essence Shell,9.38,Transport
+2025-11-10,Medecin generaliste,63.8,Soins
+2025-11-10,Bowling,27.86,Loisirs
+2025-11-10,Casino,51.88,Alimentation
+2025-11-11,Courses Carrefour,50.89,Alimentation
+2025-11-11,Musee,69.03,Loisirs
+2025-11-11,Parc d'attractions,51.2,Loisirs
+2025-11-11,Intermarche,80.66,Alimentation
+2025-11-11,Opticien,10.48,Soins
+2025-11-11,Concert,19.39,Loisirs
+2025-11-12,Librairie,81.07,Shopping
+2025-11-12,Cinema UGC,52.27,Loisirs
+2025-11-12,Bricolage Leroy Merlin,87.28,Logement
+2025-11-12,Dentiste,13.68,Soins
+2025-11-13,Concert,24.83,Loisirs
+2025-11-13,Ticket metro,17.86,Transport
+2025-11-13,Bijouterie,22.92,Shopping
+2025-11-13,Taxe fonciere,325.06,Logement
+2025-11-13,Fromagerie,142.99,Alimentation
+2025-11-14,Sephora,85.23,Shopping
+2025-11-14,Internet SFR,267.41,Logement
+2025-11-14,Ticket metro,5.43,Transport
+2025-11-14,Marche local,51.32,Alimentation
+2025-11-14,Bricolage Leroy Merlin,123.77,Logement
+2025-11-14,Bricolage Leroy Merlin,124.16,Logement
+2025-11-14,Charges copropriete,360.0,Logement
+2025-11-14,Cours particuliers,132.5,Education
+2025-11-14,Disney+,7.11,Streaming
+2025-11-15,Casino,5.59,Alimentation
+2025-11-15,Ticket metro,19.35,Transport
+2025-11-15,Controle technique,53.23,Transport
+2025-11-15,Uber,68.7,Transport
+2025-11-15,Controle technique,26.81,Transport
+2025-11-15,Station Total,16.08,Transport
+2025-11-15,Boulangerie,44.73,Alimentation
+2025-11-16,Assurance habitation,79.73,Logement
+2025-11-16,Electronique,212.03,Shopping
+2025-11-16,Courses Lidl,38.29,Alimentation
+2025-11-16,Peage autoroute,22.95,Transport
+2025-11-16,Bijouterie,30.27,Shopping
+2025-11-16,Courses Lidl,48.8,Alimentation
+2025-11-17,Casino,46.63,Alimentation
+2025-11-17,Primeur,9.04,Alimentation
+2025-11-17,Escape Game,61.16,Loisirs
+2025-11-18,Decathlon,63.08,Shopping
+2025-11-18,Restaurant Le Gourmet,52.92,Loisirs
+2025-11-18,Peage autoroute,80.0,Transport
+2025-11-18,Librairie,196.19,Shopping
+2025-11-18,Massage,11.69,Soins
+2025-11-18,Theatre,38.25,Loisirs
+2025-11-18,Electricite EDF,295.57,Logement
+2025-11-19,Assurance habitation,140.78,Logement
+2025-11-19,Essence Shell,100.03,Transport
+2025-11-19,Controle technique,10.45,Transport
+2025-11-19,Courses Lidl,14.27,Alimentation
+2025-11-19,Massage,18.99,Soins
+2025-11-19,Primeur,45.08,Alimentation
+2025-11-19,Vetements Zara,96.38,Shopping
+2025-11-20,Amazon Prime,6.32,Streaming
+2025-11-20,Peage autoroute,70.55,Transport
+2025-11-20,Cinema UGC,155.43,Loisirs
+2025-11-20,Electronique,46.18,Shopping
+2025-11-20,Controle technique,18.69,Transport
+2025-11-21,Casino,90.77,Alimentation
+2025-11-21,Parc d'attractions,18.87,Loisirs
+2025-11-21,Theatre,21.83,Loisirs
+2025-11-21,Ticket metro,42.91,Transport
+2025-11-22,Disney+,13.84,Streaming
+2025-11-22,Bar entre amis,18.22,Loisirs
+2025-11-22,Internet SFR,76.15,Logement
+2025-11-22,Taxi,47.54,Transport
+2025-11-22,Peage autoroute,16.63,Transport
+2025-11-22,Supermarche Auchan,110.84,Alimentation
+2025-11-22,Sephora,37.84,Shopping
+2025-11-22,Medecin generaliste,38.72,Soins
+2025-11-22,Essence Shell,25.11,Transport
+2025-11-23,Bar entre amis,19.4,Loisirs
+2025-11-23,Musee,29.3,Loisirs
+2025-11-23,Loyer appartement,307.66,Logement
+2025-11-23,Uber,39.79,Transport
+2025-11-23,Casino,41.13,Alimentation
+2025-11-23,Station Total,33.36,Transport
+2025-11-23,Supermarche Auchan,39.62,Alimentation
+2025-11-23,Osteopathe,13.28,Soins
+2025-11-23,Intermarche,43.51,Alimentation
+2025-11-23,Assurance habitation,249.43,Logement
+2025-11-24,Dentiste,24.71,Soins
+2025-11-24,Vetements Zara,64.05,Shopping
+2025-11-24,Assurance habitation,197.19,Logement
+2025-11-24,Restaurant Le Gourmet,24.9,Loisirs
+2025-11-24,Boucherie,6.46,Alimentation
+2025-11-24,Chaussures,103.06,Shopping
+2025-11-25,Medecin generaliste,28.9,Soins
+2025-11-25,Amazon Prime,8.13,Streaming
+2025-11-26,Uber,71.34,Transport
+2025-11-26,Vetements Zara,96.08,Shopping
+2025-11-26,Dentiste,32.28,Soins
+2025-11-26,Manucure,39.15,Soins
+2025-11-26,Electronique,48.75,Shopping
+2025-11-26,Opticien,31.37,Soins
+2025-11-26,Peage autoroute,28.03,Transport
+2025-11-26,Boucherie,37.02,Alimentation
+2025-11-26,Controle technique,40.24,Transport
+2025-11-27,Station Total,84.78,Transport
+2025-11-27,Bowling,28.81,Loisirs
+2025-11-27,Materiel informatique etudes,151.11,Education
+2025-11-27,Electricite EDF,267.15,Logement
+2025-11-27,Ticket metro,18.38,Transport
+2025-11-27,H&M,100.56,Shopping
+2025-11-27,Coiffeur,46.86,Soins
+2025-11-28,Musee,59.26,Loisirs
+2025-11-28,Assurance habitation,523.05,Logement
+2025-11-28,Marche local,33.84,Alimentation
+2025-11-29,Taxi,27.84,Transport
+2025-11-29,Musee,19.5,Loisirs
+2025-11-29,Manucure,10.94,Soins
+2025-11-29,Courses Lidl,43.23,Alimentation
+2025-11-29,Parking centre-ville,43.93,Transport
+2025-11-29,Boucherie,39.84,Alimentation
+2025-11-29,Marche local,135.21,Alimentation
+2025-11-30,Bar entre amis,41.45,Loisirs
+2025-11-30,Librairie,34.83,Shopping
+2025-11-30,Controle technique,5.15,Transport
+2025-11-30,Marche local,27.77,Alimentation
+2025-11-30,Intermarche,16.84,Alimentation
+2025-11-30,Electronique,79.98,Shopping
+2025-11-30,Sephora,44.14,Shopping
+2025-11-30,Musee,37.95,Loisirs
+2025-12-01,Station Total,5.39,Transport
+2025-12-01,Peage autoroute,26.23,Transport
+2025-12-01,Sephora,100.91,Shopping
+2025-12-01,Theatre,115.84,Loisirs
+2025-12-01,Electronique,258.0,Shopping
+2025-12-01,Musee,60.36,Loisirs
+2025-12-02,Essence Shell,30.34,Transport
+2025-12-02,Cinema UGC,26.99,Loisirs
+2025-12-02,Librairie,30.28,Shopping
+2025-12-02,Ticket metro,119.74,Transport
+2025-12-02,Charges copropriete,51.53,Logement
+2025-12-02,Peage autoroute,93.9,Transport
+2025-12-02,Abonnement Netflix,6.99,Streaming
+2025-12-02,Boulangerie,26.45,Alimentation
+2025-12-03,Dentiste,12.9,Soins
+2025-12-03,Primeur,27.43,Alimentation
+2025-12-03,Chaussures,115.83,Shopping
+2025-12-03,Courses Lidl,92.47,Alimentation
+2025-12-03,Intermarche,16.75,Alimentation
+2025-12-04,Cinema UGC,123.86,Loisirs
+2025-12-04,Uber,11.54,Transport
+2025-12-04,Peage autoroute,20.17,Transport
+2025-12-04,Sephora,86.88,Shopping
+2025-12-04,Udemy,253.92,Education
+2025-12-04,Casino,51.52,Alimentation
+2025-12-04,Cinema UGC,71.87,Loisirs
+2025-12-05,Peage autoroute,29.56,Transport
+2025-12-05,Eau,182.05,Logement
+2025-12-05,Fournitures,146.97,Education
+2025-12-05,Boucherie,12.47,Alimentation
+2025-12-05,Massage,18.79,Soins
+2025-12-06,Electricite EDF,1045.53,Logement
+2025-12-06,Parc d'attractions,64.9,Loisirs
+2025-12-06,Amazon Prime,6.21,Streaming
+2025-12-06,Escape Game,59.8,Loisirs
+2025-12-07,Frais de scolarite,152.87,Education
+2025-12-07,Boulangerie,49.69,Alimentation
+2025-12-07,Eau,402.86,Logement
+2025-12-07,Concert,101.96,Loisirs
+2025-12-08,Boucherie,45.88,Alimentation
+2025-12-08,Courses Carrefour,39.01,Alimentation
+2025-12-08,Electricite EDF,177.37,Logement
+2025-12-08,Vetements Zara,28.88,Shopping
+2025-12-08,Boulangerie,5.82,Alimentation
+2025-12-08,Courses Carrefour,28.82,Alimentation
+2025-12-08,Taxi,33.42,Transport
+2025-12-08,Intermarche,43.4,Alimentation
+2025-12-08,Casino,30.86,Alimentation
+2025-12-09,Bowling,30.23,Loisirs
+2025-12-09,Decathlon,24.53,Shopping
+2025-12-10,Primeur,30.27,Alimentation
+2025-12-10,Manucure,83.17,Soins
+2025-12-10,Manucure,36.0,Soins
+2025-12-10,Station Total,28.77,Transport
+2025-12-10,Charges copropriete,175.77,Logement
+2025-12-10,Decathlon,67.83,Shopping
+2025-12-10,Ticket metro,62.2,Transport
+2025-12-10,Courses Carrefour,40.67,Alimentation
+2025-12-10,Bijouterie,74.69,Shopping
+2025-12-10,Fromagerie,34.7,Alimentation
+2025-12-10,Station Total,8.06,Transport
+2025-12-10,Uber,9.55,Transport
+2025-12-11,Concert,104.87,Loisirs
+2025-12-11,Osteopathe,15.82,Soins
+2025-12-11,H&M,177.1,Shopping
+2025-12-11,Loyer appartement,84.48,Logement
+2025-12-12,YouTube Premium,6.97,Streaming
+2025-12-12,Musee,132.04,Loisirs
+2025-12-12,Formation en ligne,93.76,Education
+2025-12-13,Fromagerie,44.71,Alimentation
+2025-12-13,Ticket metro,12.58,Transport
+2025-12-13,Parking centre-ville,30.62,Transport
+2025-12-13,Decathlon,28.47,Shopping
+2025-12-13,Supermarche Auchan,16.48,Alimentation
+2025-12-13,Peage autoroute,6.38,Transport
+2025-12-13,Pharmacie,13.28,Soins
+2025-12-14,Coiffeur,31.89,Soins
+2025-12-14,Courses Lidl,36.7,Alimentation
+2025-12-14,Medecin generaliste,17.45,Soins
+2025-12-14,Peage autoroute,30.5,Transport
+2025-12-14,Marche local,44.01,Alimentation
+2025-12-14,Primeur,143.31,Alimentation
+2025-12-14,Boucherie,28.15,Alimentation
+2025-12-14,Station Total,23.34,Transport
+2025-12-14,Vetements Zara,95.39,Shopping
+2025-12-15,Taxe fonciere,1041.62,Logement
+2025-12-15,Fromagerie,14.29,Alimentation
+2025-12-15,Courses Carrefour,21.99,Alimentation
+2025-12-15,Ticket metro,8.76,Transport
+2025-12-15,Theatre,55.31,Loisirs
+2025-12-15,Frais de scolarite,24.96,Education
+2025-12-16,Fnac,57.82,Shopping
+2025-12-16,Electricite EDF,43.84,Logement
+2025-12-16,Osteopathe,25.62,Soins
+2025-12-16,Fromagerie,39.7,Alimentation
+2025-12-16,Assurance habitation,391.47,Logement
+2025-12-16,Theatre,20.28,Loisirs
+2025-12-17,Sephora,66.28,Shopping
+2025-12-17,Medecin generaliste,19.55,Soins
+2025-12-17,Marche local,17.37,Alimentation
+2025-12-17,Fromagerie,72.24,Alimentation
+2025-12-17,Pharmacie,31.25,Soins
+2025-12-18,Cours particuliers,61.73,Education
+2025-12-18,Fromagerie,68.42,Alimentation
+2025-12-18,Parking centre-ville,77.6,Transport
+2025-12-18,Courses Carrefour,50.15,Alimentation
+2025-12-18,Livres scolaires,159.59,Education
+2025-12-18,YouTube Premium,5.55,Streaming
+2025-12-18,Udemy,81.68,Education
+2025-12-18,Librairie,95.66,Shopping
+2025-12-19,Fromagerie,37.97,Alimentation
+2025-12-19,Dentiste,32.7,Soins
+2025-12-19,Materiel informatique etudes,89.62,Education
+2025-12-19,Primeur,148.71,Alimentation
+2025-12-19,Controle technique,57.26,Transport

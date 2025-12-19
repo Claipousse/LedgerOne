@@ -1,4 +1,4 @@
-.PHONY: install run test lint clean init-db reset-db seed
+.PHONY: install run test lint clean init-db reset-db seed help run-backend run-frontend
 
 # Installation des dépendances
 install:
@@ -6,7 +6,19 @@ install:
 
 # Lancer l'application
 run:
-	python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	@echo "Backend  : http://localhost:8000/docs"
+	@echo "Frontend : http://localhost:8080"
+	@$(MAKE) -j2 run-backend run-frontend
+
+# Lancer uniquement le backend
+run-backend:
+	@echo "Backend demarre sur http://localhost:8000"
+	@python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+# Lancer uniquement le frontend
+run-frontend:
+	@echo "Frontend demarre sur http://localhost:8080"
+	@cd ../frontend && python -m http.server 8080
 
 # Initialiser la base de données
 init-db:
@@ -47,12 +59,14 @@ clean:
 # Aide
 help:
 	@echo "Commandes disponibles :"
-	@echo "  make install    - Installer les dépendances"
-	@echo "  make run        - Lancer l'application"
-	@echo "  make init-db    - Initialiser la base de données"
-	@echo "  make reset-db   - Réinitialiser la base de données"
-	@echo "  make seed       - Générer des données de test"
-	@echo "  make test       - Lancer les tests"
-	@echo "  make lint       - Vérifier la qualité du code"
-	@echo "  make format     - Formater le code"
-	@echo "  make clean      - Nettoyer les fichiers temporaires"
+	@echo "  make install      - Installer les dependances"
+	@echo "  make run          - Lancer backend + frontend"
+	@echo "  make run-backend  - Lancer uniquement le backend"
+	@echo "  make run-frontend - Lancer uniquement le frontend"
+	@echo "  make init-db      - Initialiser la base de donnees"
+	@echo "  make reset-db     - Reinitialiser la base de donnees"
+	@echo "  make seed         - Generer des donnees de test"
+	@echo "  make test         - Lancer les tests"
+	@echo "  make lint         - Verifier la qualite du code"
+	@echo "  make format       - Formater le code"
+	@echo "  make clean        - Nettoyer les fichiers temporaires"
